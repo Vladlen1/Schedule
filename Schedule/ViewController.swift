@@ -7,19 +7,26 @@
 //
 
 import UIKit
+import SwiftyVK
 
-class ViewController: UIViewController {
+class ViewController: UIViewController{
+    
+//    let vkDelegate = SwiftyVKDataManager.sharedInstance
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
+    
+//    @IBAction func logout(_ sender: UIButton) {
+//        vkDelegate.logout()
+//    
+//    }
+//    @IBAction func signInVk(_ sender: UIButton) {
+//        if vkDelegate.vkStatus() != .authorized {
+//            vkDelegate.login()
+//        }
+//    }
 
 }
 

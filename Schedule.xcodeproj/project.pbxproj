@@ -12,9 +12,16 @@
 		8E651EE41E94ED01000A4440 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E651EE21E94ED01000A4440 /* Main.storyboard */; };
 		8E651EE61E94ED01000A4440 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E651EE51E94ED01000A4440 /* Assets.xcassets */; };
 		8E651EE91E94ED01000A4440 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E651EE71E94ED01000A4440 /* LaunchScreen.storyboard */; };
+		8E651EFA1E95001F000A4440 /* SwiftVKDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E651EF91E95001F000A4440 /* SwiftVKDelegate.swift */; };
+		8E651EFC1E952190000A4440 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E651EFB1E952190000A4440 /* HomeViewController.swift */; };
+		8E651EFE1E952329000A4440 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E651EFD1E952329000A4440 /* RegistrationViewController.swift */; };
+		8E651F001E9529CF000A4440 /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E651EFF1E9529CF000A4440 /* Animation.swift */; };
+		E866F389C2150D0FCB111352 /* Pods_Schedule.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 065D2CA47FF80803B9D6C55E /* Pods_Schedule.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		065D2CA47FF80803B9D6C55E /* Pods_Schedule.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Schedule.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		72CEFB3FD80D81F7AFF2F3D1 /* Pods-Schedule.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Schedule.release.xcconfig"; path = "Pods/Target Support Files/Pods-Schedule/Pods-Schedule.release.xcconfig"; sourceTree = "<group>"; };
 		8E651EDB1E94ED01000A4440 /* Schedule.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Schedule.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E651EDE1E94ED01000A4440 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8E651EE01E94ED01000A4440 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +29,11 @@
 		8E651EE51E94ED01000A4440 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8E651EE81E94ED01000A4440 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8E651EEA1E94ED01000A4440 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8E651EF91E95001F000A4440 /* SwiftVKDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftVKDelegate.swift; sourceTree = "<group>"; };
+		8E651EFB1E952190000A4440 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		8E651EFD1E952329000A4440 /* RegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
+		8E651EFF1E9529CF000A4440 /* Animation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Animation.swift; sourceTree = "<group>"; };
+		8E66114C0AB22C69F095E085 /* Pods-Schedule.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Schedule.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Schedule/Pods-Schedule.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +41,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E866F389C2150D0FCB111352 /* Pods_Schedule.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1138AF6E967C80493F660862 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8E66114C0AB22C69F095E085 /* Pods-Schedule.debug.xcconfig */,
+				72CEFB3FD80D81F7AFF2F3D1 /* Pods-Schedule.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		8E651ED21E94ED01000A4440 = {
 			isa = PBXGroup;
 			children = (
 				8E651EDD1E94ED01000A4440 /* Schedule */,
 				8E651EDC1E94ED01000A4440 /* Products */,
+				1138AF6E967C80493F660862 /* Pods */,
+				ED4ADBF43A0618719B54EA4A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +78,50 @@
 		8E651EDD1E94ED01000A4440 /* Schedule */ = {
 			isa = PBXGroup;
 			children = (
+				8E651EF91E95001F000A4440 /* SwiftVKDelegate.swift */,
+				8E651EFF1E9529CF000A4440 /* Animation.swift */,
+				8E651EF21E94EF66000A4440 /* Controller */,
+				8E651EF11E94EF5F000A4440 /* View */,
+				8E651EF01E94EF42000A4440 /* Model */,
 				8E651EDE1E94ED01000A4440 /* AppDelegate.swift */,
-				8E651EE01E94ED01000A4440 /* ViewController.swift */,
-				8E651EE21E94ED01000A4440 /* Main.storyboard */,
-				8E651EE51E94ED01000A4440 /* Assets.xcassets */,
-				8E651EE71E94ED01000A4440 /* LaunchScreen.storyboard */,
 				8E651EEA1E94ED01000A4440 /* Info.plist */,
 			);
 			path = Schedule;
+			sourceTree = "<group>";
+		};
+		8E651EF01E94EF42000A4440 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		8E651EF11E94EF5F000A4440 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8E651EE21E94ED01000A4440 /* Main.storyboard */,
+				8E651EE71E94ED01000A4440 /* LaunchScreen.storyboard */,
+				8E651EE51E94ED01000A4440 /* Assets.xcassets */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		8E651EF21E94EF66000A4440 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				8E651EE01E94ED01000A4440 /* ViewController.swift */,
+				8E651EFB1E952190000A4440 /* HomeViewController.swift */,
+				8E651EFD1E952329000A4440 /* RegistrationViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		ED4ADBF43A0618719B54EA4A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				065D2CA47FF80803B9D6C55E /* Pods_Schedule.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +131,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8E651EED1E94ED01000A4440 /* Build configuration list for PBXNativeTarget "Schedule" */;
 			buildPhases = (
+				A0673CE43D1F000AD9C5C538 /* [CP] Check Pods Manifest.lock */,
 				8E651ED71E94ED01000A4440 /* Sources */,
 				8E651ED81E94ED01000A4440 /* Frameworks */,
 				8E651ED91E94ED01000A4440 /* Resources */,
+				55065098F10F631404697577 /* [CP] Embed Pods Frameworks */,
+				2B27D5A3990B6E92097CA0DF /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -132,13 +195,65 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2B27D5A3990B6E92097CA0DF /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Schedule/Pods-Schedule-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		55065098F10F631404697577 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Schedule/Pods-Schedule-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A0673CE43D1F000AD9C5C538 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		8E651ED71E94ED01000A4440 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				8E651EE11E94ED01000A4440 /* ViewController.swift in Sources */,
+				8E651EFA1E95001F000A4440 /* SwiftVKDelegate.swift in Sources */,
 				8E651EDF1E94ED01000A4440 /* AppDelegate.swift in Sources */,
+				8E651EFC1E952190000A4440 /* HomeViewController.swift in Sources */,
+				8E651F001E9529CF000A4440 /* Animation.swift in Sources */,
+				8E651EFE1E952329000A4440 /* RegistrationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,6 +374,7 @@
 		};
 		8E651EEE1E94ED01000A4440 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8E66114C0AB22C69F095E085 /* Pods-Schedule.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 3XCF2GH957;
@@ -272,6 +388,7 @@
 		};
 		8E651EEF1E94ED01000A4440 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 72CEFB3FD80D81F7AFF2F3D1 /* Pods-Schedule.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 3XCF2GH957;
@@ -302,6 +419,7 @@
 				8E651EEF1E94ED01000A4440 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
