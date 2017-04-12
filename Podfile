@@ -6,6 +6,7 @@ target 'Schedule' do
   use_frameworks!
 	pod 'SwiftyVK', :git => 'https://github.com/WE-St0r/SwiftyVK.git'
 	pod 'SwiftyButton'
+	pod 'Google/SignIn'
   # Pods for Schedule
 
 end

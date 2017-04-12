@@ -21,21 +21,35 @@
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>&lt;key&gt;LSApplicationQueriesSchemes&lt;/key&gt;
+  &lt;array&gt;
+    &lt;string&gt;vkauthorize&lt;/string&gt;
+    &lt;string&gt;vk5967116&lt;/string&gt;
+  &lt;/array&gt;</string>
+			</array>
+		</dict>
+		<dict>
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>CFBundleURLName</key>
 			<string>vk5967116</string>
+		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>&lt;key&gt;LSApplicationQueriesSchemes&lt;/key&gt;
-</string>
-				<string>&lt;array&gt;
-</string>
-				<string>&lt;string&gt;vkauthorize&lt;/string&gt;
-</string>
-				<string>&lt;string&gt;vk$YOUR_APP_ID$&lt;/string&gt;
-</string>
-				<string>&lt;/array&gt;</string>
+				<string>com.googleusercontent.apps.108211376686-6tjms2e05gpieqm9aj4r29atqebk0ef6</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>n.Schedule</string>
 			</array>
 		</dict>
 	</array>

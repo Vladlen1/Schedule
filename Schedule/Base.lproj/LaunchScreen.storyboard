@@ -22,15 +22,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LaunchScreen" translatesAutoresizingMaskIntoConstraints="NO" id="lQd-BU-00y">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="124" width="320" height="320"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="lQd-BU-00y" secondAttribute="bottom" id="4fW-0F-bK8"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="lQd-BU-00y" secondAttribute="bottom" constant="124" id="4fW-0F-bK8"/>
                             <constraint firstItem="lQd-BU-00y" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="RNw-le-sdg"/>
                             <constraint firstAttribute="trailing" secondItem="lQd-BU-00y" secondAttribute="trailing" id="gz8-Aj-WZn"/>
-                            <constraint firstItem="lQd-BU-00y" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="wbq-h8-ShI"/>
+                            <constraint firstItem="lQd-BU-00y" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" constant="124" id="wbq-h8-ShI"/>
                         </constraints>
                     </view>
                 </viewController>

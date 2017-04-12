@@ -7,13 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8E50F75E1E9E38E3000DC803 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8E50F75D1E9E38E3000DC803 /* GoogleService-Info.plist */; };
 		8E651EDF1E94ED01000A4440 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E651EDE1E94ED01000A4440 /* AppDelegate.swift */; };
-		8E651EE11E94ED01000A4440 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E651EE01E94ED01000A4440 /* ViewController.swift */; };
 		8E651EE41E94ED01000A4440 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E651EE21E94ED01000A4440 /* Main.storyboard */; };
 		8E651EE61E94ED01000A4440 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E651EE51E94ED01000A4440 /* Assets.xcassets */; };
 		8E651EE91E94ED01000A4440 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E651EE71E94ED01000A4440 /* LaunchScreen.storyboard */; };
 		8E651EFA1E95001F000A4440 /* SwiftVKDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E651EF91E95001F000A4440 /* SwiftVKDelegate.swift */; };
-		8E651EFC1E952190000A4440 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E651EFB1E952190000A4440 /* HomeViewController.swift */; };
 		8E651EFE1E952329000A4440 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E651EFD1E952329000A4440 /* RegistrationViewController.swift */; };
 		8E651F001E9529CF000A4440 /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E651EFF1E9529CF000A4440 /* Animation.swift */; };
 		E866F389C2150D0FCB111352 /* Pods_Schedule.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 065D2CA47FF80803B9D6C55E /* Pods_Schedule.framework */; };
@@ -22,15 +21,15 @@
 /* Begin PBXFileReference section */
 		065D2CA47FF80803B9D6C55E /* Pods_Schedule.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Schedule.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		72CEFB3FD80D81F7AFF2F3D1 /* Pods-Schedule.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Schedule.release.xcconfig"; path = "Pods/Target Support Files/Pods-Schedule/Pods-Schedule.release.xcconfig"; sourceTree = "<group>"; };
+		8E50F75A1E9E2CF5000DC803 /* Schedule-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Schedule-Bridging-Header.h"; sourceTree = "<group>"; };
+		8E50F75D1E9E38E3000DC803 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8E651EDB1E94ED01000A4440 /* Schedule.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Schedule.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E651EDE1E94ED01000A4440 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8E651EE01E94ED01000A4440 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		8E651EE31E94ED01000A4440 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8E651EE51E94ED01000A4440 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8E651EE81E94ED01000A4440 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8E651EEA1E94ED01000A4440 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8E651EF91E95001F000A4440 /* SwiftVKDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftVKDelegate.swift; sourceTree = "<group>"; };
-		8E651EFB1E952190000A4440 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		8E651EFD1E952329000A4440 /* RegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		8E651EFF1E9529CF000A4440 /* Animation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Animation.swift; sourceTree = "<group>"; };
 		8E66114C0AB22C69F095E085 /* Pods-Schedule.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Schedule.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Schedule/Pods-Schedule.debug.xcconfig"; sourceTree = "<group>"; };
@@ -64,6 +63,7 @@
 				8E651EDC1E94ED01000A4440 /* Products */,
 				1138AF6E967C80493F660862 /* Pods */,
 				ED4ADBF43A0618719B54EA4A /* Frameworks */,
+				8E50F75A1E9E2CF5000DC803 /* Schedule-Bridging-Header.h */,
 			);
 			sourceTree = "<group>";
 		};
@@ -84,6 +84,7 @@
 				8E651EF11E94EF5F000A4440 /* View */,
 				8E651EF01E94EF42000A4440 /* Model */,
 				8E651EDE1E94ED01000A4440 /* AppDelegate.swift */,
+				8E50F75D1E9E38E3000DC803 /* GoogleService-Info.plist */,
 				8E651EEA1E94ED01000A4440 /* Info.plist */,
 			);
 			path = Schedule;
@@ -109,8 +110,6 @@
 		8E651EF21E94EF66000A4440 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				8E651EE01E94ED01000A4440 /* ViewController.swift */,
-				8E651EFB1E952190000A4440 /* HomeViewController.swift */,
 				8E651EFD1E952329000A4440 /* RegistrationViewController.swift */,
 			);
 			name = Controller;
@@ -160,6 +159,7 @@
 					8E651EDA1E94ED01000A4440 = {
 						CreatedOnToolsVersion = 8.3;
 						DevelopmentTeam = 3XCF2GH957;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -188,6 +188,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8E651EE91E94ED01000A4440 /* LaunchScreen.storyboard in Resources */,
+				8E50F75E1E9E38E3000DC803 /* GoogleService-Info.plist in Resources */,
 				8E651EE61E94ED01000A4440 /* Assets.xcassets in Resources */,
 				8E651EE41E94ED01000A4440 /* Main.storyboard in Resources */,
 			);
@@ -248,10 +249,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8E651EE11E94ED01000A4440 /* ViewController.swift in Sources */,
 				8E651EFA1E95001F000A4440 /* SwiftVKDelegate.swift in Sources */,
 				8E651EDF1E94ED01000A4440 /* AppDelegate.swift in Sources */,
-				8E651EFC1E952190000A4440 /* HomeViewController.swift in Sources */,
 				8E651F001E9529CF000A4440 /* Animation.swift in Sources */,
 				8E651EFE1E952329000A4440 /* RegistrationViewController.swift in Sources */,
 			);
@@ -377,11 +376,14 @@
 			baseConfigurationReference = 8E66114C0AB22C69F095E085 /* Pods-Schedule.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 3XCF2GH957;
 				INFOPLIST_FILE = Schedule/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = n.Schedule;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Schedule-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -391,11 +393,13 @@
 			baseConfigurationReference = 72CEFB3FD80D81F7AFF2F3D1 /* Pods-Schedule.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 3XCF2GH957;
 				INFOPLIST_FILE = Schedule/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = n.Schedule;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Schedule-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
