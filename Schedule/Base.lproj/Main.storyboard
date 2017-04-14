@@ -94,13 +94,137 @@
                             <constraint firstItem="Npt-wt-PxU" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" multiplier="0.5" constant="169" id="wsL-qp-W5L"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <segue destination="WEf-J4-N0i" kind="show" identifier="showTable" id="Cum-Zk-qte"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="116.25" y="78.16901408450704"/>
         </scene>
+        <!--Reveal View Controller-->
+        <scene sceneID="5e9-zu-tM1">
+            <objects>
+                <viewController storyboardIdentifier="TableViewController" id="WEf-J4-N0i" customClass="SWRevealViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="FPm-j8-71X"/>
+                        <viewControllerLayoutGuide type="bottom" id="Z20-Ji-8Bc"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="WmY-ob-rzL">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                    <connections>
+                        <segue destination="EHf-np-emk" kind="custom" identifier="sw_front" customClass="SWRevealViewControllerSegueSetController" id="g9w-sT-eWg"/>
+                        <segue destination="lVs-ge-WdE" kind="custom" identifier="sw_rear" customClass="SWRevealViewControllerSegueSetController" id="R70-NN-tNK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uOa-Tn-g40" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1073" y="77"/>
+        </scene>
+        <!--Menu View Controller-->
+        <scene sceneID="moA-AU-fVs">
+            <objects>
+                <viewController id="lVs-ge-WdE" customClass="MenuViewController" customModule="Schedule" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="eNb-EG-ml0"/>
+                        <viewControllerLayoutGuide type="bottom" id="tsL-Aa-fbA"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="71e-a2-z2M">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="smc-5x-MLH">
+                                <rect key="frame" x="56" y="203" width="86" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Exit">
+                                    <color key="titleColor" red="1" green="0.10894389409999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="exitWithAccount:" destination="lVs-ge-WdE" eventType="touchUpInside" id="8bL-K0-gwg"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Logotype" translatesAutoresizingMaskIntoConstraints="NO" id="aRz-xB-LHW">
+                                <rect key="frame" x="56" y="28" width="86" height="86"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OF3-tO-oUN">
+                                <rect key="frame" x="18" y="122" width="162" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="userName" destination="OF3-tO-oUN" id="iDa-nI-Hbc"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="showRegistrForm" id="22v-OC-QRT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RsI-sL-5mk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2047.5" y="75"/>
+        </scene>
+        <!--Schedule-->
+        <scene sceneID="Dwi-0T-Ri0">
+            <objects>
+                <tableViewController id="mpG-Og-eiI" customClass="ScheduleController" customModule="Schedule" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="CBq-lz-RVf">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="mpB-T7-s9x">
+                                <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mpB-T7-s9x" id="eWi-vN-Sgi">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="mpG-Og-eiI" id="t9L-vT-79S"/>
+                            <outlet property="delegate" destination="mpG-Og-eiI" id="Zk1-Rc-6Z6"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Schedule" id="W9x-dC-vGd">
+                        <barButtonItem key="leftBarButtonItem" image="menu" id="goQ-Ul-T9s"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="menuButton" destination="goQ-Ul-T9s" id="gbX-GI-FMU"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wP9-4h-NBC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1819" y="1107"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="4OE-hC-AG4">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="EHf-np-emk" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="lw9-b0-zI9">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="mpG-Og-eiI" kind="relationship" relationship="rootViewController" id="aoT-Px-pPI"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="r5h-iL-VqK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="919" y="924"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Logotype" width="112" height="112"/>
+        <image name="menu" width="22" height="22"/>
     </resources>
 </document>

@@ -12,19 +12,41 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     
     var window: UIWindow?
+    let vkDelegate = SwiftyVKDataManager.sharedInstance
     
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
         
-        // Initialize sign-in
         var configureError: NSError?
         GGLContext.sharedInstance().configureWithError(&configureError)
         assert(configureError == nil, "Error configuring Google services: \(String(describing: configureError))")
         
         GIDSignIn.sharedInstance().delegate = self
         
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        
+        if !(checkAuthorizationUser())
+        {
+            let mainController = storyboard.instantiateViewController(withIdentifier: "RegistrationController")
+            self.window?.rootViewController = mainController
+        }
+        else
+        {
+            let altController = storyboard.instantiateViewController(withIdentifier: "TableViewController")
+            self.window?.rootViewController = altController
+        }
+        
+        self.window?.makeKeyAndVisible()
+        
         return true
+    }
+    
+    private func checkAuthorizationUser() -> Bool{
+        if vkDelegate.vkStatus() != .authorized && !GIDSignIn.sharedInstance().hasAuthInKeychain() {
+            return false
+        }else{
+            return true
+        }
     }
     
     func application(_ application: UIApplication,
@@ -44,11 +66,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
             let idToken = user.authentication.idToken
             let name = user.profile.name
             let email = user.profile.email
+            let lastName = user.profile.familyName
+            let firstName = user.profile.givenName
             
-            print(userId!)
-            print(idToken!)
-            print(name!)
-            print(email!)
+            
+            print(lastName!)
+            print(firstName!)
+//            print(name!)
+//            print(email!)
+            UserDefaults.standard.setValue(firstName, forKey: "user_first_name")
+            UserDefaults.standard.setValue(lastName, forKey: "user_last_name")
             
         } else {
             print("\(error.localizedDescription)")

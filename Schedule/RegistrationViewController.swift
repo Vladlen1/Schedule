@@ -20,13 +20,36 @@ class RegistrationViewController: UIViewController, GIDSignInUIDelegate {
     }
     
     @IBAction func signInVk(_ sender: UIButton) {
-        if vkDelegate.vkStatus() != .authorized {
+        if Reachability.isConnectedToNetwork() == true {
             vkDelegate.login()
+            if vkDelegate.vkStatus() == .authorized {
+                self.performSegue(withIdentifier: "showTable", sender: self)
+            }
+        } else {
+            showAlertNoInternetConnect()
         }
-//        GIDSignIn.sharedInstance().signOut()
     }
     
     @IBAction func signInGoogle(_ sender: Any) {
-        GIDSignIn.sharedInstance().signIn()
+        if Reachability.isConnectedToNetwork() == true {
+            GIDSignIn.sharedInstance().signIn()
+            if GIDSignIn.sharedInstance().hasAuthInKeychain(){
+                self.performSegue(withIdentifier: "showTable", sender: self)
+
+            }
+        } else {
+            showAlertNoInternetConnect()
+        }
     }
+    
+    private func showAlertNoInternetConnect(){
+        let alertController = UIAlertController(title: "No Internet Connection", message: "Make sure your device is connected to the internet.", preferredStyle: UIAlertControllerStyle.alert)
+        
+        let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default){
+            (result : UIAlertAction) -> Void in
+        }
+        alertController.addAction(okAction)
+        self.present(alertController, animated: true, completion: nil)
+    }
+        
 }

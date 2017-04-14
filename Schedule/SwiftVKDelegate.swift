@@ -38,6 +38,9 @@ class SwiftyVKDataManager: VKDelegate {
                 print(id)
                 print(firstName)
                 print(lastName)
+                UserDefaults.standard.setValue(firstName, forKey: "user_first_name")
+                UserDefaults.standard.setValue(lastName, forKey: "user_last_name")
+                
                         },
             onError: {error in print(error)}
         )
