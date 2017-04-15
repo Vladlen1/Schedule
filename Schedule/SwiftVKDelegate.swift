@@ -10,14 +10,19 @@ import Foundation
 import SwiftyVK
 
 
+
 class SwiftyVKDataManager: VKDelegate {
     
+    var state = ""
     let appID = "5967116"
-    let scope: Set = [VK.Scope.messages,.offline,.groups,.status,.photos,.friends,.email]
+    let scope: Set = [VK.Scope.offline]
     
+
     init() {
         VK.configure(withAppId: appID, delegate: self)
     }
+    
+
     
     static let sharedInstance: SwiftyVKDataManager = {
         let instance = SwiftyVKDataManager ()
@@ -40,11 +45,10 @@ class SwiftyVKDataManager: VKDelegate {
                 print(lastName)
                 UserDefaults.standard.setValue(firstName, forKey: "user_first_name")
                 UserDefaults.standard.setValue(lastName, forKey: "user_last_name")
-                
-                        },
+
+        },
             onError: {error in print(error)}
         )
-
     }
     
     func vkDidUnauthorize() {
@@ -64,7 +68,8 @@ class SwiftyVKDataManager: VKDelegate {
         return UIApplication.shared.delegate!.window!!.rootViewController!
     }
     
-    func login(){
+    func login() {
+        VK.logOut()
         VK.logIn()
     }
     

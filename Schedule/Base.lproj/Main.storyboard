@@ -11,10 +11,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Registration View Controller-->
+        <!--Authentication View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="RegistrationController" id="BYZ-38-t0r" customClass="RegistrationViewController" customModule="Schedule" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RegistrationController" id="BYZ-38-t0r" customClass="AuthenticationViewController" customModule="Schedule" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -94,9 +94,6 @@
                             <constraint firstItem="Npt-wt-PxU" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" multiplier="0.5" constant="169" id="wsL-qp-W5L"/>
                         </constraints>
                     </view>
-                    <connections>
-                        <segue destination="WEf-J4-N0i" kind="show" identifier="showTable" id="Cum-Zk-qte"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -163,7 +160,6 @@
                     </view>
                     <connections>
                         <outlet property="userName" destination="OF3-tO-oUN" id="iDa-nI-Hbc"/>
-                        <segue destination="BYZ-38-t0r" kind="show" identifier="showRegistrForm" id="22v-OC-QRT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RsI-sL-5mk" userLabel="First Responder" sceneMemberID="firstResponder"/>

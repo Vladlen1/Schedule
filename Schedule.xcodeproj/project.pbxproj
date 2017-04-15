@@ -17,7 +17,7 @@
 		8E651EE61E94ED01000A4440 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E651EE51E94ED01000A4440 /* Assets.xcassets */; };
 		8E651EE91E94ED01000A4440 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E651EE71E94ED01000A4440 /* LaunchScreen.storyboard */; };
 		8E651EFA1E95001F000A4440 /* SwiftVKDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E651EF91E95001F000A4440 /* SwiftVKDelegate.swift */; };
-		8E651EFE1E952329000A4440 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E651EFD1E952329000A4440 /* RegistrationViewController.swift */; };
+		8E651EFE1E952329000A4440 /* AuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E651EFD1E952329000A4440 /* AuthenticationViewController.swift */; };
 		8E651F001E9529CF000A4440 /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E651EFF1E9529CF000A4440 /* Animation.swift */; };
 		E866F389C2150D0FCB111352 /* Pods_Schedule.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 065D2CA47FF80803B9D6C55E /* Pods_Schedule.framework */; };
 /* End PBXBuildFile section */
@@ -39,7 +39,7 @@
 		8E651EE81E94ED01000A4440 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8E651EEA1E94ED01000A4440 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8E651EF91E95001F000A4440 /* SwiftVKDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftVKDelegate.swift; sourceTree = "<group>"; };
-		8E651EFD1E952329000A4440 /* RegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
+		8E651EFD1E952329000A4440 /* AuthenticationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationViewController.swift; sourceTree = "<group>"; };
 		8E651EFF1E9529CF000A4440 /* Animation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Animation.swift; sourceTree = "<group>"; };
 		8E66114C0AB22C69F095E085 /* Pods-Schedule.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Schedule.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Schedule/Pods-Schedule.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -97,9 +97,9 @@
 			isa = PBXGroup;
 			children = (
 				8E63548B1EA12231008A30F7 /* SWRevealViewController */,
-				8E651EF91E95001F000A4440 /* SwiftVKDelegate.swift */,
 				8E24CC901EA129BD0081676E /* InternetConnection.swift */,
 				8E651EFF1E9529CF000A4440 /* Animation.swift */,
+				8E651EF91E95001F000A4440 /* SwiftVKDelegate.swift */,
 				8E651EF21E94EF66000A4440 /* Controller */,
 				8E651EF11E94EF5F000A4440 /* View */,
 				8E651EF01E94EF42000A4440 /* Model */,
@@ -132,7 +132,7 @@
 			children = (
 				8E24CC981EA13CA00081676E /* MenuViewController.swift */,
 				8E6354871EA11D27008A30F7 /* ScheduleController.swift */,
-				8E651EFD1E952329000A4440 /* RegistrationViewController.swift */,
+				8E651EFD1E952329000A4440 /* AuthenticationViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -277,7 +277,7 @@
 				8E651F001E9529CF000A4440 /* Animation.swift in Sources */,
 				8E24CC911EA129BD0081676E /* InternetConnection.swift in Sources */,
 				8E6354881EA11D27008A30F7 /* ScheduleController.swift in Sources */,
-				8E651EFE1E952329000A4440 /* RegistrationViewController.swift in Sources */,
+				8E651EFE1E952329000A4440 /* AuthenticationViewController.swift in Sources */,
 				8E24CC991EA13CA00081676E /* MenuViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -14,6 +14,8 @@ class MenuViewController: UIViewController {
 
     @IBOutlet weak var userName: UILabel!
     
+    let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -30,12 +32,15 @@ class MenuViewController: UIViewController {
     @IBAction func exitWithAccount(_ sender: UIButton) {
         if vkDelegate.vkStatus() == .authorized {
             vkDelegate.logout()
-            self.performSegue(withIdentifier: "showRegistrForm", sender: self)
+            
+            let nextViewController = storyBoard.instantiateViewController(withIdentifier: "RegistrationController") as! AuthenticationViewController
+            self.present(nextViewController, animated:true, completion:nil)
         }
         if GIDSignIn.sharedInstance().hasAuthInKeychain(){
             GIDSignIn.sharedInstance().signOut()
-            self.performSegue(withIdentifier: "showRegistrForm", sender: self)
-
+            
+            let nextViewController = storyBoard.instantiateViewController(withIdentifier: "RegistrationController") as! AuthenticationViewController
+            self.present(nextViewController, animated:true, completion:nil)
         }
     }
     

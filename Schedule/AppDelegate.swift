@@ -13,7 +13,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     
     var window: UIWindow?
     let vkDelegate = SwiftyVKDataManager.sharedInstance
-    
+    let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
@@ -23,7 +24,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         
         GIDSignIn.sharedInstance().delegate = self
         
-        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         
         if !(checkAuthorizationUser())
         {
@@ -62,10 +62,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
         if (error == nil) {
-            let userId = user.userID                  
-            let idToken = user.authentication.idToken
-            let name = user.profile.name
-            let email = user.profile.email
+//            let userId = user.userID                  
+//            let idToken = user.authentication.idToken
+//            let name = user.profile.name
+//            let email = user.profile.email
             let lastName = user.profile.familyName
             let firstName = user.profile.givenName
             
@@ -76,6 +76,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 //            print(email!)
             UserDefaults.standard.setValue(firstName, forKey: "user_first_name")
             UserDefaults.standard.setValue(lastName, forKey: "user_last_name")
+            
+            let altController = storyboard.instantiateViewController(withIdentifier: "TableViewController")
+            self.window?.rootViewController = altController
             
         } else {
             print("\(error.localizedDescription)")
