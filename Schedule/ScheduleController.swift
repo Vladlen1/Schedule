@@ -8,11 +8,15 @@
 
 import UIKit
 
-class ScheduleController: UITableViewController {
+class ScheduleController: UIViewController, UITableViewDataSource, UITableViewDelegate,  UITextFieldDelegate  {
 
+    @IBOutlet var tableView: UITableView!
     @IBOutlet weak var menuButton: UIBarButtonItem!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView.delegate = self
+        tableView.dataSource = self
         
         if self.revealViewController() != nil {
             revealViewController().rearViewRevealWidth = 210
@@ -24,33 +28,38 @@ class ScheduleController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
+     func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 0
     }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        return 1
+        
     }
 
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+    
+     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! CustomTableViewCell
 
-        // Configure the cell...
-
+        cell.date.text = "23.12.2017"
+        cell.nameSubject.text = "МДисубд"
+        cell.nameTeacher.text = "Проволоцкий В.Y"
+        cell.time.text = "24:14-32:12"
+        cell.room.text = "308-5"
+        cell.numberOfPeople.text = "23"
+        cell.typePair.text = "LR"
         return cell
     }
-    */
+    
 
-    /*
     // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
         return true
     }
-    */
+
 
     /*
     // Override to support editing the table view.

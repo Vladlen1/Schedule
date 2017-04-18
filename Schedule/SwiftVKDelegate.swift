@@ -16,7 +16,6 @@ class SwiftyVKDataManager: VKDelegate {
     var state = ""
     let appID = "5967116"
     let scope: Set = [VK.Scope.offline]
-    
 
     init() {
         VK.configure(withAppId: appID, delegate: self)
@@ -45,6 +44,16 @@ class SwiftyVKDataManager: VKDelegate {
                 print(lastName)
                 UserDefaults.standard.setValue(firstName, forKey: "user_first_name")
                 UserDefaults.standard.setValue(lastName, forKey: "user_last_name")
+                
+                if VK.state == .authorized {
+                    print("to navigationVC")
+                    
+                    DispatchQueue.main.async {
+
+                    let contr = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TableViewController")
+                    UIApplication.shared.delegate?.window??.rootViewController = contr
+                    }
+                }
 
         },
             onError: {error in print(error)}

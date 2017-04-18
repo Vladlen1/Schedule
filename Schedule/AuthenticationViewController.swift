@@ -9,9 +9,10 @@
 import UIKit
 
 class AuthenticationViewController: UIViewController, GIDSignInUIDelegate {
-    var i = 0
+
     let vkDelegate = SwiftyVKDataManager.sharedInstance
     let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,14 +22,7 @@ class AuthenticationViewController: UIViewController, GIDSignInUIDelegate {
     
     @IBAction func signInVk(_ sender: UIButton) {
         if Reachability.isConnectedToNetwork() == true {
-            let serialPriorityQueue = DispatchQueue(label:"com.bestkora.serialPriority", qos: .userInitiated)
-            serialPriorityQueue.async{self.vkDelegate.login()}
-            serialPriorityQueue.async{
-                if self.vkDelegate.vkStatus() == .authorized {
-                    let nextViewController = self.storyBoard.instantiateViewController(withIdentifier: "TableViewController") as! SWRevealViewController
-                    self.present(nextViewController, animated:true, completion:nil)
-                }
-            }
+                self.vkDelegate.login()
         } else {
             showAlertNoInternetConnect()
         }

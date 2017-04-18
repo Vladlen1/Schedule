@@ -13,6 +13,7 @@ class MenuViewController: UIViewController {
     let vkDelegate = SwiftyVKDataManager.sharedInstance
 
     @IBOutlet weak var userName: UILabel!
+    @IBOutlet weak var groupNumber: UILabel!
     
     let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
 
@@ -32,7 +33,6 @@ class MenuViewController: UIViewController {
     @IBAction func exitWithAccount(_ sender: UIButton) {
         if vkDelegate.vkStatus() == .authorized {
             vkDelegate.logout()
-            
             let nextViewController = storyBoard.instantiateViewController(withIdentifier: "RegistrationController") as! AuthenticationViewController
             self.present(nextViewController, animated:true, completion:nil)
         }
@@ -43,6 +43,18 @@ class MenuViewController: UIViewController {
             self.present(nextViewController, animated:true, completion:nil)
         }
     }
+    
+    @IBAction func newGroup(_ sender: UIButton) {
+        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "AddScheduleController") as! AddScheduleController
+        self.present(nextViewController, animated:true, completion:nil)
+        
+    }
+    
+    @IBAction func changeGroup(_ sender: UIButton) {
+        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "AddScheduleController") as! AddScheduleController
+        self.present(nextViewController, animated:true, completion:nil)
+    }
+    
     
 
 }
