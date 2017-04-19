@@ -8,10 +8,17 @@
 
 import UIKit
 
-class ScheduleController: UIViewController, UITableViewDataSource, UITableViewDelegate,  UITextFieldDelegate  {
+class ScheduleController: UIViewController, UITableViewDataSource, UITableViewDelegate,  UITextFieldDelegate {
 
     @IBOutlet var tableView: UITableView!
     @IBOutlet weak var menuButton: UIBarButtonItem!
+    
+    let section = ["pizza", "deep dish pizza", "calzone"]
+    
+    let items = [["Margarita", "BBQ Chicken", "Pepperoni"], ["sausage", "meat lovers", "veggie lovers"], ["sausage", "chicken pesto", "prawns", "mushrooms"]]
+
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -24,41 +31,55 @@ class ScheduleController: UIViewController, UITableViewDataSource, UITableViewDe
             menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
+        
     }
 
-    // MARK: - Table view data source
-
-     func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return self.section[section]
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        return 1
-        
+    
+     func numberOfSections(in tableView: UITableView) -> Int {
+        return section.count
+    }
+    
+     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return items[section].count
     }
 
     
      func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! CustomTableViewCell
-
-        cell.date.text = "23.12.2017"
-        cell.nameSubject.text = "МДисубд"
-        cell.nameTeacher.text = "Проволоцкий В.Y"
-        cell.time.text = "24:14-32:12"
-        cell.room.text = "308-5"
-        cell.numberOfPeople.text = "23"
-        cell.typePair.text = "LR"
+        
+        cell.nameSubject.text = self.items[indexPath.section][indexPath.row]
+        
+//        cell.nameTeacher.text = self.prime[indexPath.section][2]
+//        cell.time.text = self.prime[indexPath.section][5]
+//        cell.room.text = self.prime[indexPath.section][0]
+//        cell.numberOfPeople.text = self.prime[indexPath.section][1]
+//        cell.typePair.text = self.prime[indexPath.section][3]
         return cell
     }
-    
 
-    // Override to support conditional editing of the table view.
-     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
+//     func numberOfSections(in tableView: UITableView) -> Int {
+//        // #warning Incomplete implementation, return the number of sections
+//        return 0
+//    }
+//
+//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        
+//        return 1
+//        
+//    }
+//
+//    
+//
+//
+//    // Override to support conditional editing of the table view.
+//     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+//        // Return false if you do not want the specified item to be editable.
+//        return true
+//    }
 
 
     /*

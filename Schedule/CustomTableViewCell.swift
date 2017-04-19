@@ -16,7 +16,8 @@ class CustomTableViewCell: UITableViewCell {
     @IBOutlet weak var typePair: UILabel!
     @IBOutlet weak var nameSubject: UILabel!
     @IBOutlet weak var time: UILabel!
-    @IBOutlet weak var date: UILabel!
+    
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()

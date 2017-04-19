@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8E24CC911EA129BD0081676E /* InternetConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E24CC901EA129BD0081676E /* InternetConnection.swift */; };
 		8E24CC991EA13CA00081676E /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E24CC981EA13CA00081676E /* MenuViewController.swift */; };
 		8E3123E51EA55B9600B300B6 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3123E41EA55B9600B300B6 /* CustomTableViewCell.swift */; };
 		8E50F75E1E9E38E3000DC803 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8E50F75D1E9E38E3000DC803 /* GoogleService-Info.plist */; };
@@ -27,7 +26,6 @@
 /* Begin PBXFileReference section */
 		065D2CA47FF80803B9D6C55E /* Pods_Schedule.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Schedule.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		72CEFB3FD80D81F7AFF2F3D1 /* Pods-Schedule.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Schedule.release.xcconfig"; path = "Pods/Target Support Files/Pods-Schedule/Pods-Schedule.release.xcconfig"; sourceTree = "<group>"; };
-		8E24CC901EA129BD0081676E /* InternetConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InternetConnection.swift; sourceTree = "<group>"; };
 		8E24CC981EA13CA00081676E /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		8E3123E41EA55B9600B300B6 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		8E50F75A1E9E2CF5000DC803 /* Schedule-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Schedule-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
@@ -101,7 +99,6 @@
 			isa = PBXGroup;
 			children = (
 				8E63548B1EA12231008A30F7 /* SWRevealViewController */,
-				8E24CC901EA129BD0081676E /* InternetConnection.swift */,
 				8E651EFF1E9529CF000A4440 /* Animation.swift */,
 				8E651EF91E95001F000A4440 /* SwiftVKDelegate.swift */,
 				8E651EF21E94EF66000A4440 /* Controller */,
@@ -135,9 +132,9 @@
 			isa = PBXGroup;
 			children = (
 				8E24CC981EA13CA00081676E /* MenuViewController.swift */,
-				8E6354871EA11D27008A30F7 /* ScheduleController.swift */,
 				8E651EFD1E952329000A4440 /* AuthenticationViewController.swift */,
 				8E3123E41EA55B9600B300B6 /* CustomTableViewCell.swift */,
+				8E6354871EA11D27008A30F7 /* ScheduleController.swift */,
 				8EE5F44F1EA612BC00A9E232 /* AddScheduleController.swift */,
 			);
 			name = Controller;
@@ -283,7 +280,6 @@
 				8E651EFA1E95001F000A4440 /* SwiftVKDelegate.swift in Sources */,
 				8E651EDF1E94ED01000A4440 /* AppDelegate.swift in Sources */,
 				8E651F001E9529CF000A4440 /* Animation.swift in Sources */,
-				8E24CC911EA129BD0081676E /* InternetConnection.swift in Sources */,
 				8E6354881EA11D27008A30F7 /* ScheduleController.swift in Sources */,
 				8E651EFE1E952329000A4440 /* AuthenticationViewController.swift in Sources */,
 				8E24CC991EA13CA00081676E /* MenuViewController.swift in Sources */,

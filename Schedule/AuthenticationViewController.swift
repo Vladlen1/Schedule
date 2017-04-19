@@ -21,31 +21,11 @@ class AuthenticationViewController: UIViewController, GIDSignInUIDelegate {
     }
     
     @IBAction func signInVk(_ sender: UIButton) {
-        if Reachability.isConnectedToNetwork() == true {
-                self.vkDelegate.login()
-        } else {
-            showAlertNoInternetConnect()
-        }
-    }
+        self.vkDelegate.login()
 
+    }
     
     @IBAction func signInGoogle(_ sender: Any) {
-        if Reachability.isConnectedToNetwork() == true {
-            GIDSignIn.sharedInstance().signIn()
-        } else {
-            showAlertNoInternetConnect()
-        }
+        GIDSignIn.sharedInstance().signIn()
     }
-    
-    
-    private func showAlertNoInternetConnect(){
-        let alertController = UIAlertController(title: "No Internet Connection", message: "Make sure your device is connected to the internet.", preferredStyle: UIAlertControllerStyle.alert)
-        
-        let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default){
-            (result : UIAlertAction) -> Void in
-        }
-        alertController.addAction(okAction)
-        self.present(alertController, animated: true, completion: nil)
-    }
-        
 }
