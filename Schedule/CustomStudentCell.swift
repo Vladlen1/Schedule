@@ -1,23 +1,16 @@
 //
-//  CustomTableViewCell.swift
+//  CustomStudentCell.swift
 //  Schedule
 //
-//  Created by Влад Бирюков on 17.04.17.
+//  Created by Влад Бирюков on 20.04.17.
 //  Copyright © 2017 Влад Бирюков. All rights reserved.
 //
 
 import UIKit
 
-class CustomTableViewCell: UITableViewCell {
+class CustomStudentCell: UITableViewCell {
 
-    @IBOutlet weak var room: UILabel!
-    @IBOutlet weak var numberOfPeople: UILabel!
-    @IBOutlet weak var nameTeacher: UILabel!
-    @IBOutlet weak var nameSubject: UILabel!
-    @IBOutlet weak var time: UILabel!
-    @IBOutlet weak var typePair: UIImageView!
-    
-    
+    @IBOutlet weak var nameStudent: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -11,11 +11,11 @@ import UIKit
 class MenuViewController: UIViewController {
     
     let vkDelegate = SwiftyVKDataManager.sharedInstance
+    let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
 
     @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var groupNumber: UILabel!
     
-    let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,7 +51,7 @@ class MenuViewController: UIViewController {
     }
     
     @IBAction func changeGroup(_ sender: UIButton) {
-        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "AddScheduleController") as! AddScheduleController
+        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "GroupTableViewController") as! GroupTableViewController
         self.present(nextViewController, animated:true, completion:nil)
     }
     

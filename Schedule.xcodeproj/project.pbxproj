@@ -10,11 +10,15 @@
 		8E24CC991EA13CA00081676E /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E24CC981EA13CA00081676E /* MenuViewController.swift */; };
 		8E3123E51EA55B9600B300B6 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3123E41EA55B9600B300B6 /* CustomTableViewCell.swift */; };
 		8E50F75E1E9E38E3000DC803 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8E50F75D1E9E38E3000DC803 /* GoogleService-Info.plist */; };
+		8E5C875B1EA92C3A0062B58F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E5C875A1EA92C3A0062B58F /* Assets.xcassets */; };
+		8E5C875D1EA92DAD0062B58F /* VisitStudentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5C875C1EA92DAD0062B58F /* VisitStudentController.swift */; };
+		8E5C875F1EA92DFF0062B58F /* CustomStudentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5C875E1EA92DFF0062B58F /* CustomStudentCell.swift */; };
+		8E5C87611EA930CA0062B58F /* GroupTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5C87601EA930CA0062B58F /* GroupTableViewCell.swift */; };
+		8E5C87631EA930E50062B58F /* GroupTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5C87621EA930E50062B58F /* GroupTableViewController.swift */; };
 		8E6354881EA11D27008A30F7 /* ScheduleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6354871EA11D27008A30F7 /* ScheduleController.swift */; };
 		8E63548D1EA12248008A30F7 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E63548C1EA12248008A30F7 /* SWRevealViewController.m */; };
 		8E651EDF1E94ED01000A4440 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E651EDE1E94ED01000A4440 /* AppDelegate.swift */; };
 		8E651EE41E94ED01000A4440 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E651EE21E94ED01000A4440 /* Main.storyboard */; };
-		8E651EE61E94ED01000A4440 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E651EE51E94ED01000A4440 /* Assets.xcassets */; };
 		8E651EE91E94ED01000A4440 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E651EE71E94ED01000A4440 /* LaunchScreen.storyboard */; };
 		8E651EFA1E95001F000A4440 /* SwiftVKDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E651EF91E95001F000A4440 /* SwiftVKDelegate.swift */; };
 		8E651EFE1E952329000A4440 /* AuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E651EFD1E952329000A4440 /* AuthenticationViewController.swift */; };
@@ -30,13 +34,17 @@
 		8E3123E41EA55B9600B300B6 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		8E50F75A1E9E2CF5000DC803 /* Schedule-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Schedule-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
 		8E50F75D1E9E38E3000DC803 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../GoogleService-Info.plist"; sourceTree = "<group>"; };
+		8E5C875A1EA92C3A0062B58F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8E5C875C1EA92DAD0062B58F /* VisitStudentController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisitStudentController.swift; sourceTree = "<group>"; };
+		8E5C875E1EA92DFF0062B58F /* CustomStudentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomStudentCell.swift; sourceTree = "<group>"; };
+		8E5C87601EA930CA0062B58F /* GroupTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupTableViewCell.swift; sourceTree = "<group>"; };
+		8E5C87621EA930E50062B58F /* GroupTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupTableViewController.swift; sourceTree = "<group>"; };
 		8E6354871EA11D27008A30F7 /* ScheduleController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleController.swift; sourceTree = "<group>"; };
 		8E63548C1EA12248008A30F7 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		8E63548E1EA12254008A30F7 /* SWRevealViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		8E651EDB1E94ED01000A4440 /* Schedule.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Schedule.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E651EDE1E94ED01000A4440 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8E651EE31E94ED01000A4440 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		8E651EE51E94ED01000A4440 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8E651EE81E94ED01000A4440 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8E651EEA1E94ED01000A4440 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8E651EF91E95001F000A4440 /* SwiftVKDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftVKDelegate.swift; sourceTree = "<group>"; };
@@ -123,7 +131,7 @@
 			children = (
 				8E651EE21E94ED01000A4440 /* Main.storyboard */,
 				8E651EE71E94ED01000A4440 /* LaunchScreen.storyboard */,
-				8E651EE51E94ED01000A4440 /* Assets.xcassets */,
+				8E5C875A1EA92C3A0062B58F /* Assets.xcassets */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -134,8 +142,12 @@
 				8E24CC981EA13CA00081676E /* MenuViewController.swift */,
 				8E651EFD1E952329000A4440 /* AuthenticationViewController.swift */,
 				8E3123E41EA55B9600B300B6 /* CustomTableViewCell.swift */,
-				8E6354871EA11D27008A30F7 /* ScheduleController.swift */,
 				8EE5F44F1EA612BC00A9E232 /* AddScheduleController.swift */,
+				8E6354871EA11D27008A30F7 /* ScheduleController.swift */,
+				8E5C875C1EA92DAD0062B58F /* VisitStudentController.swift */,
+				8E5C875E1EA92DFF0062B58F /* CustomStudentCell.swift */,
+				8E5C87601EA930CA0062B58F /* GroupTableViewCell.swift */,
+				8E5C87621EA930E50062B58F /* GroupTableViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -214,7 +226,7 @@
 			files = (
 				8E651EE91E94ED01000A4440 /* LaunchScreen.storyboard in Resources */,
 				8E50F75E1E9E38E3000DC803 /* GoogleService-Info.plist in Resources */,
-				8E651EE61E94ED01000A4440 /* Assets.xcassets in Resources */,
+				8E5C875B1EA92C3A0062B58F /* Assets.xcassets in Resources */,
 				8E651EE41E94ED01000A4440 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -277,11 +289,15 @@
 				8EE5F4501EA612BC00A9E232 /* AddScheduleController.swift in Sources */,
 				8E3123E51EA55B9600B300B6 /* CustomTableViewCell.swift in Sources */,
 				8E63548D1EA12248008A30F7 /* SWRevealViewController.m in Sources */,
+				8E5C87611EA930CA0062B58F /* GroupTableViewCell.swift in Sources */,
+				8E5C875F1EA92DFF0062B58F /* CustomStudentCell.swift in Sources */,
 				8E651EFA1E95001F000A4440 /* SwiftVKDelegate.swift in Sources */,
 				8E651EDF1E94ED01000A4440 /* AppDelegate.swift in Sources */,
 				8E651F001E9529CF000A4440 /* Animation.swift in Sources */,
 				8E6354881EA11D27008A30F7 /* ScheduleController.swift in Sources */,
+				8E5C875D1EA92DAD0062B58F /* VisitStudentController.swift in Sources */,
 				8E651EFE1E952329000A4440 /* AuthenticationViewController.swift in Sources */,
+				8E5C87631EA930E50062B58F /* GroupTableViewController.swift in Sources */,
 				8E24CC991EA13CA00081676E /* MenuViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
