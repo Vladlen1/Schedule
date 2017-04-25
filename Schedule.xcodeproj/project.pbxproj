@@ -14,7 +14,6 @@
 		8E5C875D1EA92DAD0062B58F /* VisitStudentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5C875C1EA92DAD0062B58F /* VisitStudentController.swift */; };
 		8E5C875F1EA92DFF0062B58F /* CustomStudentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5C875E1EA92DFF0062B58F /* CustomStudentCell.swift */; };
 		8E5C87611EA930CA0062B58F /* GroupTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5C87601EA930CA0062B58F /* GroupTableViewCell.swift */; };
-		8E5C87631EA930E50062B58F /* GroupTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5C87621EA930E50062B58F /* GroupTableViewController.swift */; };
 		8E6354881EA11D27008A30F7 /* ScheduleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6354871EA11D27008A30F7 /* ScheduleController.swift */; };
 		8E63548D1EA12248008A30F7 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E63548C1EA12248008A30F7 /* SWRevealViewController.m */; };
 		8E651EDF1E94ED01000A4440 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E651EDE1E94ED01000A4440 /* AppDelegate.swift */; };
@@ -23,6 +22,12 @@
 		8E651EFA1E95001F000A4440 /* SwiftVKDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E651EF91E95001F000A4440 /* SwiftVKDelegate.swift */; };
 		8E651EFE1E952329000A4440 /* AuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E651EFD1E952329000A4440 /* AuthenticationViewController.swift */; };
 		8E651F001E9529CF000A4440 /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E651EFF1E9529CF000A4440 /* Animation.swift */; };
+		8E86C8F91EAF4AF30057FF00 /* LoadDataForUniversityGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E86C8F81EAF4AF30057FF00 /* LoadDataForUniversityGroup.swift */; };
+		8E86C8FB1EAF59F10057FF00 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E86C8FA1EAF59F10057FF00 /* Group.swift */; };
+		8E86C8FD1EAF6AFD0057FF00 /* ScheduleGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E86C8FC1EAF6AFD0057FF00 /* ScheduleGroup.swift */; };
+		8E86C8FF1EAF88A40057FF00 /* GroupTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E86C8FE1EAF88A40057FF00 /* GroupTableController.swift */; };
+		8E86C9011EAFAB4E0057FF00 /* LoadScheduleForGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E86C9001EAFAB4E0057FF00 /* LoadScheduleForGroup.swift */; };
+		8E86C9031EAFB3390057FF00 /* Lesson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E86C9021EAFB3390057FF00 /* Lesson.swift */; };
 		8EE5F4501EA612BC00A9E232 /* AddScheduleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE5F44F1EA612BC00A9E232 /* AddScheduleController.swift */; };
 		E866F389C2150D0FCB111352 /* Pods_Schedule.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 065D2CA47FF80803B9D6C55E /* Pods_Schedule.framework */; };
 /* End PBXBuildFile section */
@@ -38,7 +43,6 @@
 		8E5C875C1EA92DAD0062B58F /* VisitStudentController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisitStudentController.swift; sourceTree = "<group>"; };
 		8E5C875E1EA92DFF0062B58F /* CustomStudentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomStudentCell.swift; sourceTree = "<group>"; };
 		8E5C87601EA930CA0062B58F /* GroupTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupTableViewCell.swift; sourceTree = "<group>"; };
-		8E5C87621EA930E50062B58F /* GroupTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupTableViewController.swift; sourceTree = "<group>"; };
 		8E6354871EA11D27008A30F7 /* ScheduleController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleController.swift; sourceTree = "<group>"; };
 		8E63548C1EA12248008A30F7 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		8E63548E1EA12254008A30F7 /* SWRevealViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
@@ -51,6 +55,12 @@
 		8E651EFD1E952329000A4440 /* AuthenticationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationViewController.swift; sourceTree = "<group>"; };
 		8E651EFF1E9529CF000A4440 /* Animation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Animation.swift; sourceTree = "<group>"; };
 		8E66114C0AB22C69F095E085 /* Pods-Schedule.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Schedule.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Schedule/Pods-Schedule.debug.xcconfig"; sourceTree = "<group>"; };
+		8E86C8F81EAF4AF30057FF00 /* LoadDataForUniversityGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadDataForUniversityGroup.swift; sourceTree = "<group>"; };
+		8E86C8FA1EAF59F10057FF00 /* Group.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
+		8E86C8FC1EAF6AFD0057FF00 /* ScheduleGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleGroup.swift; sourceTree = "<group>"; };
+		8E86C8FE1EAF88A40057FF00 /* GroupTableController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupTableController.swift; sourceTree = "<group>"; };
+		8E86C9001EAFAB4E0057FF00 /* LoadScheduleForGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadScheduleForGroup.swift; sourceTree = "<group>"; };
+		8E86C9021EAFB3390057FF00 /* Lesson.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lesson.swift; sourceTree = "<group>"; };
 		8EE5F44F1EA612BC00A9E232 /* AddScheduleController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddScheduleController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -122,6 +132,9 @@
 		8E651EF01E94EF42000A4440 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				8E86C8FA1EAF59F10057FF00 /* Group.swift */,
+				8E86C8FC1EAF6AFD0057FF00 /* ScheduleGroup.swift */,
+				8E86C9021EAFB3390057FF00 /* Lesson.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -141,13 +154,15 @@
 			children = (
 				8E24CC981EA13CA00081676E /* MenuViewController.swift */,
 				8E651EFD1E952329000A4440 /* AuthenticationViewController.swift */,
-				8E3123E41EA55B9600B300B6 /* CustomTableViewCell.swift */,
-				8EE5F44F1EA612BC00A9E232 /* AddScheduleController.swift */,
-				8E6354871EA11D27008A30F7 /* ScheduleController.swift */,
 				8E5C875C1EA92DAD0062B58F /* VisitStudentController.swift */,
 				8E5C875E1EA92DFF0062B58F /* CustomStudentCell.swift */,
 				8E5C87601EA930CA0062B58F /* GroupTableViewCell.swift */,
-				8E5C87621EA930E50062B58F /* GroupTableViewController.swift */,
+				8E86C8FE1EAF88A40057FF00 /* GroupTableController.swift */,
+				8E86C8F81EAF4AF30057FF00 /* LoadDataForUniversityGroup.swift */,
+				8EE5F44F1EA612BC00A9E232 /* AddScheduleController.swift */,
+				8E3123E41EA55B9600B300B6 /* CustomTableViewCell.swift */,
+				8E6354871EA11D27008A30F7 /* ScheduleController.swift */,
+				8E86C9001EAFAB4E0057FF00 /* LoadScheduleForGroup.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -289,15 +304,20 @@
 				8EE5F4501EA612BC00A9E232 /* AddScheduleController.swift in Sources */,
 				8E3123E51EA55B9600B300B6 /* CustomTableViewCell.swift in Sources */,
 				8E63548D1EA12248008A30F7 /* SWRevealViewController.m in Sources */,
+				8E86C8FB1EAF59F10057FF00 /* Group.swift in Sources */,
+				8E86C9011EAFAB4E0057FF00 /* LoadScheduleForGroup.swift in Sources */,
 				8E5C87611EA930CA0062B58F /* GroupTableViewCell.swift in Sources */,
 				8E5C875F1EA92DFF0062B58F /* CustomStudentCell.swift in Sources */,
 				8E651EFA1E95001F000A4440 /* SwiftVKDelegate.swift in Sources */,
 				8E651EDF1E94ED01000A4440 /* AppDelegate.swift in Sources */,
+				8E86C9031EAFB3390057FF00 /* Lesson.swift in Sources */,
+				8E86C8FD1EAF6AFD0057FF00 /* ScheduleGroup.swift in Sources */,
 				8E651F001E9529CF000A4440 /* Animation.swift in Sources */,
 				8E6354881EA11D27008A30F7 /* ScheduleController.swift in Sources */,
 				8E5C875D1EA92DAD0062B58F /* VisitStudentController.swift in Sources */,
 				8E651EFE1E952329000A4440 /* AuthenticationViewController.swift in Sources */,
-				8E5C87631EA930E50062B58F /* GroupTableViewController.swift in Sources */,
+				8E86C8F91EAF4AF30057FF00 /* LoadDataForUniversityGroup.swift in Sources */,
+				8E86C8FF1EAF88A40057FF00 /* GroupTableController.swift in Sources */,
 				8E24CC991EA13CA00081676E /* MenuViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

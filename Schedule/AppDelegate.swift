@@ -35,7 +35,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
             let altController = storyboard.instantiateViewController(withIdentifier: "TableViewController")
             self.window?.rootViewController = altController
         }
-        
+//        
         self.window?.makeKeyAndVisible()
         
         return true
@@ -62,20 +62,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
         if (error == nil) {
-//            let userId = user.userID                  
-//            let idToken = user.authentication.idToken
-//            let name = user.profile.name
-//            let email = user.profile.email
+
+            let email = user.profile.email
             let lastName = user.profile.familyName
             let firstName = user.profile.givenName
             
             
             print(lastName!)
             print(firstName!)
-//            print(name!)
-//            print(email!)
+            print(email!)
+
             UserDefaults.standard.setValue(firstName, forKey: "user_first_name")
             UserDefaults.standard.setValue(lastName, forKey: "user_last_name")
+            UserDefaults.standard.setValue(email, forKey: "email")
+
             
             let altController = storyboard.instantiateViewController(withIdentifier: "TableViewController")
             self.window?.rootViewController = altController

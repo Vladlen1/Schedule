@@ -7,50 +7,53 @@
 //
 
 import UIKit
+import RealmSwift
+
 
 class AddScheduleController: UITableViewController, UIPickerViewDataSource, UIPickerViewDelegate {
 
     @IBOutlet weak var university: UITextField!
     @IBOutlet weak var faculty: UITextField!
-    @IBOutlet weak var special: UITextField!
     @IBOutlet weak var group: UITextField!
     @IBOutlet weak var subgroup: UITextField!
     
+    let universityPickerView = UIPickerView()
+    let facultyPickerView = UIPickerView()
+    let groupPickerView = UIPickerView()
+    let subgroupPickerView = UIPickerView()
+    
+    let getScheduleData = LoadDataForUniversityGroup.sharedInstance
+    
+    private var scheduleGroup: ScheduleGroup!
+    private var groupActive: Group?
+    private let animation = Animation()
+    private var email = UserDefaults.standard.value(forKey: "email") as! String
 
-    var type = ["kek", "kuk", "reks", "meks"]
-    var type2 = ["KSIC", "ARH"]
-    var type3 = ["IITG", "DFSFGGF"]
-    var type4 = ["325345","332432432", "324234234"]
-    var type5 = ["1", "2"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let universityPickerView = UIPickerView()
+        getScheduleData.getDataForUniversityGroup()
+        
         universityPickerView.delegate = self
         universityPickerView.tag = 1
         university.inputView = universityPickerView
         
-        let facultyPickerView = UIPickerView()
         facultyPickerView.delegate = self
         facultyPickerView.tag = 2
         faculty.inputView = facultyPickerView
         
-        let specialPickerView = UIPickerView()
-        specialPickerView.delegate = self
-        specialPickerView.tag = 3
-        special.inputView = specialPickerView
-        
-        let groupPickerView = UIPickerView()
         groupPickerView.delegate = self
-        groupPickerView.tag = 4
+        groupPickerView.tag = 3
         group.inputView = groupPickerView
         
-        let subgroupPickerView = UIPickerView()
         subgroupPickerView.delegate = self
-        subgroupPickerView.tag = 5
+        subgroupPickerView.tag = 4
         subgroup.inputView = subgroupPickerView
         
+        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(swiped(_:)))
+        swipeRight.direction = UISwipeGestureRecognizerDirection.right
+        self.view.addGestureRecognizer(swipeRight)
         
     }
     
@@ -61,15 +64,31 @@ class AddScheduleController: UITableViewController, UIPickerViewDataSource, UIPi
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         
         if pickerView.tag == 1 {
-            return type.count
+            return getScheduleData.university.count
         }else if pickerView.tag == 2{
-            return type2.count
-        }else if pickerView.tag == 3{
-            return type3.count
+            return getScheduleData.faculty.count
         }else if pickerView.tag == 4{
-            return type4.count
-        }else if pickerView.tag == 5{
-            return type5.count
+            return getScheduleData.subgroup.count
+        }else if facultyPickerView.selectedRow(inComponent: 0) == 0 {
+            return getScheduleData.group[0].count
+        } else if facultyPickerView.selectedRow(inComponent: 0) == 1 {
+            return getScheduleData.group[1].count
+        }else if facultyPickerView.selectedRow(inComponent: 0) == 2 {
+            return getScheduleData.group[2].count
+        } else if facultyPickerView.selectedRow(inComponent: 0) == 3 {
+            return getScheduleData.group[3].count
+        }else if facultyPickerView.selectedRow(inComponent: 0) == 4 {
+            return getScheduleData.group[4].count
+        } else if facultyPickerView.selectedRow(inComponent: 0) == 5 {
+            return getScheduleData.group[5].count
+        }else if facultyPickerView.selectedRow(inComponent: 0) == 6 {
+            return getScheduleData.group[6].count
+        } else if facultyPickerView.selectedRow(inComponent: 0) == 7 {
+            return getScheduleData.group[7].count
+        }else if facultyPickerView.selectedRow(inComponent: 0) == 8 {
+            return getScheduleData.group[8].count
+        } else if facultyPickerView.selectedRow(inComponent: 0) == 9 {
+            return getScheduleData.group[9].count
         }
         
         return 0
@@ -79,15 +98,31 @@ class AddScheduleController: UITableViewController, UIPickerViewDataSource, UIPi
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         
         if pickerView.tag == 1 {
-            return type[row]
+            return getScheduleData.university[row]
         }else if pickerView.tag == 2{
-            return type2[row]
-        }else if pickerView.tag == 3{
-            return type3[row]
+            return getScheduleData.faculty[row]
         }else if pickerView.tag == 4{
-            return type4[row]
-        }else if pickerView.tag == 5{
-            return type5[row]
+            return getScheduleData.subgroup[row]
+        }else if facultyPickerView.selectedRow(inComponent: 0) == 0 {
+            return getScheduleData.group[0][row].groupNumber
+        } else if facultyPickerView.selectedRow(inComponent: 0) == 1 {
+            return getScheduleData.group[1][row].groupNumber
+        }else if facultyPickerView.selectedRow(inComponent: 0) == 2 {
+            return getScheduleData.group[2][row].groupNumber
+        } else if facultyPickerView.selectedRow(inComponent: 0) == 3 {
+            return getScheduleData.group[3][row].groupNumber
+        }else if facultyPickerView.selectedRow(inComponent: 0) == 4 {
+            return getScheduleData.group[4][row].groupNumber
+        } else if facultyPickerView.selectedRow(inComponent: 0) == 5 {
+            return getScheduleData.group[5][row].groupNumber
+        }else if facultyPickerView.selectedRow(inComponent: 0) == 6 {
+            return getScheduleData.group[6][row].groupNumber
+        } else if facultyPickerView.selectedRow(inComponent: 0) == 7 {
+            return getScheduleData.group[7][row].groupNumber
+        }else if facultyPickerView.selectedRow(inComponent: 0) == 8 {
+            return getScheduleData.group[8][row].groupNumber
+        } else if facultyPickerView.selectedRow(inComponent: 0) == 9 {
+            return getScheduleData.group[9][row].groupNumber
         }
         
         return nil
@@ -96,17 +131,43 @@ class AddScheduleController: UITableViewController, UIPickerViewDataSource, UIPi
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
-        
         if pickerView.tag == 1 {
-            university.text = type[row]
+            university.text = getScheduleData.university[row]
         }else if pickerView.tag == 2{
-            faculty.text = type2[row]
-        }else if pickerView.tag == 3{
-            special.text = type3[row]
+            groupPickerView.reloadAllComponents()
+            faculty.text = getScheduleData.faculty[row]
         }else if pickerView.tag == 4{
-            group.text = type4[row]
-        }else if pickerView.tag == 5{
-            subgroup.text = type5[row]
+            subgroup.text = getScheduleData.subgroup[row]
+        }else if facultyPickerView.selectedRow(inComponent: 0) == 0 {
+            groupActive = getScheduleData.group[0][row]
+            group.text = getScheduleData.group[0][row].groupNumber
+        } else if facultyPickerView.selectedRow(inComponent: 0) == 1 {
+            groupActive = getScheduleData.group[1][row]
+            group.text = getScheduleData.group[1][row].groupNumber
+        }else if facultyPickerView.selectedRow(inComponent: 0) == 2 {
+            groupActive = getScheduleData.group[2][row]
+            group.text = getScheduleData.group[2][row].groupNumber
+        } else if facultyPickerView.selectedRow(inComponent: 0) == 3 {
+            groupActive = getScheduleData.group[3][row]
+            group.text = getScheduleData.group[3][row].groupNumber
+        }else if facultyPickerView.selectedRow(inComponent: 0) == 4 {
+            groupActive = getScheduleData.group[4][row]
+            group.text = getScheduleData.group[4][row].groupNumber
+        } else if facultyPickerView.selectedRow(inComponent: 0) == 5 {
+            groupActive = getScheduleData.group[5][row]
+            group.text = getScheduleData.group[5][row].groupNumber
+        }else if facultyPickerView.selectedRow(inComponent: 0) == 6 {
+            groupActive = getScheduleData.group[6][row]
+            group.text = getScheduleData.group[6][row].groupNumber
+        } else if facultyPickerView.selectedRow(inComponent: 0) == 7 {
+            groupActive = getScheduleData.group[7][row]
+            group.text = getScheduleData.group[7][row].groupNumber
+        }else if facultyPickerView.selectedRow(inComponent: 0) == 8 {
+            groupActive = getScheduleData.group[8][row]
+            group.text = getScheduleData.group[8][row].groupNumber
+        } else if facultyPickerView.selectedRow(inComponent: 0) == 9 {
+            groupActive = getScheduleData.group[9][row]
+            group.text = getScheduleData.group[9][row].groupNumber
         }
 
         self.view.endEditing(true)
@@ -126,13 +187,9 @@ class AddScheduleController: UITableViewController, UIPickerViewDataSource, UIPi
             
         }else if indexPath.section == 2 && indexPath.row == 0 {
             
-            special.becomeFirstResponder()
-            
-        }else if indexPath.section == 3 && indexPath.row == 0 {
-            
             group.becomeFirstResponder()
             
-        }else if indexPath.section == 4 && indexPath.row == 0 {
+        }else if indexPath.section == 3 && indexPath.row == 0 {
             
             subgroup.becomeFirstResponder()
             
@@ -140,6 +197,81 @@ class AddScheduleController: UITableViewController, UIPickerViewDataSource, UIPi
         
         tableView.deselectRow(at: indexPath, animated: true)
         
+    }
+    
+    private func addSchedule() -> Bool {
+        let realm = try! Realm()
+
+        let schedules = try! Realm().objects(ScheduleGroup.self)
+        for schedule in schedules{
+            if schedule.acrivite == true && schedule.email == email{
+                try! realm.write {
+                    schedule.acrivite = false
+                }
+            }
+        }
+        
+        try! realm.write {
+            let newScheduleGroup = ScheduleGroup()
+            
+            newScheduleGroup.email = email
+            newScheduleGroup.groupNumber = (self.groupActive?.groupNumber!)!
+            newScheduleGroup.idGroup = (self.groupActive?.groupId!)!
+            newScheduleGroup.subGroup = self.subgroup.text!
+            newScheduleGroup.acrivite = true
+            
+            realm.add(newScheduleGroup)
+            self.scheduleGroup = newScheduleGroup
+        }
+        return true
+    }
+    
+    private func validateFields() -> Bool {
+        
+        if university.text!.isEmpty || faculty.text!.isEmpty ||
+            group.text!.isEmpty || subgroup.text!.isEmpty {
+            
+            
+            let alertController = UIAlertController(title: "Validation Error", message: "All fields must be filled", preferredStyle: .alert)
+            let alertAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.destructive) { alert in
+                alertController.dismiss(animated: true, completion: nil)
+            }
+            
+            animation.animate_alert(alert: alertController)
+            alertController.addAction(alertAction)
+            present(alertController, animated: true, completion: nil)
+            
+            return false
+            
+        } else {
+            // To do
+            return true
+
+        }
+    }
+    
+    @IBAction func addNewSchedule(_ sender: UIBarButtonItem) {
+        if validateFields() {
+            if (addSchedule()){
+                self.present(animation.animated_transitions(viewIndefiner: "TableViewController", duration: 0.5, type: kCATransitionPush, subtype: kCATransitionFromRight, view: view), animated:false, completion:nil)
+            }
+        }
+    }
+    
+    @IBAction func Cancel(_ sender: UIBarButtonItem) {
+        self.present(animation.animated_transitions(viewIndefiner: "TableViewController", duration: 0.5, type: kCATransitionPush, subtype: kCATransitionFromLeft, view: view), animated:false, completion:nil)
+    }
+    
+    func swiped(_ gesture: UIGestureRecognizer) {
+        if let swipeGesture = gesture as? UISwipeGestureRecognizer{
+            switch swipeGesture.direction {
+            case UISwipeGestureRecognizerDirection.right:
+                self.present(animation.animated_transitions(viewIndefiner: "TableViewController", duration: 0.7, type: kCATransitionPush, subtype: kCATransitionFromLeft, view: view), animated:false, completion:nil)
+                
+            default:
+                break
+            }
+        }
     }
     
     override var prefersStatusBarHidden: Bool {

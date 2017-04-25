@@ -7,18 +7,19 @@
 //
 
 import UIKit
+import RealmSwift
 
 class ScheduleController: UIViewController{
 
     let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+    private var emailUser = UserDefaults.standard.value(forKey: "email") as! String
+
     
     @IBOutlet var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var menuButton: UIBarButtonItem!
     
-    let section = ["pizza", "deep dish pizza", "calzone"]
-    
-    let items = [["Margarita", "BBQ Chicken", "Pepperoni"], ["sausage", "meat lovers", "veggie lovers"], ["sausage", "chicken pesto", "prawns", "mushrooms"]]
+    let getSchedule = LoadScheduleForGroup.sharedInstance
     
     var searchActive : Bool = false
 
@@ -26,12 +27,11 @@ class ScheduleController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        getSchedule.getDataForScheduleGroup(currentDate: "dsf", groupId: "dfs")
         tableView.delegate = self
         tableView.dataSource = self
         searchBar.delegate = self
 
-        
         if self.revealViewController() != nil {
             revealViewController().rearViewRevealWidth = 210
             menuButton.target = self.revealViewController()
@@ -44,42 +44,67 @@ class ScheduleController: UIViewController{
         longPressGesture.delegate = self
         self.tableView.addGestureRecognizer(longPressGesture)
         
+//        self.refreshControl?.addTarget(self, action: #selector(ScheduleController.handleRefresh(_:)), for: UIControlEvents.valueChanged)
+        
+    }
+    
+//    func handleRefresh(_ refreshControl: UIRefreshControl) {
+//        
+//        self.tableView.reloadData()
+//        refreshControl.endRefreshing()
+//    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        let schedules = try! Realm().objects(ScheduleGroup.self)
+        for schedule in schedules{
+            if schedule.acrivite == true && schedule.email == emailUser{
+              self.title = "\(schedule.groupNumber)/\(schedule.subGroup)"
+
+            }
+        }
     }
 
      func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return self.section[section]
+        return getSchedule.section[section]
     }
     
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int){
-//        view.tintColor = UIColor.purple
         let header = view as! UITableViewHeaderFooterView
         header.textLabel?.textColor = UIColor.red
     }
     
      func numberOfSections(in tableView: UITableView) -> Int {
-        return section.count
+        return getSchedule.section.count
     }
     
      func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return items[section].count
+        return getSchedule.items[section].count
     }
 
     
      func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! CustomTableViewCell
         
-        cell.nameSubject.text = self.items[indexPath.section][indexPath.row]
+        cell.nameSubject.text = getSchedule.items[indexPath.section][indexPath.row].name
+        cell.timeStart.text = getSchedule.items[indexPath.section][indexPath.row].beginAt
+        cell.timeFinish.text = getSchedule.items[indexPath.section][indexPath.row].endAt
+        cell.nameTeacher.text = getSchedule.items[indexPath.section][indexPath.row].teacher
+        cell.room.text = getSchedule.items[indexPath.section][indexPath.row].location
         
-//        cell.nameTeacher.text = self.prime[indexPath.section][2]
-//        cell.time.text = self.prime[indexPath.section][5]
-//        cell.room.text = self.prime[indexPath.section][0]
-//        cell.numberOfPeople.text = self.prime[indexPath.section][1]
-//        cell.typePair.text = self.prime[indexPath.section][3]
+        if getSchedule.items[indexPath.section][indexPath.row].type == 1 {
+            cell.typePair.image = UIImage(named: "green")
+        }else if getSchedule.items[indexPath.section][indexPath.row].type == 2{
+            cell.typePair.image = UIImage(named: "red")
+        }else{
+            cell.typePair.image = UIImage(named: "yellow")
+
+        }
+        
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("dfdsf")
         let nextViewController = storyBoard.instantiateViewController(withIdentifier: "VisitStudentController") as! VisitStudentController
         self.present(nextViewController, animated:true, completion:nil)
     }

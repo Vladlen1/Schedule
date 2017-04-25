@@ -14,9 +14,9 @@ class CustomTableViewCell: UITableViewCell {
     @IBOutlet weak var numberOfPeople: UILabel!
     @IBOutlet weak var nameTeacher: UILabel!
     @IBOutlet weak var nameSubject: UILabel!
-    @IBOutlet weak var time: UILabel!
     @IBOutlet weak var typePair: UIImageView!
-    
+    @IBOutlet weak var timeFinish: UILabel!
+    @IBOutlet weak var timeStart: UILabel!
     
     
     override func awakeFromNib() {

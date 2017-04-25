@@ -15,7 +15,7 @@ class SwiftyVKDataManager: VKDelegate {
     
     var state = ""
     let appID = "5967116"
-    let scope: Set = [VK.Scope.offline]
+    let scope: Set = [VK.Scope.offline, .email]
 
     init() {
         VK.configure(withAppId: appID, delegate: self)
@@ -36,17 +36,16 @@ class SwiftyVKDataManager: VKDelegate {
         let userId = parameters["user_id"]!
         VK.API.Users.get([VK.Arg.userId : userId]).send(
             onSuccess: {response in
-                let id = response.array![0]["id"].intValue
                 let firstName = response.array![0]["first_name"].stringValue
                 let lastName = response.array![0]["last_name"].stringValue
-                print(id)
+                let email = parameters["email"]?.lowercased()
                 print(firstName)
                 print(lastName)
                 UserDefaults.standard.setValue(firstName, forKey: "user_first_name")
                 UserDefaults.standard.setValue(lastName, forKey: "user_last_name")
+                UserDefaults.standard.setValue(email, forKey: "email")
                 
                 if VK.state == .authorized {
-                    print("to navigationVC")
                     
                     DispatchQueue.main.async {
 

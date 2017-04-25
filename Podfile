@@ -7,6 +7,10 @@ target 'Schedule' do
 	pod 'SwiftyVK', :git => 'https://github.com/WE-St0r/SwiftyVK.git'
 	pod 'SwiftyButton'
 	pod 'Google/SignIn'
+    pod 'Alamofire'
+    pod 'SwiftyJSON'
+    pod 'RealmSwift'
+    pod 'Jelly'
   # Pods for Schedule
 
 end
