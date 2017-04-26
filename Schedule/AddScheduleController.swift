@@ -34,7 +34,12 @@ class AddScheduleController: UITableViewController, UIPickerViewDataSource, UIPi
         super.viewDidLoad()
         
         getScheduleData.getDataForUniversityGroup()
+        createPickerView()
+        settingSwipe()
         
+    }
+    
+    private func createPickerView(){
         universityPickerView.delegate = self
         universityPickerView.tag = 1
         university.inputView = universityPickerView
@@ -51,10 +56,12 @@ class AddScheduleController: UITableViewController, UIPickerViewDataSource, UIPi
         subgroupPickerView.tag = 4
         subgroup.inputView = subgroupPickerView
         
+    }
+    
+    private func settingSwipe(){
         let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(swiped(_:)))
         swipeRight.direction = UISwipeGestureRecognizerDirection.right
         self.view.addGestureRecognizer(swipeRight)
-        
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -244,7 +251,6 @@ class AddScheduleController: UITableViewController, UIPickerViewDataSource, UIPi
             return false
             
         } else {
-            // To do
             return true
 
         }

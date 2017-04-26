@@ -268,18 +268,9 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <searchBar key="tableHeaderView" contentMode="redraw" id="6Pp-Wt-7j0">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                    <gestureRecognizers/>
-                                    <textInputTraits key="textInputTraits"/>
-                                    <connections>
-                                        <outletCollection property="gestureRecognizers" destination="3K0-bD-wgy" appends="YES" id="11H-LR-ZvL"/>
-                                    </connections>
-                                </searchBar>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="Cell" rowHeight="79" id="mpB-T7-s9x" customClass="CustomTableViewCell" customModule="Schedule">
-                                        <rect key="frame" x="0.0" y="71" width="320" height="79"/>
+                                        <rect key="frame" x="0.0" y="27" width="320" height="79"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mpB-T7-s9x" id="eWi-vN-Sgi">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="78.5"/>
@@ -361,6 +352,10 @@
                                     <outlet property="delegate" destination="B17-hb-mOq" id="qLQ-82-gNP"/>
                                 </connections>
                             </tableView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="7qo-ic-AXB">
+                                <rect key="frame" x="150" y="274" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
@@ -372,7 +367,7 @@
                     <size key="freeformSize" width="320" height="568"/>
                     <connections>
                         <outlet property="menuButton" destination="y0L-Xo-w0e" id="5a6-Ys-DzP"/>
-                        <outlet property="searchBar" destination="6Pp-Wt-7j0" id="Bna-dA-dir"/>
+                        <outlet property="spinner" destination="7qo-ic-AXB" id="G6E-zR-3X3"/>
                         <outlet property="tableView" destination="Tst-KX-U7h" id="Tvc-R9-TIX"/>
                     </connections>
                 </viewController>
@@ -400,7 +395,7 @@
                                 <navigationItem title="Студенты" id="MEA-eE-f6z">
                                     <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="4FE-nF-JZR">
                                         <connections>
-                                            <segue destination="WEf-J4-N0i" kind="show" id="byP-8b-vb6"/>
+                                            <action selector="Cancel:" destination="NoL-kc-uE6" id="UsB-lt-GX5"/>
                                         </connections>
                                     </barButtonItem>
                                 </navigationItem>

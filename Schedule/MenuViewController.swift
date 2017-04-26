@@ -20,6 +20,7 @@ class MenuViewController: UIViewController {
     @IBOutlet weak var groupNumber: UILabel!
     
 
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -42,6 +43,7 @@ class MenuViewController: UIViewController {
     @IBAction func exitWithAccount(_ sender: UIButton) {
         if vkDelegate.vkStatus() == .authorized {
             vkDelegate.logout()
+            
             let nextViewController = storyBoard.instantiateViewController(withIdentifier: "RegistrationController") as! AuthenticationViewController
             self.present(nextViewController, animated:true, completion:nil)
         }

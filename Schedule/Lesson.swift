@@ -17,9 +17,11 @@ class Lesson{
     let endAt: String
     let teacher: String?
     let location: String?
+    let lessonsId: Int
+    let visitors: [Visitor]
     
     
-    init(name: String?, type: Int, note: String?, beginAt: String, endAt: String, teacher: String?, location: String?) {
+    init(name: String?, type: Int, note: String?, beginAt: String, endAt: String, teacher: String?, location: String?, lessonsId: Int, visitors: [Visitor]) {
         self.name = name
         self.type = type
         self.note = note
@@ -27,5 +29,7 @@ class Lesson{
         self.endAt = endAt
         self.teacher = teacher
         self.location = location
+        self.lessonsId = lessonsId
+        self.visitors = visitors
     }
 }

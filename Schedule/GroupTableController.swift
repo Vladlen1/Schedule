@@ -17,12 +17,15 @@ class GroupTableController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(swiped(_:)))
-        swipeRight.direction = UISwipeGestureRecognizerDirection.right
-        self.view.addGestureRecognizer(swipeRight)
+        settingSwipe()
 
     }
     
+    private func settingSwipe(){
+        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(swiped(_:)))
+        swipeRight.direction = UISwipeGestureRecognizerDirection.right
+        self.view.addGestureRecognizer(swipeRight)
+    }
     
     @IBAction func Cancel(_ sender: UIBarButtonItem) {
        self.present(animation.animated_transitions(viewIndefiner: "TableViewController", duration: 0.5, type: kCATransitionPush, subtype: kCATransitionFromTop, view: view), animated:false, completion:nil)

@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		8E24CC991EA13CA00081676E /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E24CC981EA13CA00081676E /* MenuViewController.swift */; };
 		8E3123E51EA55B9600B300B6 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3123E41EA55B9600B300B6 /* CustomTableViewCell.swift */; };
+		8E332C1A1EB0A4BB0085ADAB /* WorkWithUserVisitController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E332C191EB0A4BB0085ADAB /* WorkWithUserVisitController.swift */; };
+		8E332C1C1EB0EE410085ADAB /* Visitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E332C1B1EB0EE410085ADAB /* Visitor.swift */; };
+		8E332C1E1EB0FD3A0085ADAB /* DecideVisitLesson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E332C1D1EB0FD3A0085ADAB /* DecideVisitLesson.swift */; };
 		8E50F75E1E9E38E3000DC803 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8E50F75D1E9E38E3000DC803 /* GoogleService-Info.plist */; };
 		8E5C875B1EA92C3A0062B58F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E5C875A1EA92C3A0062B58F /* Assets.xcassets */; };
 		8E5C875D1EA92DAD0062B58F /* VisitStudentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5C875C1EA92DAD0062B58F /* VisitStudentController.swift */; };
@@ -37,6 +40,9 @@
 		72CEFB3FD80D81F7AFF2F3D1 /* Pods-Schedule.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Schedule.release.xcconfig"; path = "Pods/Target Support Files/Pods-Schedule/Pods-Schedule.release.xcconfig"; sourceTree = "<group>"; };
 		8E24CC981EA13CA00081676E /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		8E3123E41EA55B9600B300B6 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		8E332C191EB0A4BB0085ADAB /* WorkWithUserVisitController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkWithUserVisitController.swift; sourceTree = "<group>"; };
+		8E332C1B1EB0EE410085ADAB /* Visitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Visitor.swift; sourceTree = "<group>"; };
+		8E332C1D1EB0FD3A0085ADAB /* DecideVisitLesson.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DecideVisitLesson.swift; sourceTree = "<group>"; };
 		8E50F75A1E9E2CF5000DC803 /* Schedule-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Schedule-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
 		8E50F75D1E9E38E3000DC803 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8E5C875A1EA92C3A0062B58F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -135,6 +141,7 @@
 				8E86C8FA1EAF59F10057FF00 /* Group.swift */,
 				8E86C8FC1EAF6AFD0057FF00 /* ScheduleGroup.swift */,
 				8E86C9021EAFB3390057FF00 /* Lesson.swift */,
+				8E332C1B1EB0EE410085ADAB /* Visitor.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -152,17 +159,19 @@
 		8E651EF21E94EF66000A4440 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				8E332C1D1EB0FD3A0085ADAB /* DecideVisitLesson.swift */,
+				8E5C875C1EA92DAD0062B58F /* VisitStudentController.swift */,
 				8E24CC981EA13CA00081676E /* MenuViewController.swift */,
 				8E651EFD1E952329000A4440 /* AuthenticationViewController.swift */,
-				8E5C875C1EA92DAD0062B58F /* VisitStudentController.swift */,
 				8E5C875E1EA92DFF0062B58F /* CustomStudentCell.swift */,
 				8E5C87601EA930CA0062B58F /* GroupTableViewCell.swift */,
 				8E86C8FE1EAF88A40057FF00 /* GroupTableController.swift */,
 				8E86C8F81EAF4AF30057FF00 /* LoadDataForUniversityGroup.swift */,
 				8EE5F44F1EA612BC00A9E232 /* AddScheduleController.swift */,
 				8E3123E41EA55B9600B300B6 /* CustomTableViewCell.swift */,
-				8E6354871EA11D27008A30F7 /* ScheduleController.swift */,
 				8E86C9001EAFAB4E0057FF00 /* LoadScheduleForGroup.swift */,
+				8E332C191EB0A4BB0085ADAB /* WorkWithUserVisitController.swift */,
+				8E6354871EA11D27008A30F7 /* ScheduleController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -306,8 +315,10 @@
 				8E63548D1EA12248008A30F7 /* SWRevealViewController.m in Sources */,
 				8E86C8FB1EAF59F10057FF00 /* Group.swift in Sources */,
 				8E86C9011EAFAB4E0057FF00 /* LoadScheduleForGroup.swift in Sources */,
+				8E332C1A1EB0A4BB0085ADAB /* WorkWithUserVisitController.swift in Sources */,
 				8E5C87611EA930CA0062B58F /* GroupTableViewCell.swift in Sources */,
 				8E5C875F1EA92DFF0062B58F /* CustomStudentCell.swift in Sources */,
+				8E332C1C1EB0EE410085ADAB /* Visitor.swift in Sources */,
 				8E651EFA1E95001F000A4440 /* SwiftVKDelegate.swift in Sources */,
 				8E651EDF1E94ED01000A4440 /* AppDelegate.swift in Sources */,
 				8E86C9031EAFB3390057FF00 /* Lesson.swift in Sources */,
@@ -317,6 +328,7 @@
 				8E5C875D1EA92DAD0062B58F /* VisitStudentController.swift in Sources */,
 				8E651EFE1E952329000A4440 /* AuthenticationViewController.swift in Sources */,
 				8E86C8F91EAF4AF30057FF00 /* LoadDataForUniversityGroup.swift in Sources */,
+				8E332C1E1EB0FD3A0085ADAB /* DecideVisitLesson.swift in Sources */,
 				8E86C8FF1EAF88A40057FF00 /* GroupTableController.swift in Sources */,
 				8E24CC991EA13CA00081676E /* MenuViewController.swift in Sources */,
 			);

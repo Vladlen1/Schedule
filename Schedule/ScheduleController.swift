@@ -16,46 +16,69 @@ class ScheduleController: UIViewController{
 
     
     @IBOutlet var tableView: UITableView!
-    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
     @IBOutlet weak var menuButton: UIBarButtonItem!
     
     let getSchedule = LoadScheduleForGroup.sharedInstance
-    
-    var searchActive : Bool = false
-
+    let setUserInform = WorkWithUserVisitedController.sharedInstance
+    let setVisitUser = DecideVisitLesson.sharedInstance
+    let date = Date()
+    let formatter = DateFormatter()
+    var currentDate = String()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        getSchedule.getDataForScheduleGroup(currentDate: "dsf", groupId: "dfs")
         tableView.delegate = self
         tableView.dataSource = self
-        searchBar.delegate = self
-
+        
+        getCurrentDate()
+        menuSegue()
+        longPress()
+        getScheduleInform()
+        getUserInfrom()
+        
+//         print(Realm.Configuration.defaultConfiguration.fileURL!)
+    }
+    
+    private func getCurrentDate(){
+        formatter.dateFormat = "yyyy-MM-dd"
+        currentDate = formatter.string(from: date)
+    }
+    
+    private func menuSegue(){
         if self.revealViewController() != nil {
             revealViewController().rearViewRevealWidth = 210
             menuButton.target = self.revealViewController()
             menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
-        
-        let longPressGesture:UILongPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(ScheduleController.longPress(_:)))
-        longPressGesture.minimumPressDuration = 1.0 // 1 second press
-        longPressGesture.delegate = self
-        self.tableView.addGestureRecognizer(longPressGesture)
-        
-//        self.refreshControl?.addTarget(self, action: #selector(ScheduleController.handleRefresh(_:)), for: UIControlEvents.valueChanged)
-        
     }
     
-//    func handleRefresh(_ refreshControl: UIRefreshControl) {
-//        
-//        self.tableView.reloadData()
-//        refreshControl.endRefreshing()
-//    }
+    private func longPress(){
+        let longPressGesture:UILongPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(ScheduleController.longPress(_:)))
+        longPressGesture.minimumPressDuration = 1.0
+        longPressGesture.delegate = self
+        self.tableView.addGestureRecognizer(longPressGesture)
+    }
+    
+    private func getScheduleInform(){
+        let schedules = try! Realm().objects(ScheduleGroup.self)
+        for schedule in schedules{
+            if schedule.acrivite == true && schedule.email == emailUser{
+                spinner.startAnimating()
+                getSchedule.getDataForScheduleGroup(currentDate: currentDate, groupId: schedule.idGroup, subGroup: schedule.subGroup, completionHandler: {self.tableView.reloadData()
+                    self.spinner.stopAnimating()
+                })
+            }
+        }
+    }
+    
+    private func getUserInfrom(){
+        self.setUserInform.setUserInformation(email: UserDefaults.standard.value(forKey: "email") as! String, firstName: UserDefaults.standard.value(forKey: "user_first_name") as! String, lastName: UserDefaults.standard.value(forKey: "user_last_name") as! String)
+    }
     
     override func viewWillAppear(_ animated: Bool) {
-        
         let schedules = try! Realm().objects(ScheduleGroup.self)
         for schedule in schedules{
             if schedule.acrivite == true && schedule.email == emailUser{
@@ -91,7 +114,7 @@ class ScheduleController: UIViewController{
         cell.timeFinish.text = getSchedule.items[indexPath.section][indexPath.row].endAt
         cell.nameTeacher.text = getSchedule.items[indexPath.section][indexPath.row].teacher
         cell.room.text = getSchedule.items[indexPath.section][indexPath.row].location
-        
+        cell.numberOfPeople.text = "\(getSchedule.items[indexPath.section][indexPath.row].visitors.count as Any)"
         if getSchedule.items[indexPath.section][indexPath.row].type == 1 {
             cell.typePair.image = UIImage(named: "green")
         }else if getSchedule.items[indexPath.section][indexPath.row].type == 2{
@@ -101,17 +124,28 @@ class ScheduleController: UIViewController{
 
         }
         
+        for lessonId in setUserInform.visitArr{
+            if getSchedule.items[indexPath.section][indexPath.row].lessonsId == lessonId{
+                self.tableView.selectRow(at: indexPath, animated: true, scrollPosition: UITableViewScrollPosition.middle)
+            }
+        }
+        
+        for lessonId in setUserInform.unvisitArr{
+            if getSchedule.items[indexPath.section][indexPath.row].lessonsId == lessonId{
+                cell.nameSubject.textColor = UIColor.gray
+            }
+        }
+        
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        UserDefaults.standard.setValue(getSchedule.items[indexPath.section][indexPath.row].lessonsId, forKey: "activite_section")
         let nextViewController = storyBoard.instantiateViewController(withIdentifier: "VisitStudentController") as! VisitStudentController
         self.present(nextViewController, animated:true, completion:nil)
     }
     
     func longPress(_ sender: AnyObject) {
-        searchBar.resignFirstResponder()
-
         let longPress:UILongPressGestureRecognizer = sender as! UILongPressGestureRecognizer
         
         if longPress.state == UIGestureRecognizerState.began{
@@ -130,12 +164,22 @@ class ScheduleController: UIViewController{
         let okAction = UIAlertAction(title: "Да", style: UIAlertActionStyle.default) {
             UIAlertAction in
             NSLog("OK Pressed")
+            self.setVisitUser.decideVisit(type: "visit", userId: UserDefaults.standard.value(forKey: "user_id") as! Int, lessonId: self.getSchedule.items[indexPath.section][indexPath.row].lessonsId)
             self.tableView.selectRow(at: indexPath, animated: true, scrollPosition: UITableViewScrollPosition.middle)
+            let cell = self.tableView.cellForRow(at: indexPath) as! CustomTableViewCell
+            cell.nameSubject.textColor = UIColor.black
+            self.getUserInfrom()
+            self.getScheduleInform()
         }
         let cancelAction = UIAlertAction(title: "Нет", style: UIAlertActionStyle.cancel) {
             UIAlertAction in
             NSLog("Cancel Pressed")
+            self.setVisitUser.decideVisit(type: "slack", userId: UserDefaults.standard.value(forKey: "user_id") as! Int, lessonId: self.getSchedule.items[indexPath.section][indexPath.row].lessonsId)
             self.tableView.deselectRow(at: indexPath as IndexPath, animated: true)
+            let cell = self.tableView.cellForRow(at: indexPath) as! CustomTableViewCell
+            cell.nameSubject.textColor = UIColor.gray
+            self.getUserInfrom()
+            self.getScheduleInform()
 
         }
         
@@ -146,95 +190,11 @@ class ScheduleController: UIViewController{
         self.present(alertController, animated: true, completion: nil)
     }
     
-    @IBAction func tapSearchBar(_ sender: Any) {
-        searchBar.resignFirstResponder()
-
-    }
-    
-    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        searchActive = true;
-    }
-    
-    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-        searchActive = true;
-    }
-    
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        searchActive = true;
-    }
-    
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        searchBar.resignFirstResponder()
-        searchActive = false;
-    }
-    
-//    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-//        
-//        
-//        let predicate = NSPredicate(format: "key_name BEGINSWITH [c]%@", searchText)
-//        
-//        var search_key = section[2]
-//        
-//        if(search_key.count == 0){
-//            searchActive = false;
-//        } else {
-//            searchActive = true;
-//        }
-//        tableView.reloadData()
-//        
-//    }
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        searchBar.resignFirstResponder()
-    }
     
     override var prefersStatusBarHidden: Bool {
         return true
     }
 
-//    // Override to support conditional editing of the table view.
-//     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-//        // Return false if you do not want the specified item to be editable.
-//        return true
-//    }
-
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 }
 
 extension ScheduleController:   UITableViewDataSource, UITableViewDelegate,  UITextFieldDelegate, UIGestureRecognizerDelegate, UISearchBarDelegate{

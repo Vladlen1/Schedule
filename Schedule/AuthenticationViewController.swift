@@ -11,8 +11,6 @@ import UIKit
 class AuthenticationViewController: UIViewController, GIDSignInUIDelegate {
 
     let vkDelegate = SwiftyVKDataManager.sharedInstance
-    let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-
 
     override func viewDidLoad() {
         super.viewDidLoad()

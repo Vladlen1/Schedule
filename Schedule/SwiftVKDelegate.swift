@@ -2,8 +2,8 @@
 //  SwiftVKDelegate.swift
 //  VKFriends
 //
-//  Created by Игорь Талов on 06.11.16.
-//  Copyright © 2016 Игорь Талов. All rights reserved.
+//  Created by Влад Бирюков on 05.04.17.
+//  Copyright © 2017 Влад Бирюков. All rights reserved.
 //
 
 import Foundation

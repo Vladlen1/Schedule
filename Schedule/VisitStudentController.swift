@@ -7,91 +7,112 @@
 //
 
 import UIKit
+import RealmSwift
 
 class VisitStudentController: UITableViewController{
     
+    private let animation = Animation()
+    
+    let getSchedule = LoadScheduleForGroup.sharedInstance
+    private var emailUser = UserDefaults.standard.value(forKey: "email") as! String
+    private var activitySectionId = UserDefaults.standard.value(forKey: "activite_section") as! Int
+    let date = Date()
+    let formatter = DateFormatter()
+    var currentDate = String()
+
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        settingRefresh()
+        settingSwipe()
+        getCurrentDate()
+        getScheduleInform()
+
+    }
+    
+    private func getCurrentDate(){
+        formatter.dateFormat = "yyyy-MM-dd"
+        currentDate = formatter.string(from: date)
+    }
+    
+    private func getScheduleInform(){
+        let schedules = try! Realm().objects(ScheduleGroup.self)
+        for schedule in schedules{
+            if schedule.acrivite == true && schedule.email == emailUser{
+                getSchedule.getDataForScheduleGroup(currentDate: currentDate, groupId: schedule.idGroup, subGroup: schedule.subGroup, completionHandler: {self.tableView.reloadData()
+                })
+            }
+        }
+    }
+    
+    private func settingRefresh(){
         self.refreshControl?.addTarget(self, action: #selector(VisitStudentController.handleRefresh(_:)), for: UIControlEvents.valueChanged)
+    }
+    
+    private func settingSwipe(){
+        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(swiped(_:)))
+        swipeRight.direction = UISwipeGestureRecognizerDirection.right
+        self.view.addGestureRecognizer(swipeRight)
     }
 
     func handleRefresh(_ refreshControl: UIRefreshControl) {
         print("kek")
-        
+        getScheduleInform()
         self.tableView.reloadData()
         refreshControl.endRefreshing()
     }
     
+    
+    @IBAction func Cancel(_ sender: UIBarButtonItem) {
+        self.present(animation.animated_transitions(viewIndefiner: "TableViewController", duration: 0.5, type: kCATransitionPush, subtype: kCATransitionFromLeft, view: view), animated:false, completion:nil)
+    }
+    
+    func swiped(_ gesture: UIGestureRecognizer) {
+        if let swipeGesture = gesture as? UISwipeGestureRecognizer{
+            switch swipeGesture.direction {
+            case UISwipeGestureRecognizerDirection.right:
+                self.present(animation.animated_transitions(viewIndefiner: "TableViewController", duration: 0.7, type: kCATransitionPush, subtype: kCATransitionFromLeft, view: view), animated:false, completion:nil)
+                
+            default:
+                break
+            }
+        }
+    }
     override var prefersStatusBarHidden: Bool {
         return true
     }
     
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
+
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        var result = 0
+        for lessonsArr in getSchedule.items{
+            for lessons in lessonsArr{
+                if lessons.lessonsId == activitySectionId{
+                    result = lessons.visitors.count
+                }
+            }
+        }
+        return result
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! CustomStudentCell
+        
+        for lessonsArr in getSchedule.items{
+            for lessons in lessonsArr{
+                if lessons.lessonsId == activitySectionId{
+                    cell.nameStudent.text = "\(lessons.visitors[indexPath.row].firstName) \(lessons.visitors[indexPath.row].lastName)"
 
-        // Configure the cell...
+                }
+            }
+        }
+
 
         return cell
     }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
