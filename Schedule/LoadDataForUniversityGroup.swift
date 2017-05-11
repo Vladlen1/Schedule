@@ -27,6 +27,8 @@ class LoadDataForUniversityGroup {
         Alamofire.request("https://schedule-api-v1.herokuapp.com/api/university/").responseJSON { response in
             switch response.result {
             case .success(let value):
+                self.faculty.removeAll()
+                self.group.removeAll()
                 let json = JSON(value)
                 self.getDataForUniversityGroupFromJson(json: json)
             case .failure(let error):
@@ -45,7 +47,7 @@ class LoadDataForUniversityGroup {
                 for (_, groupNumber):(String, JSON) in facultyName["groups"] {
                     groupList.append(Group(number: groupNumber["name"].string, id: groupNumber["id"].int))
                 }
-                self.group.append(groupList)
+                self.group.append(groupList.sorted{(s1: Group, s2: Group) -> Bool in return Int(s1.groupNumber!)! < Int(s2.groupNumber!)!} )
             }
         }
         

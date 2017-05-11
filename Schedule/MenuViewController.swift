@@ -52,6 +52,7 @@ class MenuViewController: UIViewController {
             
             let nextViewController = storyBoard.instantiateViewController(withIdentifier: "RegistrationController") as! AuthenticationViewController
             self.present(nextViewController, animated:true, completion:nil)
+            
         }
     }
     
@@ -65,7 +66,6 @@ class MenuViewController: UIViewController {
         let nextViewController = storyBoard.instantiateViewController(withIdentifier: "GroupTableController") as! GroupTableController
         self.present(nextViewController, animated:true, completion:nil)
     }
-    
     
 
 }

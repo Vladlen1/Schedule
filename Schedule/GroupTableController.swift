@@ -22,6 +22,7 @@ class GroupTableController: UITableViewController {
     }
     
     private func settingSwipe(){
+        self.title = "Группы"
         let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(swiped(_:)))
         swipeRight.direction = UISwipeGestureRecognizerDirection.right
         self.view.addGestureRecognizer(swipeRight)

@@ -16,6 +16,7 @@ class SwiftyVKDataManager: VKDelegate {
     var state = ""
     let appID = "5967116"
     let scope: Set = [VK.Scope.offline, .email]
+    var vc : AuthenticationViewController?
 
     init() {
         VK.configure(withAppId: appID, delegate: self)
@@ -48,10 +49,10 @@ class SwiftyVKDataManager: VKDelegate {
                 if VK.state == .authorized {
                     
                     DispatchQueue.main.async {
-
-                    let contr = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TableViewController")
-                    UIApplication.shared.delegate?.window??.rootViewController = contr
+        
+                        self.vc?.vkAuthorizated()
                     }
+                    
                 }
 
         },
@@ -73,7 +74,7 @@ class SwiftyVKDataManager: VKDelegate {
 
 
     func vkWillPresentView() -> UIViewController {
-        return UIApplication.shared.delegate!.window!!.rootViewController!
+        return self.vc!
     }
     
     func login() {

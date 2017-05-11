@@ -130,19 +130,23 @@ class ScheduleController: UIViewController{
             }
         }
         
-        for lessonId in setUserInform.unvisitArr{
-            if getSchedule.items[indexPath.section][indexPath.row].lessonsId == lessonId{
-                cell.nameSubject.textColor = UIColor.gray
-            }
-        }
-        
+//        for lessonId in setUserInform.unvisitArr{
+//            if getSchedule.items[indexPath.section][indexPath.row].lessonsId == lessonId{
+//                cell.nameSubject.textColor = UIColor.gray
+//            }
+//        }
+
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         UserDefaults.standard.setValue(getSchedule.items[indexPath.section][indexPath.row].lessonsId, forKey: "activite_section")
+
         let nextViewController = storyBoard.instantiateViewController(withIdentifier: "VisitStudentController") as! VisitStudentController
         self.present(nextViewController, animated:true, completion:nil)
+//        let nextViewController = self.storyboard?.instantiateViewController(withIdentifier: "VisitStudentController") as! VisitStudentController
+//        
+//        self.navigationController?.pushViewController(nextViewController, animated: true)
     }
     
     func longPress(_ sender: AnyObject) {
@@ -167,9 +171,11 @@ class ScheduleController: UIViewController{
             self.setVisitUser.decideVisit(type: "visit", userId: UserDefaults.standard.value(forKey: "user_id") as! Int, lessonId: self.getSchedule.items[indexPath.section][indexPath.row].lessonsId)
             self.tableView.selectRow(at: indexPath, animated: true, scrollPosition: UITableViewScrollPosition.middle)
             let cell = self.tableView.cellForRow(at: indexPath) as! CustomTableViewCell
-            cell.nameSubject.textColor = UIColor.black
+            let res = Int(cell.numberOfPeople.text!)
+            cell.numberOfPeople.text = String(res! + 1)
+//            cell.nameSubject.textColor = UIColor.black
             self.getUserInfrom()
-            self.getScheduleInform()
+            self.getScheduleInforms()
         }
         let cancelAction = UIAlertAction(title: "Нет", style: UIAlertActionStyle.cancel) {
             UIAlertAction in
@@ -177,9 +183,13 @@ class ScheduleController: UIViewController{
             self.setVisitUser.decideVisit(type: "slack", userId: UserDefaults.standard.value(forKey: "user_id") as! Int, lessonId: self.getSchedule.items[indexPath.section][indexPath.row].lessonsId)
             self.tableView.deselectRow(at: indexPath as IndexPath, animated: true)
             let cell = self.tableView.cellForRow(at: indexPath) as! CustomTableViewCell
-            cell.nameSubject.textColor = UIColor.gray
+            let res = Int(cell.numberOfPeople.text!)
+            if res != 0{
+                cell.numberOfPeople.text = String(res! - 1)
+            }
+//            cell.nameSubject.textColor = UIColor.gray
             self.getUserInfrom()
-            self.getScheduleInform()
+            self.getScheduleInforms()
 
         }
         
@@ -190,9 +200,14 @@ class ScheduleController: UIViewController{
         self.present(alertController, animated: true, completion: nil)
     }
     
-    
-    override var prefersStatusBarHidden: Bool {
-        return true
+    private func getScheduleInforms(){
+        let schedules = try! Realm().objects(ScheduleGroup.self)
+        for schedule in schedules{
+            if schedule.acrivite == true && schedule.email == emailUser{
+                getSchedule.getDataForScheduleGroup(currentDate: currentDate, groupId: schedule.idGroup, subGroup: schedule.subGroup, completionHandler: {print("kek")
+                })
+            }
+        }
     }
 
 }

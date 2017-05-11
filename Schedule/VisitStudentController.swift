@@ -32,6 +32,7 @@ class VisitStudentController: UITableViewController{
     }
     
     private func getCurrentDate(){
+        self.title = "Студенты"
         formatter.dateFormat = "yyyy-MM-dd"
         currentDate = formatter.string(from: date)
     }
@@ -55,17 +56,17 @@ class VisitStudentController: UITableViewController{
         swipeRight.direction = UISwipeGestureRecognizerDirection.right
         self.view.addGestureRecognizer(swipeRight)
     }
+    
+    
+    @IBAction func cancel(_ sender: Any) {
+        self.present(animation.animated_transitions(viewIndefiner: "TableViewController", duration: 0.5, type: kCATransitionPush, subtype: kCATransitionFromTop, view: view), animated:false, completion:nil)
+    }
 
     func handleRefresh(_ refreshControl: UIRefreshControl) {
         print("kek")
         getScheduleInform()
         self.tableView.reloadData()
         refreshControl.endRefreshing()
-    }
-    
-    
-    @IBAction func Cancel(_ sender: UIBarButtonItem) {
-        self.present(animation.animated_transitions(viewIndefiner: "TableViewController", duration: 0.5, type: kCATransitionPush, subtype: kCATransitionFromLeft, view: view), animated:false, completion:nil)
     }
     
     func swiped(_ gesture: UIGestureRecognizer) {

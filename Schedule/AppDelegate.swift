@@ -13,6 +13,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     
     var window: UIWindow?
     let vkDelegate = SwiftyVKDataManager.sharedInstance
+
     let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
 
     
