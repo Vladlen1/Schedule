@@ -7,10 +7,9 @@
 //
 
 import Foundation
-
 class Lesson{
     
-    let name: String?
+    let name: String
     let type: Int
     let note: String?
     let beginAt: String
@@ -21,7 +20,7 @@ class Lesson{
     let visitors: [Visitor]
     
     
-    init(name: String?, type: Int, note: String?, beginAt: String, endAt: String, teacher: String?, location: String?, lessonsId: Int, visitors: [Visitor]) {
+    init(name: String, type: Int, note: String?, beginAt: String, endAt: String, teacher: String?, location: String?, lessonsId: Int, visitors: [Visitor]) {
         self.name = name
         self.type = type
         self.note = note

@@ -41,7 +41,9 @@ PODS:
   - Realm/Headers (2.6.2)
   - RealmSwift (2.6.2):
     - Realm (= 2.6.2)
-  - SwiftyButton (0.6.0)
+  - RxCocoa (3.4.1):
+    - RxSwift (~> 3.4)
+  - RxSwift (3.4.1)
   - SwiftyJSON (3.1.4)
   - SwiftyVK (2.0.8)
 
@@ -50,7 +52,8 @@ DEPENDENCIES:
   - Google/SignIn
   - Jelly
   - RealmSwift
-  - SwiftyButton
+  - RxCocoa
+  - RxSwift
   - SwiftyJSON
   - SwiftyVK (from `https://github.com/WE-St0r/SwiftyVK.git`)
 
@@ -76,10 +79,11 @@ SPEC CHECKSUMS:
   Jelly: b4ff439f4804c193424e922a6ac3d311fbd78d1f
   Realm: 29222766425b9f831228f81b63f0e38a97a4d700
   RealmSwift: d161a80f96cb91ae88391a7d5a9cf08024a7bc8e
-  SwiftyButton: 4c9b61c499f172971a1b8c2eebbbdc20a26d8a08
+  RxCocoa: a8a5f1d061d0043e28f56976829f31ce63e8eb09
+  RxSwift: 656f8fbeca5bc372121a72d9ebdd3cd3bc0ffade
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
   SwiftyVK: 81d1aa08ee5a5a09d4bd152b0cf1fd4ee46441c6
 
-PODFILE CHECKSUM: eb7439e8a0ff865fdbd55ddc32e458842f32515c
+PODFILE CHECKSUM: 75a0bed8e7dfd2768fffd69ab31df067a8b52e56
 
 COCOAPODS: 1.2.0

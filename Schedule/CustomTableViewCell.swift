@@ -17,7 +17,6 @@ class CustomTableViewCell: UITableViewCell {
     @IBOutlet weak var typePair: UIImageView!
     @IBOutlet weak var timeFinish: UILabel!
     @IBOutlet weak var timeStart: UILabel!
-    @IBOutlet weak var colorBack: UIImageView!
     
     
     override func awakeFromNib() {

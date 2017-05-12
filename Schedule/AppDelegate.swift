@@ -36,7 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
             let altController = storyboard.instantiateViewController(withIdentifier: "TableViewController")
             self.window?.rootViewController = altController
         }
-//        
+
         self.window?.makeKeyAndVisible()
         
         return true

@@ -12,7 +12,7 @@ import RealmSwift
 class MenuViewController: UIViewController {
     
     let vkDelegate = SwiftyVKDataManager.sharedInstance
-    private var emailUser = UserDefaults.standard.value(forKey: "email") as! String
+//    private var emailUser = UserDefaults.standard.value(forKey: "email") as! String
 
     let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
 
@@ -27,16 +27,16 @@ class MenuViewController: UIViewController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        let firstName = UserDefaults.standard.value(forKey: "user_first_name") as! String
-        let lastName = UserDefaults.standard.value(forKey: "user_last_name") as! String
-        userName.text = lastName + " " + firstName
-        
-        let schedules = try! Realm().objects(ScheduleGroup.self)
-        for schedule in schedules{
-            if schedule.acrivite == true && schedule.email == emailUser{
-                groupNumber.text = "\(schedule.groupNumber)/\(schedule.subGroup)"
-            }
-        }
+//        let firstName = UserDefaults.standard.value(forKey: "user_first_name") as! String
+//        let lastName = UserDefaults.standard.value(forKey: "user_last_name") as! String
+//        userName.text = lastName + " " + firstName
+//        
+//        let schedules = try! Realm().objects(ScheduleGroup.self)
+//        for schedule in schedules{
+//            if schedule.acrivite == true && schedule.email == emailUser{
+//                groupNumber.text = "\(schedule.groupNumber)/\(schedule.subGroup)"
+//            }
+//        }
         
     }
     

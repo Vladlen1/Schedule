@@ -5,12 +5,14 @@ target 'Schedule' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
 	pod 'SwiftyVK', :git => 'https://github.com/WE-St0r/SwiftyVK.git'
-	pod 'SwiftyButton'
 	pod 'Google/SignIn'
     pod 'Alamofire'
     pod 'SwiftyJSON'
     pod 'RealmSwift'
     pod 'Jelly'
+    pod 'RxSwift'
+    pod 'RxCocoa'
+
   # Pods for Schedule
 
 end

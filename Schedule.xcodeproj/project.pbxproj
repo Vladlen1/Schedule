@@ -7,11 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8E0FAC091EC593C300871090 /* LoadSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0FAC081EC593C300871090 /* LoadSchedule.swift */; };
+		8E0FAC0E1EC5967F00871090 /* LoadScheduleImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0FAC0D1EC5967F00871090 /* LoadScheduleImpl.swift */; };
+		8E0FAC111EC5983E00871090 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0FAC101EC5983E00871090 /* Schedule.swift */; };
+		8E0FAC1C1EC59E0000871090 /* ScheduleDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0FAC1B1EC59E0000871090 /* ScheduleDataRepository.swift */; };
+		8E0FAC201EC59F1800871090 /* ScheduleRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0FAC1F1EC59F1800871090 /* ScheduleRepository.swift */; };
+		8E0FAC231EC59F9400871090 /* UseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0FAC221EC59F9400871090 /* UseCase.swift */; };
+		8E0FAC2D1EC5A1EC00871090 /* Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0FAC2C1EC5A1EC00871090 /* Presenter.swift */; };
+		8E0FAC301EC5A21A00871090 /* ScheduleListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0FAC2F1EC5A21A00871090 /* ScheduleListPresenter.swift */; };
 		8E24CC991EA13CA00081676E /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E24CC981EA13CA00081676E /* MenuViewController.swift */; };
 		8E3123E51EA55B9600B300B6 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3123E41EA55B9600B300B6 /* CustomTableViewCell.swift */; };
 		8E332C1A1EB0A4BB0085ADAB /* WorkWithUserVisitController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E332C191EB0A4BB0085ADAB /* WorkWithUserVisitController.swift */; };
 		8E332C1C1EB0EE410085ADAB /* Visitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E332C1B1EB0EE410085ADAB /* Visitor.swift */; };
 		8E332C1E1EB0FD3A0085ADAB /* DecideVisitLesson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E332C1D1EB0FD3A0085ADAB /* DecideVisitLesson.swift */; };
+		8E36571C1EC5D69300D10187 /* ScheduleInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E36571B1EC5D69300D10187 /* ScheduleInteractor.swift */; };
+		8E36571E1EC5EAE700D10187 /* TransformJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E36571D1EC5EAE700D10187 /* TransformJson.swift */; };
+		8E3657221EC5F60000D10187 /* ScheduleMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3657211EC5F60000D10187 /* ScheduleMapper.swift */; };
+		8E3657241EC5F61300D10187 /* ScheduleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3657231EC5F61300D10187 /* ScheduleViewModel.swift */; };
 		8E50F75E1E9E38E3000DC803 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8E50F75D1E9E38E3000DC803 /* GoogleService-Info.plist */; };
 		8E5C875B1EA92C3A0062B58F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E5C875A1EA92C3A0062B58F /* Assets.xcassets */; };
 		8E5C875D1EA92DAD0062B58F /* VisitStudentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5C875C1EA92DAD0062B58F /* VisitStudentController.swift */; };
@@ -38,11 +50,23 @@
 /* Begin PBXFileReference section */
 		065D2CA47FF80803B9D6C55E /* Pods_Schedule.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Schedule.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		72CEFB3FD80D81F7AFF2F3D1 /* Pods-Schedule.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Schedule.release.xcconfig"; path = "Pods/Target Support Files/Pods-Schedule/Pods-Schedule.release.xcconfig"; sourceTree = "<group>"; };
+		8E0FAC081EC593C300871090 /* LoadSchedule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadSchedule.swift; sourceTree = "<group>"; };
+		8E0FAC0D1EC5967F00871090 /* LoadScheduleImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadScheduleImpl.swift; sourceTree = "<group>"; };
+		8E0FAC101EC5983E00871090 /* Schedule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
+		8E0FAC1B1EC59E0000871090 /* ScheduleDataRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleDataRepository.swift; sourceTree = "<group>"; };
+		8E0FAC1F1EC59F1800871090 /* ScheduleRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleRepository.swift; sourceTree = "<group>"; };
+		8E0FAC221EC59F9400871090 /* UseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UseCase.swift; sourceTree = "<group>"; };
+		8E0FAC2C1EC5A1EC00871090 /* Presenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Presenter.swift; sourceTree = "<group>"; };
+		8E0FAC2F1EC5A21A00871090 /* ScheduleListPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleListPresenter.swift; sourceTree = "<group>"; };
 		8E24CC981EA13CA00081676E /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		8E3123E41EA55B9600B300B6 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		8E332C191EB0A4BB0085ADAB /* WorkWithUserVisitController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkWithUserVisitController.swift; sourceTree = "<group>"; };
 		8E332C1B1EB0EE410085ADAB /* Visitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Visitor.swift; sourceTree = "<group>"; };
 		8E332C1D1EB0FD3A0085ADAB /* DecideVisitLesson.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DecideVisitLesson.swift; sourceTree = "<group>"; };
+		8E36571B1EC5D69300D10187 /* ScheduleInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleInteractor.swift; sourceTree = "<group>"; };
+		8E36571D1EC5EAE700D10187 /* TransformJson.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransformJson.swift; sourceTree = "<group>"; };
+		8E3657211EC5F60000D10187 /* ScheduleMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleMapper.swift; sourceTree = "<group>"; };
+		8E3657231EC5F61300D10187 /* ScheduleViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleViewModel.swift; sourceTree = "<group>"; };
 		8E50F75A1E9E2CF5000DC803 /* Schedule-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Schedule-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
 		8E50F75D1E9E38E3000DC803 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8E5C875A1EA92C3A0062B58F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -91,6 +115,115 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		8E0FAC031EC5916200871090 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				8E0FAC191EC59DB600871090 /* Repository */,
+				8E0FAC051EC5919500871090 /* DataStore */,
+			);
+			name = Data;
+			sourceTree = "<group>";
+		};
+		8E0FAC051EC5919500871090 /* DataStore */ = {
+			isa = PBXGroup;
+			children = (
+				8E0FAC081EC593C300871090 /* LoadSchedule.swift */,
+				8E0FAC0D1EC5967F00871090 /* LoadScheduleImpl.swift */,
+				8E36571D1EC5EAE700D10187 /* TransformJson.swift */,
+			);
+			name = DataStore;
+			sourceTree = "<group>";
+		};
+		8E0FAC0A1EC594BF00871090 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				8E0FAC211EC59F6600871090 /* Interactor */,
+				8E0FAC0B1EC594EB00871090 /* Model */,
+			);
+			name = Domain;
+			sourceTree = "<group>";
+		};
+		8E0FAC0B1EC594EB00871090 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8E0FAC101EC5983E00871090 /* Schedule.swift */,
+				8E86C9021EAFB3390057FF00 /* Lesson.swift */,
+				8E332C1B1EB0EE410085ADAB /* Visitor.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		8E0FAC191EC59DB600871090 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				8E0FAC1F1EC59F1800871090 /* ScheduleRepository.swift */,
+				8E0FAC1B1EC59E0000871090 /* ScheduleDataRepository.swift */,
+			);
+			name = Repository;
+			sourceTree = "<group>";
+		};
+		8E0FAC211EC59F6600871090 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				8E36571B1EC5D69300D10187 /* ScheduleInteractor.swift */,
+				8E0FAC221EC59F9400871090 /* UseCase.swift */,
+			);
+			name = Interactor;
+			sourceTree = "<group>";
+		};
+		8E0FAC291EC5A18A00871090 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				8E3657201EC5F16400D10187 /* ViewModel */,
+				8E36571F1EC5F15A00D10187 /* Mapper */,
+				8E0FAC2A1EC5A1B700871090 /* Presenter */,
+				8E0FAC2B1EC5A1CD00871090 /* View */,
+			);
+			name = Presentation;
+			sourceTree = "<group>";
+		};
+		8E0FAC2A1EC5A1B700871090 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				8E0FAC2F1EC5A21A00871090 /* ScheduleListPresenter.swift */,
+				8E0FAC2C1EC5A1EC00871090 /* Presenter.swift */,
+			);
+			name = Presenter;
+			sourceTree = "<group>";
+		};
+		8E0FAC2B1EC5A1CD00871090 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8E0FAC311EC5A39600871090 /* ScheduleController */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		8E0FAC311EC5A39600871090 /* ScheduleController */ = {
+			isa = PBXGroup;
+			children = (
+				8E6354871EA11D27008A30F7 /* ScheduleController.swift */,
+				8E3123E41EA55B9600B300B6 /* CustomTableViewCell.swift */,
+			);
+			name = ScheduleController;
+			sourceTree = "<group>";
+		};
+		8E36571F1EC5F15A00D10187 /* Mapper */ = {
+			isa = PBXGroup;
+			children = (
+				8E3657211EC5F60000D10187 /* ScheduleMapper.swift */,
+			);
+			name = Mapper;
+			sourceTree = "<group>";
+		};
+		8E3657201EC5F16400D10187 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				8E3657231EC5F61300D10187 /* ScheduleViewModel.swift */,
+			);
+			name = ViewModel;
+			sourceTree = "<group>";
+		};
 		8E63548B1EA12231008A30F7 /* SWRevealViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -122,12 +255,15 @@
 		8E651EDD1E94ED01000A4440 /* Schedule */ = {
 			isa = PBXGroup;
 			children = (
+				8E0FAC031EC5916200871090 /* Data */,
+				8E0FAC0A1EC594BF00871090 /* Domain */,
+				8E0FAC291EC5A18A00871090 /* Presentation */,
 				8E63548B1EA12231008A30F7 /* SWRevealViewController */,
 				8E651EFF1E9529CF000A4440 /* Animation.swift */,
 				8E651EF91E95001F000A4440 /* SwiftVKDelegate.swift */,
 				8E651EF21E94EF66000A4440 /* Controller */,
 				8E651EF11E94EF5F000A4440 /* View */,
-				8E651EF01E94EF42000A4440 /* Model */,
+				8E651EF01E94EF42000A4440 /* Models */,
 				8E651EDE1E94ED01000A4440 /* AppDelegate.swift */,
 				8E50F75D1E9E38E3000DC803 /* GoogleService-Info.plist */,
 				8E651EEA1E94ED01000A4440 /* Info.plist */,
@@ -135,15 +271,13 @@
 			path = Schedule;
 			sourceTree = "<group>";
 		};
-		8E651EF01E94EF42000A4440 /* Model */ = {
+		8E651EF01E94EF42000A4440 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				8E86C8FA1EAF59F10057FF00 /* Group.swift */,
 				8E86C8FC1EAF6AFD0057FF00 /* ScheduleGroup.swift */,
-				8E86C9021EAFB3390057FF00 /* Lesson.swift */,
-				8E332C1B1EB0EE410085ADAB /* Visitor.swift */,
 			);
-			name = Model;
+			name = Models;
 			sourceTree = "<group>";
 		};
 		8E651EF11E94EF5F000A4440 /* View */ = {
@@ -170,8 +304,6 @@
 				8E5C87601EA930CA0062B58F /* GroupTableViewCell.swift */,
 				8E86C8FE1EAF88A40057FF00 /* GroupTableController.swift */,
 				8EE5F44F1EA612BC00A9E232 /* AddScheduleController.swift */,
-				8E3123E41EA55B9600B300B6 /* CustomTableViewCell.swift */,
-				8E6354871EA11D27008A30F7 /* ScheduleController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -311,25 +443,37 @@
 			buildActionMask = 2147483647;
 			files = (
 				8EE5F4501EA612BC00A9E232 /* AddScheduleController.swift in Sources */,
+				8E3657221EC5F60000D10187 /* ScheduleMapper.swift in Sources */,
 				8E3123E51EA55B9600B300B6 /* CustomTableViewCell.swift in Sources */,
 				8E63548D1EA12248008A30F7 /* SWRevealViewController.m in Sources */,
 				8E86C8FB1EAF59F10057FF00 /* Group.swift in Sources */,
 				8E86C9011EAFAB4E0057FF00 /* LoadScheduleForGroup.swift in Sources */,
 				8E332C1A1EB0A4BB0085ADAB /* WorkWithUserVisitController.swift in Sources */,
+				8E0FAC111EC5983E00871090 /* Schedule.swift in Sources */,
 				8E5C87611EA930CA0062B58F /* GroupTableViewCell.swift in Sources */,
 				8E5C875F1EA92DFF0062B58F /* CustomStudentCell.swift in Sources */,
 				8E332C1C1EB0EE410085ADAB /* Visitor.swift in Sources */,
 				8E651EFA1E95001F000A4440 /* SwiftVKDelegate.swift in Sources */,
+				8E0FAC091EC593C300871090 /* LoadSchedule.swift in Sources */,
+				8E0FAC2D1EC5A1EC00871090 /* Presenter.swift in Sources */,
+				8E0FAC301EC5A21A00871090 /* ScheduleListPresenter.swift in Sources */,
+				8E0FAC0E1EC5967F00871090 /* LoadScheduleImpl.swift in Sources */,
 				8E651EDF1E94ED01000A4440 /* AppDelegate.swift in Sources */,
+				8E36571C1EC5D69300D10187 /* ScheduleInteractor.swift in Sources */,
 				8E86C9031EAFB3390057FF00 /* Lesson.swift in Sources */,
+				8E0FAC231EC59F9400871090 /* UseCase.swift in Sources */,
 				8E86C8FD1EAF6AFD0057FF00 /* ScheduleGroup.swift in Sources */,
 				8E651F001E9529CF000A4440 /* Animation.swift in Sources */,
+				8E0FAC1C1EC59E0000871090 /* ScheduleDataRepository.swift in Sources */,
 				8E6354881EA11D27008A30F7 /* ScheduleController.swift in Sources */,
+				8E36571E1EC5EAE700D10187 /* TransformJson.swift in Sources */,
 				8E5C875D1EA92DAD0062B58F /* VisitStudentController.swift in Sources */,
 				8E651EFE1E952329000A4440 /* AuthenticationViewController.swift in Sources */,
 				8E86C8F91EAF4AF30057FF00 /* LoadDataForUniversityGroup.swift in Sources */,
+				8E3657241EC5F61300D10187 /* ScheduleViewModel.swift in Sources */,
 				8E332C1E1EB0FD3A0085ADAB /* DecideVisitLesson.swift in Sources */,
 				8E86C8FF1EAF88A40057FF00 /* GroupTableController.swift in Sources */,
+				8E0FAC201EC59F1800871090 /* ScheduleRepository.swift in Sources */,
 				8E24CC991EA13CA00081676E /* MenuViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
