@@ -13,6 +13,6 @@ public class ScheduleDataRepository :NSObject , ScheduleRepository {
     let dataStore = LoadScheduleImpl()
         
     public func getAllScheduleObjects(groupID : String, date : String, subgroup: String) -> Observable<[Schedule]> {
-        return self.dataStore.schedule(date: date, groupID: groupID, subgroup: subgroup)
+        return self.dataStore.getScheduleObject(date: date, groupID: groupID, subgroup: subgroup)
     }
 }

@@ -28,8 +28,10 @@ public class LessonViewModel {
     let timeStart: String
     let timeFinish: String
     let location: String?
+    let lessonId: Int
+    let visitors: [Visitor]
     
-    init(nameSubject: String, typePair: UIImage, numberOfPeople: String?, nameTeacher: String?, timeStart: String, timeFinish: String, location: String?) {
+    init(nameSubject: String, typePair: UIImage, numberOfPeople: String?, nameTeacher: String?, timeStart: String, timeFinish: String, location: String?, lessonId: Int, visitors: [Visitor]) {
         self.nameSubject = nameSubject
         self.typePair = typePair
         self.numberOfPeople = numberOfPeople
@@ -37,6 +39,8 @@ public class LessonViewModel {
         self.timeStart = timeStart
         self.timeFinish = timeFinish
         self.location = location
+        self.lessonId = lessonId
+        self.visitors = visitors
     }
 
 }

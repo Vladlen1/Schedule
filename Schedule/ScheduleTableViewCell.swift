@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CustomTableViewCell: UITableViewCell {
+class ScheduleTableViewCell: UITableViewCell {
 
     @IBOutlet weak var room: UILabel!
     @IBOutlet weak var numberOfPeople: UILabel!

@@ -16,7 +16,7 @@ class SwiftyVKDataManager: VKDelegate {
     var state = ""
     let appID = "5967116"
     let scope: Set = [VK.Scope.offline, .email]
-    var vc : AuthenticationViewController?
+    var vc : AuthenticationPresenter?
 
     init() {
         VK.configure(withAppId: appID, delegate: self)
@@ -74,11 +74,10 @@ class SwiftyVKDataManager: VKDelegate {
 
 
     func vkWillPresentView() -> UIViewController {
-        return self.vc!
+        return self.vc!.authenticationController!
     }
     
     func login() {
-        VK.logOut()
         VK.logIn()
     }
     

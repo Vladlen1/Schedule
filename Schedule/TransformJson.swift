@@ -36,5 +36,17 @@ public class TransformJson{
         
         return result
     }
+    
+    func transformJsonVisitLesson(json: Any) -> [Int]{
+        var visitArr = [Int]()
+        let json = JSON(json)
+        
+        UserDefaults.standard.setValue(json["id"].int!, forKey: "user_id")
+        
+        for (_, visit):(String, JSON) in json["visited_lessons"] {
+            visitArr.append(visit.int!)
+        }
+        return visitArr
+    }
 
 }

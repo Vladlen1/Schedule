@@ -16,3 +16,19 @@ class ScheduleGroup: Object{
     dynamic var subGroup = ""
     dynamic var acrivite = false
 }
+
+public class UserSchedule {
+    let email: String
+    let groupNumber: String
+    let idGroup: Int
+    let subgroup: String
+    let activite: Bool
+    
+    init(email: String, groupNumber: String, idGroup: Int, subgroup: String, activite: Bool) {
+        self.email = email
+        self.groupNumber = groupNumber
+        self.idGroup = idGroup
+        self.subgroup = subgroup
+        self.activite = activite
+    }
+}

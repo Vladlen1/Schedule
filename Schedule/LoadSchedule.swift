@@ -10,5 +10,5 @@ import Foundation
 import RxSwift
 
 public protocol LoadSchedule{
-    func schedule(date : String, groupID : String, subgroup: String) -> Observable<[Schedule]>;
+    func getScheduleObject(date : String, groupID : String, subgroup: String) -> Observable<[Schedule]>;
 }

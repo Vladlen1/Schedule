@@ -1,0 +1,20 @@
+//
+//  VisitLessonInteractor.swift
+//  Schedule
+//
+//  Created by Влад Бирюков on 15.05.17.
+//  Copyright © 2017 Влад Бирюков. All rights reserved.
+//
+
+import Foundation
+import RxSwift
+
+public class VisitLessonInteractor {
+    
+    var visitLessonDataRepository = VisitLessonDataRepository()
+    
+    func exute(email: String, firstName: String, lastName: String) -> Observable<Int> {
+        return visitLessonDataRepository.getAllVisitLesson(email : email, firstName: firstName, lastName: lastName)
+    }
+        
+}

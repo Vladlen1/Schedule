@@ -8,29 +8,29 @@
 
 import UIKit
 
-class AuthenticationViewController: UIViewController, GIDSignInUIDelegate {
+class AuthenticationViewController: BaseViewController, GIDSignInUIDelegate{
 
-    let vkDelegate = SwiftyVKDataManager.sharedInstance
+    let authenticationPresenter = AuthenticationPresenter()
+    
+    @IBOutlet weak var authenticationView: AuthenticationView!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        GIDSignIn.sharedInstance().uiDelegate = self
-
+        
+        self.authenticationPresenter.authenticationController = self
+        
+        self.baseViews = [self.authenticationView]
+        self.authenticationView.viewDidLoad()
+        
     }
     
     @IBAction func signInVk(_ sender: UIButton) {
-        self.vkDelegate.vc = self
-        self.vkDelegate.login()
-
+        authenticationPresenter.signInVk()
     }
     
     @IBAction func signInGoogle(_ sender: Any) {
-        GIDSignIn.sharedInstance().signIn()
+        authenticationPresenter.signInGoogle()
     }
     
-    func vkAuthorizated() {
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "TableViewController")
-        self.present(vc!, animated: true, completion: nil)
-        
-    }
 }

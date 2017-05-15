@@ -39,8 +39,14 @@ public class ScheduleMapper{
                 let timeStart = lesson?.beginAt
                 let timeFinish = lesson?.endAt
                 let location = lesson?.location
+                let lessonId = lesson?.lessonsId
+                
+                var visitistArr = [Visitor]()
+                for visit in (lesson?.visitors)!{
+                    visitistArr.append(Visitor(email:visit.email, firstName: visit.firstName, lastName: visit.lastName, userId: visit.userId))
+                }
             
-                lessonsArr.append(LessonViewModel(nameSubject: nameSubject!, typePair: typePair, numberOfPeople: numberOfPeople, nameTeacher: nameTeacher, timeStart: timeStart!, timeFinish: timeFinish!, location: location))
+                lessonsArr.append(LessonViewModel(nameSubject: nameSubject!, typePair: typePair, numberOfPeople: numberOfPeople, nameTeacher: nameTeacher, timeStart: timeStart!, timeFinish: timeFinish!, location: location, lessonId: lessonId!, visitors: visitistArr))
             }
             resultArrSchedule.append (ScheduleViewModel(date: schedule.date! , lessons: lessonsArr))
         }

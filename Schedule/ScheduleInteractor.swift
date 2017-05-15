@@ -13,8 +13,8 @@ public class ScheduleInteractor {
     
     var scheduleRepositiory = ScheduleDataRepository()
     
-    func exute() -> Observable<[Schedule]> {
-        return scheduleRepositiory.getAllScheduleObjects(groupID : "dsf", date : "sdf", subgroup: "2")
+    func exute(gropId: String, subgroup: String) -> Observable<[Schedule]> {
+        return scheduleRepositiory.getAllScheduleObjects(groupID : gropId, date : getCurrentDate(), subgroup: subgroup)
             
 //            .flatMap{schedule -> Observable<String> in
 //            if schedule.date != nil {
@@ -24,5 +24,16 @@ public class ScheduleInteractor {
 //                return Observable.just("Error")
 //            }
 //            
+
         }
+    
+    private func getCurrentDate() -> String{
+        let formatter = DateFormatter()
+        var currentDate = String()
+        formatter.dateFormat = "yyyy-MM-dd"
+        currentDate = formatter.string(from: Date())
+        return currentDate
+    }
+    
+    
 }

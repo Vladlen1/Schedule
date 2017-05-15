@@ -9,20 +9,28 @@
 import UIKit
 import RealmSwift
 
-class MenuViewController: UIViewController {
+class MenuViewController: BaseViewController {
     
     let vkDelegate = SwiftyVKDataManager.sharedInstance
 //    private var emailUser = UserDefaults.standard.value(forKey: "email") as! String
 
     let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+    let menuPresenter = MenuPresenter()
 
     @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var groupNumber: UILabel!
+    @IBOutlet weak var menuView: MenuView!
     
 
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        menuPresenter.load()
+        self.menuPresenter.menuController = self
+        
+        self.baseViews = [self.menuView]
+        self.menuView.viewDidLoad()
 
     }
 
@@ -41,30 +49,17 @@ class MenuViewController: UIViewController {
     }
     
     @IBAction func exitWithAccount(_ sender: UIButton) {
-        if vkDelegate.vkStatus() == .authorized {
-            vkDelegate.logout()
-            
-            let nextViewController = storyBoard.instantiateViewController(withIdentifier: "RegistrationController") as! AuthenticationViewController
-            self.present(nextViewController, animated:true, completion:nil)
-        }
-        if GIDSignIn.sharedInstance().hasAuthInKeychain(){
-            GIDSignIn.sharedInstance().signOut()
-            
-            let nextViewController = storyBoard.instantiateViewController(withIdentifier: "RegistrationController") as! AuthenticationViewController
-            self.present(nextViewController, animated:true, completion:nil)
-            
-        }
+        menuPresenter.exitWithAccount()
     }
     
     @IBAction func newGroup(_ sender: UIButton) {
-        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "AddScheduleController") as! AddScheduleController
-        self.present(nextViewController, animated:true, completion:nil)
+        menuPresenter.newGroup()
         
     }
     
     @IBAction func changeGroup(_ sender: UIButton) {
-        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "GroupTableController") as! GroupTableController
-        self.present(nextViewController, animated:true, completion:nil)
+        menuPresenter.changeGroup()
+
     }
     
 
