@@ -9,7 +9,7 @@
 import Foundation
 import RxSwift
 
-public class UserInteractor {
+class UserInteractor {
     var userRepository = UserDataRepository()
     
     func exute() ->  Observable<UserSchedule> {

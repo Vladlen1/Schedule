@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class Schedule{
+class Schedule{
     
     let date: String?
     let lessons: [Lesson?]?

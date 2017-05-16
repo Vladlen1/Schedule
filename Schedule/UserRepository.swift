@@ -9,6 +9,6 @@
 import Foundation
 import RxSwift
 
-public protocol UserRepository {
+protocol UserRepository {
     func getAllUserObjects() -> Observable<UserSchedule>
 }

@@ -178,7 +178,7 @@
                         </connections>
                     </tableView>
                     <connections>
-                        <outlet property="tableView" destination="yLI-Jo-0zT" id="IHx-th-p5Z"/>
+                        <outlet property="tableView" destination="yLI-Jo-0zT" id="Wpz-Hr-Y2K"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L6Y-C8-sBi" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -193,72 +193,77 @@
                         <viewControllerLayoutGuide type="top" id="eNb-EG-ml0"/>
                         <viewControllerLayoutGuide type="bottom" id="tsL-Aa-fbA"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="71e-a2-z2M" customClass="MenuView" customModule="Schedule" customModuleProvider="target">
+                    <view key="view" contentMode="scaleToFill" id="71e-a2-z2M">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="smc-5x-MLH">
-                                <rect key="frame" x="56" y="257" width="86" height="31"/>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZxK-an-Vkb" customClass="MenuView" customModule="Schedule" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="18"/>
-                                <state key="normal" title="Выход">
-                                    <color key="titleColor" red="1" green="0.10894389409999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="453504" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jrD-rg-pZG">
+                                        <rect key="frame" x="35" y="151" width="126" height="26"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="18"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z89-A2-W0t">
+                                        <rect key="frame" x="40" y="218" width="117" height="26"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="15"/>
+                                        <state key="normal" title="Новая группа">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="newGroup:" destination="lVs-ge-WdE" eventType="touchUpInside" id="KYR-SM-6Ug"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O9J-qJ-bSW">
+                                        <rect key="frame" x="37" y="185" width="124" height="25"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="15"/>
+                                        <state key="normal" title="Сменить группу">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="changeGroup:" destination="lVs-ge-WdE" eventType="touchUpInside" id="c89-io-MrG"/>
+                                        </connections>
+                                    </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Logotype" translatesAutoresizingMaskIntoConstraints="NO" id="aRz-xB-LHW">
+                                        <rect key="frame" x="56" y="28" width="86" height="86"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="smc-5x-MLH">
+                                        <rect key="frame" x="58" y="257" width="86" height="31"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="18"/>
+                                        <state key="normal" title="Выход">
+                                            <color key="titleColor" red="1" green="0.10894389409999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="exitWithAccount:" destination="lVs-ge-WdE" eventType="touchUpInside" id="8bL-K0-gwg"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="333" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OF3-tO-oUN">
+                                        <rect key="frame" x="10" y="115" width="177" height="38"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="18"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
-                                    <action selector="exitWithAccount:" destination="lVs-ge-WdE" eventType="touchUpInside" id="8bL-K0-gwg"/>
+                                    <outlet property="numberGroup" destination="jrD-rg-pZG" id="Fvy-6z-8tA"/>
+                                    <outlet property="userName" destination="OF3-tO-oUN" id="PQl-I0-BQJ"/>
                                 </connections>
-                            </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Logotype" translatesAutoresizingMaskIntoConstraints="NO" id="aRz-xB-LHW">
-                                <rect key="frame" x="56" y="28" width="86" height="86"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O9J-qJ-bSW">
-                                <rect key="frame" x="37" y="185" width="124" height="25"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="15"/>
-                                <state key="normal" title="Сменить группу">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="changeGroup:" destination="lVs-ge-WdE" eventType="touchUpInside" id="c89-io-MrG"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z89-A2-W0t">
-                                <rect key="frame" x="40" y="218" width="117" height="26"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="15"/>
-                                <state key="normal" title="Новая группа">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="newGroup:" destination="lVs-ge-WdE" eventType="touchUpInside" id="KYR-SM-6Ug"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="453504" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jrD-rg-pZG">
-                                <rect key="frame" x="35" y="151" width="126" height="26"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="18"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OF3-tO-oUN">
-                                <rect key="frame" x="10" y="115" width="177" height="38"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="18"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <connections>
-                            <outlet property="numberGroup" destination="jrD-rg-pZG" id="xty-WX-QLA"/>
-                            <outlet property="userName" destination="OF3-tO-oUN" id="CUg-1K-SOE"/>
-                        </connections>
                     </view>
                     <connections>
-                        <outlet property="groupNumber" destination="jrD-rg-pZG" id="VNR-5Z-hwx"/>
-                        <outlet property="menuView" destination="71e-a2-z2M" id="Q48-dp-KZ1"/>
-                        <outlet property="userName" destination="OF3-tO-oUN" id="iDa-nI-Hbc"/>
+                        <outlet property="menuView" destination="ZxK-an-Vkb" id="nLf-mY-lZO"/>
                         <outlet property="view" destination="71e-a2-z2M" id="DfE-q0-QPs"/>
                     </connections>
                 </viewController>
@@ -352,9 +357,14 @@
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="emptyStar" translatesAutoresizingMaskIntoConstraints="NO" id="Sme-9G-QPP">
+                                                            <rect key="frame" x="297" y="33" width="20" height="20"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        </imageView>
                                                     </subviews>
                                                 </tableViewCellContentView>
                                                 <connections>
+                                                    <outlet property="favoritePair" destination="Sme-9G-QPP" id="WAL-gi-JzQ"/>
                                                     <outlet property="nameSubject" destination="8fp-lJ-Mba" id="X6r-Ps-Vnz"/>
                                                     <outlet property="nameTeacher" destination="orh-0j-lIH" id="8pn-f8-kPC"/>
                                                     <outlet property="numberOfPeople" destination="xop-hY-tTQ" id="n4r-E7-kKa"/>
@@ -615,6 +625,7 @@
     </scenes>
     <resources>
         <image name="Logotype" width="112" height="112"/>
+        <image name="emptyStar" width="255" height="256"/>
         <image name="gray" width="220" height="170"/>
         <image name="green" width="156" height="182"/>
         <image name="menu" width="22" height="22"/>

@@ -8,9 +8,9 @@
 
 import Foundation
 
-public class VisitMapper{
+class VisitMapper {
     
-    private var activitySectionId = UserDefaults.standard.value(forKey: "activite_section") as! Int
+    let activitySectionId = UserDefaults.standard.value(forKey: "activite_section") as! Int
 
     
     func transformVisitObject(schedules: [Schedule]) -> [VisitViewModel] {

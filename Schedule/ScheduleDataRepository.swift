@@ -9,10 +9,10 @@
 import Foundation
 import RxSwift
 
-public class ScheduleDataRepository :NSObject , ScheduleRepository {
+class ScheduleDataRepository :NSObject , ScheduleRepository {
     let dataStore = LoadScheduleImpl()
         
-    public func getAllScheduleObjects(groupID : String, date : String, subgroup: String) -> Observable<[Schedule]> {
+    func getAllScheduleObjects(groupID : String, date : String, subgroup: String) -> Observable<[Schedule]> {
         return self.dataStore.getScheduleObject(date: date, groupID: groupID, subgroup: subgroup)
     }
 }

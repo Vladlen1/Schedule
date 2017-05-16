@@ -9,6 +9,6 @@
 import Foundation
 import RxSwift
 
-public protocol ScheduleRepository {
+protocol ScheduleRepository {
     func getAllScheduleObjects(groupID : String, date : String, subgroup: String) -> Observable<[Schedule]>
 }

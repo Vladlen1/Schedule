@@ -11,8 +11,8 @@ import RxSwift
 import RealmSwift
 
 
-public class LoadUserImpl: LoadUser{
-    public func getUserObject() -> Observable<UserSchedule>{
+class LoadUserImpl: LoadUser{
+    func getUserObject() -> Observable<UserSchedule>{
         let users = try! Realm().objects(ScheduleGroup.self)
         
         

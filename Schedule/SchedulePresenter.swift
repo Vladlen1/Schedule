@@ -12,12 +12,11 @@ import RealmSwift
 
 class SchedulePresenter : BasePresenter,  UITableViewDataSource, UITableViewDelegate {
     
-    private var emailUser = UserDefaults.standard.value(forKey: "email") as! String
+    let emailUser = UserDefaults.standard.value(forKey: "email") as! String
 
     var baseView = [ScheduleViewModel]()
     var userArr = [UserSchedule]()
     var visitLesson = [Int]()
-    
     var scheduleController : ScheduleController?
 
     
@@ -47,6 +46,7 @@ class SchedulePresenter : BasePresenter,  UITableViewDataSource, UITableViewDele
         settingRevealViewController()
         
         getInformVisitLessons()
+                 print(Realm.Configuration.defaultConfiguration.fileURL!)
     }
     
     
@@ -124,26 +124,32 @@ class SchedulePresenter : BasePresenter,  UITableViewDataSource, UITableViewDele
             UIAlertAction in
             NSLog("OK Pressed")
             
-            DecideAttendance().decideVisit(type: "visit", userId: UserDefaults.standard.value(forKey: "user_id") as! Int, lessonId: self.baseView[indexPath.section].lessons[indexPath.row].lessonId)
-            self.scheduleController?.tableView.selectRow(at: indexPath, animated: true, scrollPosition: UITableViewScrollPosition.middle)
             let cell = self.scheduleController?.tableView.cellForRow(at: indexPath) as! ScheduleTableViewCell
-            var numberOfPeople = Int(cell.numberOfPeople.text!)
-            numberOfPeople = numberOfPeople! + 1
-            cell.numberOfPeople.text = String(numberOfPeople!)
+            
+            if cell.favoritePair.image != UIImage(named: "highlightedStar") {
+                DecideAttendance().decideVisit(type: "visit", userId: UserDefaults.standard.value(forKey: "user_id") as! Int, lessonId: self.baseView[indexPath.section].lessons[indexPath.row].lessonId)
+                cell.favoritePair.image = UIImage(named: "highlightedStar")
+                var numberOfPeople = Int(cell.numberOfPeople.text!)
+                numberOfPeople = numberOfPeople! + 1
+                cell.numberOfPeople.text = String(numberOfPeople!)
+            }
             
         }
         let cancelAction = UIAlertAction(title: "Нет", style: UIAlertActionStyle.cancel) {
             UIAlertAction in
             NSLog("Cancel Pressed")
-            DecideAttendance().decideVisit(type: "slack", userId: UserDefaults.standard.value(forKey: "user_id") as! Int, lessonId: self.baseView[indexPath.section].lessons[indexPath.row].lessonId)
-            
-            self.scheduleController?.tableView.deselectRow(at: indexPath as IndexPath, animated: true)
+
             let cell = self.scheduleController?.tableView.cellForRow(at: indexPath) as! ScheduleTableViewCell
-            var numberOfPeople = Int(cell.numberOfPeople.text!)
-            if numberOfPeople != 0{
+            
+            if cell.favoritePair.image == UIImage(named: "highlightedStar"){
+                DecideAttendance().decideVisit(type: "slack", userId: UserDefaults.standard.value(forKey: "user_id") as! Int, lessonId: self.baseView[indexPath.section].lessons[indexPath.row].lessonId)
+                
+                cell.favoritePair.image = UIImage(named: "emptyStar")
+                var numberOfPeople = Int(cell.numberOfPeople.text!)
                 numberOfPeople = numberOfPeople! - 1
                 cell.numberOfPeople.text = String(numberOfPeople!)
             }
+            
 
             
         }
@@ -193,10 +199,11 @@ class SchedulePresenter : BasePresenter,  UITableViewDataSource, UITableViewDele
                 cell.typePair.image = baseView[indexPath.section].lessons[indexPath.row].typePair
                 cell.timeFinish.text = baseView[indexPath.section].lessons[indexPath.row].timeFinish
                 cell.timeStart.text = baseView[indexPath.section].lessons[indexPath.row].timeStart
+                cell.favoritePair.image = UIImage(named: "emptyStar")
         
         for lessonId in visitLesson {
             if baseView[indexPath.section].lessons[indexPath.row].lessonId == lessonId {
-                self.scheduleController?.tableView.selectRow(at: indexPath, animated: true, scrollPosition: UITableViewScrollPosition.middle)
+                cell.favoritePair.image = UIImage(named: "highlightedStar")
             }
         }
         

@@ -9,7 +9,7 @@
 import Foundation
 import RxSwift
 
-public class VisitLessonInteractor {
+class VisitLessonInteractor {
     
     var visitLessonDataRepository = VisitLessonDataRepository()
     

@@ -10,6 +10,6 @@ import Foundation
 
 import RxSwift
 
-public protocol VisitLessonRepository {
+protocol VisitLessonRepository {
     func getAllVisitLesson(email: String, firstName: String, lastName: String) -> Observable<Int>
 }

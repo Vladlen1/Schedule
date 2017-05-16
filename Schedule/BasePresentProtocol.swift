@@ -8,7 +8,7 @@
 
 import Foundation
 
-public protocol BasePresenterProtocol {
+protocol BasePresenterProtocol {
     func viewWillAppear(_ animated: Bool)
     func viewDidAppear(_ animated: Bool)
     func viewWillDisappear(_ animated: Bool)

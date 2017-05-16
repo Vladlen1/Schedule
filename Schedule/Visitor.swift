@@ -9,7 +9,7 @@
 import Foundation
 
 
-public class Visitor{
+class Visitor{
     
     let email: String
     let firstName: String

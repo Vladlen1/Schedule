@@ -9,7 +9,7 @@
 import Foundation
 
 
-public class ScheduleMapper{
+class ScheduleMapper{
     
     func tranformScheduleObject(schedules: [Schedule]) -> [ScheduleViewModel]{
         

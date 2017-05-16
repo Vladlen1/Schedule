@@ -13,6 +13,7 @@ class ScheduleView: BaseView{
     
     override func viewDidLoad() {
         self.basePresenter = presenter
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {

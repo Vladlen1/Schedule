@@ -17,7 +17,7 @@ class ScheduleGroup: Object{
     dynamic var acrivite = false
 }
 
-public class UserSchedule {
+class UserSchedule {
     let email: String
     let groupNumber: String
     let idGroup: Int

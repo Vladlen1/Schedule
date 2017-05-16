@@ -9,7 +9,7 @@
 import Foundation
 import SwiftyVK
 
-public class TransformJson{
+class TransformJson{
     
     func transformJsonScheduleObject(json: Any, subgroup: String) -> [Schedule]{
         let json = JSON(json)
@@ -47,6 +47,24 @@ public class TransformJson{
             visitArr.append(visit.int!)
         }
         return visitArr
+    }
+    
+    func transformJsonFacultyData(json: Any) -> [FacultyGroup]{
+        let json = JSON(json)
+        var facultyArr = [FacultyGroup]()
+        
+        for (_, subJson):(String, JSON) in json["results"] {
+            for (_, facultyName):(String, JSON) in subJson["faculties"] {
+//                faculty.append(facultyName["name"].string!)
+                var groupList = [Group]()
+                for (_, groupNumber):(String, JSON) in facultyName["groups"] {
+                    groupList.append(Group(number: groupNumber["name"].string, id: groupNumber["id"].int))
+                }
+                facultyArr.append(FacultyGroup(nameFaculty: facultyName["name"].string!, groupArr: groupList.sorted{(s1: Group, s2: Group) -> Bool in return Int(s1.groupNumber!)! < Int(s2.groupNumber!)!} ))
+
+            }
+        }
+        return facultyArr
     }
 
 }

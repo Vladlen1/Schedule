@@ -21,6 +21,7 @@ class ScheduleController: BaseViewController, UIGestureRecognizerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.schedulePresenter.scheduleController = self
         self.baseViews = [self.scheduleView]
         self.scheduleView.viewDidLoad()
@@ -30,7 +31,3 @@ class ScheduleController: BaseViewController, UIGestureRecognizerDelegate {
     
 }
 
-
-//extension ScheduleController: UITextFieldDelegate, UIGestureRecognizerDelegate{
-//
-//}

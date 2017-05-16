@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class ScheduleViewModel {
+class ScheduleViewModel {
     
     let date: String
     let lessons: [LessonViewModel]
@@ -20,7 +20,7 @@ public class ScheduleViewModel {
 }
 
 
-public class LessonViewModel {
+class LessonViewModel {
     let nameSubject: String
     let typePair: UIImage
     let numberOfPeople: String?

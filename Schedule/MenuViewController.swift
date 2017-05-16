@@ -11,14 +11,8 @@ import RealmSwift
 
 class MenuViewController: BaseViewController {
     
-    let vkDelegate = SwiftyVKDataManager.sharedInstance
-//    private var emailUser = UserDefaults.standard.value(forKey: "email") as! String
-
-    let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
     let menuPresenter = MenuPresenter()
 
-    @IBOutlet weak var userName: UILabel!
-    @IBOutlet weak var groupNumber: UILabel!
     @IBOutlet weak var menuView: MenuView!
     
 
@@ -26,7 +20,6 @@ class MenuViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        menuPresenter.load()
         self.menuPresenter.menuController = self
         
         self.baseViews = [self.menuView]
@@ -35,17 +28,7 @@ class MenuViewController: BaseViewController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
-//        let firstName = UserDefaults.standard.value(forKey: "user_first_name") as! String
-//        let lastName = UserDefaults.standard.value(forKey: "user_last_name") as! String
-//        userName.text = lastName + " " + firstName
-//        
-//        let schedules = try! Realm().objects(ScheduleGroup.self)
-//        for schedule in schedules{
-//            if schedule.acrivite == true && schedule.email == emailUser{
-//                groupNumber.text = "\(schedule.groupNumber)/\(schedule.subGroup)"
-//            }
-//        }
-        
+        super.viewWillAppear(animated)
     }
     
     @IBAction func exitWithAccount(_ sender: UIButton) {

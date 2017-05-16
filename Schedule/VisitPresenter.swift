@@ -7,10 +7,11 @@
 //
 
 import Foundation
+
 class VisitPresenter: BasePresenter, UITableViewDataSource, UITableViewDelegate{
     
-    private var emailUser = UserDefaults.standard.value(forKey: "email") as! String
-    private var activitySectionId = UserDefaults.standard.value(forKey: "activite_section") as! Int
+    let emailUser = UserDefaults.standard.value(forKey: "email") as! String
+    let activitySectionId = UserDefaults.standard.value(forKey: "activite_section") as! Int
 
     
     var baseView = [VisitViewModel]()
@@ -33,7 +34,6 @@ class VisitPresenter: BasePresenter, UITableViewDataSource, UITableViewDelegate{
     }
     
     func handleRefresh(_ refreshControl: UIRefreshControl) {
-        print("kek")
         getScheduleMapperInform()
         self.visitController?.tableView.reloadData()
         refreshControl.endRefreshing()

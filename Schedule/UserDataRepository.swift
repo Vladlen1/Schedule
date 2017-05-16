@@ -9,10 +9,10 @@
 import Foundation
 import RxSwift
 
-public class UserDataRepository: NSObject, UserRepository{
+class UserDataRepository: NSObject, UserRepository{
     let dataStore = LoadUserImpl()
     
-    public func getAllUserObjects() -> Observable<UserSchedule> {
+    func getAllUserObjects() -> Observable<UserSchedule> {
         return self.dataStore.getUserObject()
     }
 

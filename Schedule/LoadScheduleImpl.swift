@@ -10,8 +10,8 @@ import Foundation
 import RxSwift
 import Alamofire
 
-public class LoadScheduleImpl : LoadSchedule {
-    public func getScheduleObject(date : String, groupID : String, subgroup: String) -> Observable<[Schedule]> {
+class LoadScheduleImpl : LoadSchedule {
+    func getScheduleObject(date : String, groupID : String, subgroup: String) -> Observable<[Schedule]> {
         return Observable<[Schedule]>.create { (observer) -> Disposable in
             let alamofireRequest = Alamofire.request("https://schedule-api-v1.herokuapp.com/api/schedule/?date_from=\(date)&date_to=2017-05-26&group_id=\(groupID)").validate().responseJSON { response in
                 switch response.result {

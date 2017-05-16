@@ -9,7 +9,7 @@
 import Foundation
 import RxSwift
 
-public class ScheduleInteractor {
+class ScheduleInteractor {
     
     var scheduleRepositiory = ScheduleDataRepository()
     

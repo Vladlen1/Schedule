@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class VisitViewModel {
+class VisitViewModel {
     
     let firstName : String
     let lastName : String
