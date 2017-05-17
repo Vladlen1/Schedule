@@ -24,7 +24,6 @@
 		8E50F75E1E9E38E3000DC803 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8E50F75D1E9E38E3000DC803 /* GoogleService-Info.plist */; };
 		8E5229F41ECACE8E003B8424 /* GroupTablePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5229F31ECACE8E003B8424 /* GroupTablePresenter.swift */; };
 		8E5229FA1ECAE7C8003B8424 /* AddSchedulePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5229F91ECAE7C8003B8424 /* AddSchedulePresenter.swift */; };
-		8E5229FE1ECAEF34003B8424 /* AddScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5229FD1ECAEF34003B8424 /* AddScheduleView.swift */; };
 		8E522A011ECAF7F3003B8424 /* UniversityGroupRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E522A001ECAF7F3003B8424 /* UniversityGroupRepository.swift */; };
 		8E522A031ECAF84F003B8424 /* UniversitySchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E522A021ECAF84F003B8424 /* UniversitySchedule.swift */; };
 		8E522A051ECAFA23003B8424 /* UniversityGroupDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E522A041ECAFA23003B8424 /* UniversityGroupDataRepository.swift */; };
@@ -43,8 +42,6 @@
 		8E651EFA1E95001F000A4440 /* SwiftVKDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E651EF91E95001F000A4440 /* SwiftVKDelegate.swift */; };
 		8E651EFE1E952329000A4440 /* AuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E651EFD1E952329000A4440 /* AuthenticationViewController.swift */; };
 		8E651F001E9529CF000A4440 /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E651EFF1E9529CF000A4440 /* Animation.swift */; };
-		8E86C8F91EAF4AF30057FF00 /* LoadDataForUniversityGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E86C8F81EAF4AF30057FF00 /* LoadDataForUniversityGroup.swift */; };
-		8E86C8FB1EAF59F10057FF00 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E86C8FA1EAF59F10057FF00 /* Group.swift */; };
 		8E86C8FD1EAF6AFD0057FF00 /* ScheduleGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E86C8FC1EAF6AFD0057FF00 /* ScheduleGroup.swift */; };
 		8E86C8FF1EAF88A40057FF00 /* GroupTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E86C8FE1EAF88A40057FF00 /* GroupTableController.swift */; };
 		8E86C9031EAFB3390057FF00 /* Lesson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E86C9021EAFB3390057FF00 /* Lesson.swift */; };
@@ -96,7 +93,6 @@
 		8E50F75D1E9E38E3000DC803 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8E5229F31ECACE8E003B8424 /* GroupTablePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupTablePresenter.swift; sourceTree = "<group>"; };
 		8E5229F91ECAE7C8003B8424 /* AddSchedulePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddSchedulePresenter.swift; sourceTree = "<group>"; };
-		8E5229FD1ECAEF34003B8424 /* AddScheduleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddScheduleView.swift; sourceTree = "<group>"; };
 		8E522A001ECAF7F3003B8424 /* UniversityGroupRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UniversityGroupRepository.swift; sourceTree = "<group>"; };
 		8E522A021ECAF84F003B8424 /* UniversitySchedule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UniversitySchedule.swift; sourceTree = "<group>"; };
 		8E522A041ECAFA23003B8424 /* UniversityGroupDataRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UniversityGroupDataRepository.swift; sourceTree = "<group>"; };
@@ -119,8 +115,6 @@
 		8E651EFD1E952329000A4440 /* AuthenticationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationViewController.swift; sourceTree = "<group>"; };
 		8E651EFF1E9529CF000A4440 /* Animation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Animation.swift; sourceTree = "<group>"; };
 		8E66114C0AB22C69F095E085 /* Pods-Schedule.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Schedule.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Schedule/Pods-Schedule.debug.xcconfig"; sourceTree = "<group>"; };
-		8E86C8F81EAF4AF30057FF00 /* LoadDataForUniversityGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadDataForUniversityGroup.swift; sourceTree = "<group>"; };
-		8E86C8FA1EAF59F10057FF00 /* Group.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		8E86C8FC1EAF6AFD0057FF00 /* ScheduleGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleGroup.swift; sourceTree = "<group>"; };
 		8E86C8FE1EAF88A40057FF00 /* GroupTableController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupTableController.swift; sourceTree = "<group>"; };
 		8E86C9021EAFB3390057FF00 /* Lesson.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lesson.swift; sourceTree = "<group>"; };
@@ -265,7 +259,6 @@
 		8E0FAC2B1EC5A1CD00871090 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				8E5229FC1ECAEF19003B8424 /* AddSchedule */,
 				8EC0931A1EC9C6BE00C68453 /* Menu */,
 				8EC093101EC9BF7F00C68453 /* Authentication */,
 				8EC092F31EC992E400C68453 /* BaseViewProtocol.swift */,
@@ -335,14 +328,6 @@
 			name = AddSchedule;
 			sourceTree = "<group>";
 		};
-		8E5229FC1ECAEF19003B8424 /* AddSchedule */ = {
-			isa = PBXGroup;
-			children = (
-				8E5229FD1ECAEF34003B8424 /* AddScheduleView.swift */,
-			);
-			name = AddSchedule;
-			sourceTree = "<group>";
-		};
 		8E5229FF1ECAF792003B8424 /* UniversityGroup */ = {
 			isa = PBXGroup;
 			children = (
@@ -382,6 +367,7 @@
 		8E651ED21E94ED01000A4440 = {
 			isa = PBXGroup;
 			children = (
+				8E8ECA031ECC1D67006FDD16 /* Delegate */,
 				8E651EDD1E94ED01000A4440 /* Schedule */,
 				8E651EDC1E94ED01000A4440 /* Products */,
 				1138AF6E967C80493F660862 /* Pods */,
@@ -406,23 +392,13 @@
 				8E0FAC0A1EC594BF00871090 /* Domain */,
 				8E0FAC291EC5A18A00871090 /* Presentation */,
 				8EC092EF1EC98C2700C68453 /* ViewController */,
-				8E651EF21E94EF66000A4440 /* Controller */,
 				8E651EF11E94EF5F000A4440 /* StoryBoard */,
-				8E651EF01E94EF42000A4440 /* Models */,
 				8E651EDE1E94ED01000A4440 /* AppDelegate.swift */,
+				8E651EF91E95001F000A4440 /* SwiftVKDelegate.swift */,
 				8E50F75D1E9E38E3000DC803 /* GoogleService-Info.plist */,
 				8E651EEA1E94ED01000A4440 /* Info.plist */,
-				8E651EF91E95001F000A4440 /* SwiftVKDelegate.swift */,
 			);
 			path = Schedule;
-			sourceTree = "<group>";
-		};
-		8E651EF01E94EF42000A4440 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				8E86C8FA1EAF59F10057FF00 /* Group.swift */,
-			);
-			name = Models;
 			sourceTree = "<group>";
 		};
 		8E651EF11E94EF5F000A4440 /* StoryBoard */ = {
@@ -435,12 +411,11 @@
 			name = StoryBoard;
 			sourceTree = "<group>";
 		};
-		8E651EF21E94EF66000A4440 /* Controller */ = {
+		8E8ECA031ECC1D67006FDD16 /* Delegate */ = {
 			isa = PBXGroup;
 			children = (
-				8E86C8F81EAF4AF30057FF00 /* LoadDataForUniversityGroup.swift */,
 			);
-			name = Controller;
+			name = Delegate;
 			sourceTree = "<group>";
 		};
 		8EC092EE1EC977EE00C68453 /* Animation */ = {
@@ -771,14 +746,12 @@
 				8E3123E51EA55B9600B300B6 /* ScheduleTableViewCell.swift in Sources */,
 				8EC0931D1EC9C73100C68453 /* MenuPresenter.swift in Sources */,
 				8E63548D1EA12248008A30F7 /* SWRevealViewController.m in Sources */,
-				8E86C8FB1EAF59F10057FF00 /* Group.swift in Sources */,
 				8EC092F61EC9980B00C68453 /* BaseViewController.swift in Sources */,
 				8E0FAC111EC5983E00871090 /* Schedule.swift in Sources */,
 				8E5C87611EA930CA0062B58F /* GroupTableViewCell.swift in Sources */,
 				8E5C875F1EA92DFF0062B58F /* CustomStudentCell.swift in Sources */,
 				8E332C1C1EB0EE410085ADAB /* Visitor.swift in Sources */,
 				8EC093301EC9E69C00C68453 /* DecideAttendance .swift in Sources */,
-				8E5229FE1ECAEF34003B8424 /* AddScheduleView.swift in Sources */,
 				8E651EFA1E95001F000A4440 /* SwiftVKDelegate.swift in Sources */,
 				8E0FAC091EC593C300871090 /* LoadSchedule.swift in Sources */,
 				8E0FAC2D1EC5A1EC00871090 /* BasePresentProtocol.swift in Sources */,
@@ -811,7 +784,6 @@
 				8E651EFE1E952329000A4440 /* AuthenticationViewController.swift in Sources */,
 				8EC093251EC9D9D300C68453 /* VisitLessonDataRepository.swift in Sources */,
 				8EC0933A1ECA0A7200C68453 /* VisitMapper.swift in Sources */,
-				8E86C8F91EAF4AF30057FF00 /* LoadDataForUniversityGroup.swift in Sources */,
 				8EC093281EC9DA4D00C68453 /* LoadVisitLesson.swift in Sources */,
 				8E3657241EC5F61300D10187 /* ScheduleViewModel.swift in Sources */,
 				8EC0932A1EC9DA8000C68453 /* LoadVisitLessonImg.swift in Sources */,
