@@ -41,12 +41,12 @@ class SchedulePresenter : BasePresenter,  UITableViewDataSource, UITableViewDele
         self.scheduleController?.tableView.dataSource = self
 
         getUser()
+        getInformVisitLessons()
         getScheduleMapperInform()
         settingLongPress()
         settingRevealViewController()
         
-        getInformVisitLessons()
-                 print(Realm.Configuration.defaultConfiguration.fileURL!)
+        //print(Realm.Configuration.defaultConfiguration.fileURL!)
     }
     
     

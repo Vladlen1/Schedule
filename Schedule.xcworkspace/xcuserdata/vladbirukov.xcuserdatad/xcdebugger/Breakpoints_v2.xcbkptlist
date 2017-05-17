@@ -1157,11 +1157,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Schedule/AddSchedulePresenter.swift"
-            timestampString = "516701361.01763"
+            timestampString = "516706968.954214"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "109"
-            endingLineNumber = "109"
+            startingLineNumber = "110"
+            endingLineNumber = "110"
             landmarkName = "textFieldDidBeginEditing(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1173,27 +1173,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Schedule/AddSchedulePresenter.swift"
-            timestampString = "516701647.372863"
+            timestampString = "516706968.954214"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "113"
-            endingLineNumber = "113"
-            landmarkName = "textFieldDidBeginEditing(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Schedule/AddSchedulePresenter.swift"
-            timestampString = "516704437.801197"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "220"
-            endingLineNumber = "220"
+            startingLineNumber = "222"
+            endingLineNumber = "222"
             landmarkName = "getIdGroup()"
             landmarkType = "7">
          </BreakpointContent>

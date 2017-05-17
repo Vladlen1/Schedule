@@ -85,6 +85,7 @@ class AddSchedulePresenter: BasePresenter, UITableViewDelegate,UIPickerViewDataS
             self.addScheduleController?.university.text = pickerArr[row]
         } else if currentTag == 2{
             self.addScheduleController?.faculty.text = pickerArr[row]
+            self.addScheduleController?.group.text = ""
         } else if currentTag == 3{
             self.addScheduleController?.group.text = pickerArr[row]
         } else if currentTag == 4{
@@ -110,19 +111,7 @@ class AddSchedulePresenter: BasePresenter, UITableViewDelegate,UIPickerViewDataS
         } else if textField.tag == 2{
             currentTag = 2
             
-            if self.addScheduleController?.group.text != ""{
-                for faculty in facultyGroup{
-                    for group in faculty.groupArr{
-                        if group.groupNumber == self.addScheduleController?.group.text{
-                            self.pickerArr = [faculty.nameFaculty]
-                            break
-                        }
-                    }
-                }
-            }else{
-                self.pickerArr = nameFaculty
-            }
-
+            self.pickerArr = nameFaculty
             pickerView.reloadAllComponents()
         } else if textField.tag == 3{
             currentTag = 3
