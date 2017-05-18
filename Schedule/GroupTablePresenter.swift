@@ -10,7 +10,7 @@ import Foundation
 import RealmSwift
 import RxSwift
 
-class GroupTablePresenter: BasePresenter, UITableViewDataSource, UITableViewDelegate{
+class GroupTablePresenter: BasePresenter, UITableViewDataSource, UITableViewDelegate {
     
     let emailUser = UserDefaults.standard.value(forKey: "email") as! String
     var listUser = [UserSchedule]()
@@ -28,8 +28,7 @@ class GroupTablePresenter: BasePresenter, UITableViewDataSource, UITableViewDele
         getGroupUser()
     }
     
-    
-    private func getUser(){
+    private func getUser() {
         let _ = UserInteractor().exute().subscribe(onNext: {obj in
             self.listUser.append(obj)
         }, onError: {error in
@@ -41,19 +40,17 @@ class GroupTablePresenter: BasePresenter, UITableViewDataSource, UITableViewDele
     
     }
     
-    private func getGroupUser(){
+    private func getGroupUser() {
         getUser()
         for user in listUser{
             if user.email == emailUser{
                 self.listGroupUser.append(user)
             }
         }
-        
     }
+    
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
         return listGroupUser.count
-        
     }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -65,10 +62,9 @@ class GroupTablePresenter: BasePresenter, UITableViewDataSource, UITableViewDele
     }
     
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
         let schedules = try! Realm().objects(ScheduleGroup.self)
-        for schedule in schedules{
-            if schedule.acrivite == true && schedule.email == emailUser{
+        for schedule in schedules {
+            if schedule.acrivite == true && schedule.email == emailUser {
                 try! realm.write {
                     schedule.acrivite = false
                 }
@@ -80,7 +76,7 @@ class GroupTablePresenter: BasePresenter, UITableViewDataSource, UITableViewDele
             group[indexPath.row].acrivite = true
         }
         
-        let vc = self.groupController?.storyboard?.instantiateViewController(withIdentifier: "TableViewController")
+        let vc = self.groupController?.storyboard?.instantiateViewController(withIdentifier: "SWRevealViewController")
         self.groupController?.present(vc!, animated: true, completion: nil)
         
             tableView.deselectRow(at: indexPath as IndexPath, animated: true)
@@ -99,24 +95,21 @@ class GroupTablePresenter: BasePresenter, UITableViewDataSource, UITableViewDele
         }
         
         let groupActive = self.realm.objects(ScheduleGroup.self).filter("acrivite == true").filter("email == %@", self.emailUser)
-        if groupActive.count == 0{
-                let group = self.realm.objects(ScheduleGroup.self).filter("email == %@", self.emailUser).first
-                try! self.realm.write {
-                    group?.acrivite = true
-                }
+        if groupActive.count == 0 {
+            let group = self.realm.objects(ScheduleGroup.self).filter("email == %@", self.emailUser).first
+            try! self.realm.write {
+                group?.acrivite = true
+            }
         }
         
         self.groupController?.tableView.deleteRows(at: [indexPath], with: .fade)
         self.groupController?.tableView.reloadData()
         })
             return [deleteAction]
-        }
+    }
 
-    
-    func cancel(){
-        let vc = self.groupController?.storyboard?.instantiateViewController(withIdentifier: "TableViewController")
+    func cancel() {
+        let vc = self.groupController?.storyboard?.instantiateViewController(withIdentifier: "SWRevealViewController")
         self.groupController?.present(vc!, animated: true, completion: nil)
     }
-    
-
 }

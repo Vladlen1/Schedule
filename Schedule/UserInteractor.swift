@@ -15,5 +15,4 @@ class UserInteractor {
     func exute() ->  Observable<UserSchedule> {
         return userRepository.getAllUserObjects()
     }
-    
 }

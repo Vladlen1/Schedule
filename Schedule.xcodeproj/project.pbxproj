@@ -259,11 +259,11 @@
 		8E0FAC2B1EC5A1CD00871090 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				8EC092F01EC98C8100C68453 /* Schedule */,
 				8EC0931A1EC9C6BE00C68453 /* Menu */,
 				8EC093101EC9BF7F00C68453 /* Authentication */,
 				8EC092F31EC992E400C68453 /* BaseViewProtocol.swift */,
 				8EC092F71EC99B0600C68453 /* BaseView.swift */,
-				8EC092F01EC98C8100C68453 /* Schedule */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -275,6 +275,15 @@
 				8E3123E41EA55B9600B300B6 /* ScheduleTableViewCell.swift */,
 			);
 			name = ScheduleController;
+			sourceTree = "<group>";
+		};
+		8E30CDA21ECC8F9F00DB318F /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				8E651EF91E95001F000A4440 /* SwiftVKDelegate.swift */,
+				8E651EDE1E94ED01000A4440 /* AppDelegate.swift */,
+			);
+			name = Delegate;
 			sourceTree = "<group>";
 		};
 		8E36571F1EC5F15A00D10187 /* Mapper */ = {
@@ -367,7 +376,6 @@
 		8E651ED21E94ED01000A4440 = {
 			isa = PBXGroup;
 			children = (
-				8E8ECA031ECC1D67006FDD16 /* Delegate */,
 				8E651EDD1E94ED01000A4440 /* Schedule */,
 				8E651EDC1E94ED01000A4440 /* Products */,
 				1138AF6E967C80493F660862 /* Pods */,
@@ -386,6 +394,7 @@
 		8E651EDD1E94ED01000A4440 /* Schedule */ = {
 			isa = PBXGroup;
 			children = (
+				8E30CDA21ECC8F9F00DB318F /* Delegate */,
 				8E63548B1EA12231008A30F7 /* SWRevealViewController */,
 				8EC092EE1EC977EE00C68453 /* Animation */,
 				8E0FAC031EC5916200871090 /* Data */,
@@ -393,8 +402,6 @@
 				8E0FAC291EC5A18A00871090 /* Presentation */,
 				8EC092EF1EC98C2700C68453 /* ViewController */,
 				8E651EF11E94EF5F000A4440 /* StoryBoard */,
-				8E651EDE1E94ED01000A4440 /* AppDelegate.swift */,
-				8E651EF91E95001F000A4440 /* SwiftVKDelegate.swift */,
 				8E50F75D1E9E38E3000DC803 /* GoogleService-Info.plist */,
 				8E651EEA1E94ED01000A4440 /* Info.plist */,
 			);
@@ -409,13 +416,6 @@
 				8E5C875A1EA92C3A0062B58F /* Assets.xcassets */,
 			);
 			name = StoryBoard;
-			sourceTree = "<group>";
-		};
-		8E8ECA031ECC1D67006FDD16 /* Delegate */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Delegate;
 			sourceTree = "<group>";
 		};
 		8EC092EE1EC977EE00C68453 /* Animation */ = {

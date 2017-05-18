@@ -9,6 +9,6 @@
 import Foundation
 import RxSwift
 
-protocol LoadFacultyData{
+protocol LoadFacultyData {
     func getFacultyData() -> Observable<FacultyGroup>
 }

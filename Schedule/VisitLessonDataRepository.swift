@@ -9,7 +9,7 @@
 import Foundation
 import RxSwift
 
-class VisitLessonDataRepository: NSObject, VisitLessonRepository{
+class VisitLessonDataRepository: NSObject, VisitLessonRepository {
     let dataStore = LoadVisitLessonImpl()
     
     func getAllVisitLesson(email: String, firstName: String, lastName: String) -> Observable<Int> {

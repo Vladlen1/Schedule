@@ -9,8 +9,7 @@
 import Foundation
 
 
-class Visitor{
-    
+class Visitor {
     let email: String
     let firstName: String
     let lastName: String
@@ -21,8 +20,5 @@ class Visitor{
         self.firstName = firstName
         self.lastName = lastName
         self.userId = userId
- 
     }
-    
-    
 }

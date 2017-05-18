@@ -26,8 +26,6 @@ class ScheduleController: BaseViewController, UIGestureRecognizerDelegate {
         self.baseViews = [self.scheduleView]
         self.scheduleView.viewDidLoad()
         schedulePresenter.load()
-
     }
-    
 }
 

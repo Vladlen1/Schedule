@@ -25,12 +25,4 @@ class VisitStudentController: BaseViewController{
         visitPresenter.load()
     }
     
-    @IBAction func cancel(_ sender: Any) {
-        visitPresenter.cancel()
-    }
-    
-    override var prefersStatusBarHidden: Bool {
-        return true
-    }
-
 }

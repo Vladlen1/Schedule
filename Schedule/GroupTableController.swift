@@ -24,15 +24,7 @@ class GroupTableController: BaseViewController {
         
     }
     
-
-    
     @IBAction func Cancel(_ sender: UIBarButtonItem) {
         groupTablePresenter.cancel()
     }
-    
-    
-    override var prefersStatusBarHidden: Bool {
-        return true
-    }
-
 }

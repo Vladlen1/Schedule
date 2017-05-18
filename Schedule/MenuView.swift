@@ -8,7 +8,7 @@
 
 import Foundation
 
-class MenuView: BaseView{
+class MenuView: BaseView {
     var presenter = MenuPresenter()
     
     @IBOutlet weak var userName: UILabel!
@@ -17,12 +17,10 @@ class MenuView: BaseView{
     override func viewDidLoad() {
         self.basePresenter = presenter
         presenter.viewToDraw = self
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-
     }
     
     func setUserNameString(userName : String) {

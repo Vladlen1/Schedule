@@ -26,14 +26,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         GIDSignIn.sharedInstance().delegate = self
         
         
-        if !(checkAuthorizationUser())
-        {
+        if !(checkAuthorizationUser()) {
             let mainController = storyboard.instantiateViewController(withIdentifier: "RegistrationController")
             self.window?.rootViewController = mainController
-        }
-        else
-        {
-            let altController = storyboard.instantiateViewController(withIdentifier: "TableViewController")
+        } else {
+            let altController = storyboard.instantiateViewController(withIdentifier: "SWRevealViewController")
             self.window?.rootViewController = altController
         }
 
@@ -42,10 +39,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         return true
     }
     
-    private func checkAuthorizationUser() -> Bool{
+    private func checkAuthorizationUser() -> Bool {
         if vkDelegate.vkStatus() != .authorized && !GIDSignIn.sharedInstance().hasAuthInKeychain() {
             return false
-        }else{
+        } else {
             return true
         }
     }
@@ -68,7 +65,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
             let lastName = user.profile.familyName
             let firstName = user.profile.givenName
             
-            
             print(lastName!)
             print(firstName!)
             print(email!)
@@ -78,7 +74,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
             UserDefaults.standard.setValue(email, forKey: "email")
 
             
-            let altController = storyboard.instantiateViewController(withIdentifier: "TableViewController")
+            let altController = storyboard.instantiateViewController(withIdentifier: "SWRevealViewController")
             self.window?.rootViewController = altController
             
         } else {

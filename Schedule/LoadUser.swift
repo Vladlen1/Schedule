@@ -9,6 +9,6 @@
 import Foundation
 import RxSwift
 
-protocol LoadUser{
+protocol LoadUser {
     func getUserObject() -> Observable<UserSchedule>
 }

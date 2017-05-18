@@ -26,15 +26,14 @@ class AddSchedulePresenter: BasePresenter, UITableViewDelegate,UIPickerViewDataS
     let animation = Animation()
 
     
-    func load(){
-        
+    func load() {
         settingTextField()
         settingPickerView()
 
         facultyGroupData()
     }
     
-    private func settingTextField(){
+    private func settingTextField() {
         
         self.addScheduleController?.university.tag = 1
         self.addScheduleController?.faculty.tag = 2
@@ -47,7 +46,7 @@ class AddSchedulePresenter: BasePresenter, UITableViewDelegate,UIPickerViewDataS
         self.addScheduleController?.subgroup.delegate = self
     }
     
-    private func settingPickerView(){
+    private func settingPickerView() {
         self.pickerView.delegate = self
         self.pickerView.dataSource = self
         
@@ -57,14 +56,16 @@ class AddSchedulePresenter: BasePresenter, UITableViewDelegate,UIPickerViewDataS
         self.addScheduleController?.subgroup.inputView = pickerView
     }
     
-    private func facultyGroupData(){
+    private func facultyGroupData() {
         let _ = UniversityGroupInteractor().exute().subscribe(onNext: {obj in
             self.facultyGroup.append(obj)
             self.nameFaculty.append(obj.nameFaculty)
             self.nameGroup.append(obj.groupArr)
         }, onError: {error in
         }, onCompleted: {
-            print("Complete")
+            DispatchQueue.main.async {
+                self.pickerView.reloadAllComponents()
+            }
         }, onDisposed: {
             
         }).addDisposableTo(self.disposeBag)
@@ -81,14 +82,14 @@ class AddSchedulePresenter: BasePresenter, UITableViewDelegate,UIPickerViewDataS
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
 
-        if currentTag == 1{
+        if currentTag == 1 {
             self.addScheduleController?.university.text = pickerArr[row]
-        } else if currentTag == 2{
+        } else if currentTag == 2 {
             self.addScheduleController?.faculty.text = pickerArr[row]
             self.addScheduleController?.group.text = ""
-        } else if currentTag == 3{
+        } else if currentTag == 3 {
             self.addScheduleController?.group.text = pickerArr[row]
-        } else if currentTag == 4{
+        } else if currentTag == 4 {
             self.addScheduleController?.subgroup.text = pickerArr[row]
         }
         self.addScheduleController?.view.endEditing(true)
@@ -108,32 +109,32 @@ class AddSchedulePresenter: BasePresenter, UITableViewDelegate,UIPickerViewDataS
             
             self.pickerArr = nameUniversity
             pickerView.reloadAllComponents()
-        } else if textField.tag == 2{
+        } else if textField.tag == 2 {
             currentTag = 2
             
             self.pickerArr = nameFaculty
             pickerView.reloadAllComponents()
-        } else if textField.tag == 3{
+        } else if textField.tag == 3 {
             currentTag = 3
             
-            if self.addScheduleController?.faculty.text != ""{
+            if self.addScheduleController?.faculty.text != "" {
                 for faculty in facultyGroup{
-                    if faculty.nameFaculty == self.addScheduleController?.faculty.text{
-                        for group in faculty.groupArr{
+                    if faculty.nameFaculty == self.addScheduleController?.faculty.text {
+                        for group in faculty.groupArr {
                             self.pickerArr.append(group.groupNumber!)
                         }
                     }
                 }
 
-            }else{
-                for groupFaculty in nameGroup{
-                    for group in groupFaculty{
+            } else {
+                for groupFaculty in nameGroup {
+                    for group in groupFaculty {
                         self.pickerArr.append(group.groupNumber!)
                     }
                 }
             }
             pickerView.reloadAllComponents()
-        }else if textField.tag == 4{
+        } else if textField.tag == 4 {
             currentTag = 4
             
             self.pickerArr = nameSubGroup
@@ -194,14 +195,14 @@ class AddSchedulePresenter: BasePresenter, UITableViewDelegate,UIPickerViewDataS
     
     func addNewSchedule(){
         if validateFields() {
-            if (addSchedule()){
-                let vc = self.addScheduleController?.storyboard?.instantiateViewController(withIdentifier: "TableViewController")
+            if (addSchedule()) {
+                let vc = self.addScheduleController?.storyboard?.instantiateViewController(withIdentifier: "SWRevealViewController")
                 self.addScheduleController?.present(vc!, animated: true, completion: nil)
             }
         }
     }
     
-    private func getIdGroup() -> Int{
+    private func getIdGroup() -> Int {
         var idGroup = 0
         for groups in nameGroup{
             for group in groups{
@@ -214,9 +215,8 @@ class AddSchedulePresenter: BasePresenter, UITableViewDelegate,UIPickerViewDataS
         return idGroup
     }
     
-    func cancel(){
-        let vc = self.addScheduleController?.storyboard?.instantiateViewController(withIdentifier: "TableViewController")
+    func cancel() {
+        let vc = self.addScheduleController?.storyboard?.instantiateViewController(withIdentifier: "SWRevealViewController")
         self.addScheduleController?.present(vc!, animated: true, completion: nil)
     }
-
 }

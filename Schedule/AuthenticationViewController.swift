@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AuthenticationViewController: BaseViewController, GIDSignInUIDelegate{
+class AuthenticationViewController: BaseViewController, GIDSignInUIDelegate {
 
     let authenticationPresenter = AuthenticationPresenter()
     

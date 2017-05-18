@@ -8,7 +8,7 @@
 
 import Foundation
 
-class MenuPresenter: BasePresenter{
+class MenuPresenter: BasePresenter {
     
     let emailUser = UserDefaults.standard.value(forKey: "email") as! String
     let firstName = UserDefaults.standard.value(forKey: "user_first_name") as! String
@@ -22,7 +22,7 @@ class MenuPresenter: BasePresenter{
     var menuController: MenuViewController?
     
     
-    func getUserInform(userName: String, numberGroup: String){
+    func getUserInform(userName: String, numberGroup: String) {
             self.viewToDraw?.setNumberGroupString(numberGroup: numberGroup)
             self.viewToDraw?.setUserNameString(userName: userName)
     
@@ -33,10 +33,10 @@ class MenuPresenter: BasePresenter{
         self.getUserInform(userName: lastName + " " + firstName, numberGroup: getCurrentUserGroup())
     }
     
-    private func getCurrentUserGroup() -> String{
+    private func getCurrentUserGroup() -> String {
         var groupNumber = ""
         getUser()
-        for user in userArr{
+        for user in userArr {
             if user.email == emailUser && user.activite == true {
                 groupNumber = user.groupNumber + "/" + user.subgroup
             }
@@ -45,7 +45,7 @@ class MenuPresenter: BasePresenter{
         
     }
     
-    private func getUser(){
+    private func getUser() {
         let _ = UserInteractor().exute().subscribe(onNext: {obj in
             self.userArr.append(obj)
         }, onError: {error in
@@ -64,19 +64,18 @@ class MenuPresenter: BasePresenter{
             self.menuController?.present(nextViewController, animated:true, completion:nil)
 
         }
-        if GIDSignIn.sharedInstance().hasAuthInKeychain(){
+        
+        if GIDSignIn.sharedInstance().hasAuthInKeychain() {
             GIDSignIn.sharedInstance().signOut()
             
             let nextViewController = self.menuController?.storyboard?.instantiateViewController(withIdentifier: "RegistrationController") as! AuthenticationViewController
             self.menuController?.present(nextViewController, animated:true, completion:nil)
-            
         }
     }
     
     func newGroup() {
         let nextViewController = self.menuController?.storyboard?.instantiateViewController(withIdentifier: "AddScheduleController") as! AddScheduleController
         self.menuController?.present(nextViewController, animated:true, completion:nil)
-        
     }
     
     func changeGroup() {

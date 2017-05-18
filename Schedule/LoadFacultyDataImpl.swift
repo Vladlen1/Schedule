@@ -10,8 +10,8 @@ import Foundation
 import RxSwift
 import Alamofire
 
-class LoadFacultyDataImpl: LoadFacultyData{
-    func getFacultyData() -> Observable<FacultyGroup>{
+class LoadFacultyDataImpl: LoadFacultyData {
+    func getFacultyData() -> Observable<FacultyGroup> {
         return Observable<FacultyGroup>.create { (observer) -> Disposable in
             let alamofireRequest = Alamofire.request("https://schedule-api-v1.herokuapp.com/api/university/").responseJSON { response in
                 switch response.result {
@@ -22,7 +22,7 @@ class LoadFacultyDataImpl: LoadFacultyData{
                             observer.onNext(faculty)
                         }
                         observer.onCompleted()
-                    }else {
+                    } else {
                         observer.onCompleted()
                     }
                 case .failure(let error):
@@ -36,7 +36,6 @@ class LoadFacultyDataImpl: LoadFacultyData{
                 alamofireRequest.cancel()
             }
     
-    }
-
+        }
     }
 }

@@ -9,9 +9,9 @@
 import Foundation
 
 
-class ScheduleMapper{
+class ScheduleMapper {
     
-    func tranformScheduleObject(schedules: [Schedule]) -> [ScheduleViewModel]{
+    func tranformScheduleObject(schedules: [Schedule]) -> [ScheduleViewModel] {
         
         var resultArrSchedule = [ScheduleViewModel]()
         

@@ -9,7 +9,7 @@
 import Foundation
 import RealmSwift
 
-class ScheduleGroup: Object{
+class ScheduleGroup: Object {
     dynamic var email = ""
     dynamic var groupNumber = ""
     dynamic var idGroup = 1

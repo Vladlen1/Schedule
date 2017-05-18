@@ -19,7 +19,6 @@ class FacultyGroup {
 }
 
 class Group{
-    
     let groupNumber: String?
     let groupId: Int?
     

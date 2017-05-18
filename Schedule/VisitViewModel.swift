@@ -9,7 +9,6 @@
 import Foundation
 
 class VisitViewModel {
-    
     let firstName : String
     let lastName : String
     

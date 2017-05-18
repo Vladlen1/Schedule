@@ -22,7 +22,7 @@ class LoadVisitLessonImpl : LoadVisitLesson {
                             observer.onNext(visitLesson)
                         }
                         observer.onCompleted()
-                    }else {
+                    } else {
                         observer.onCompleted()
                     }
                 case .failure(let error):
@@ -36,8 +36,5 @@ class LoadVisitLessonImpl : LoadVisitLesson {
                 alamofireRequest.cancel()
             }
         }
-
     }
-
-    
 }

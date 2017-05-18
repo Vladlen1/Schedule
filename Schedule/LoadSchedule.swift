@@ -9,6 +9,6 @@
 import Foundation
 import RxSwift
 
-protocol LoadSchedule{
+protocol LoadSchedule {
     func getScheduleObject(date : String, groupID : String, subgroup: String) -> Observable<[Schedule]>;
 }

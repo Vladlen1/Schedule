@@ -8,8 +8,7 @@
 
 import Foundation
 
-class Lesson{
-    
+class Lesson {
     let name: String
     let type: Int
     let note: String?
@@ -19,7 +18,6 @@ class Lesson{
     let location: String?
     let lessonsId: Int
     let visitors: [Visitor]
-    
     
     init(name: String, type: Int, note: String?, beginAt: String, endAt: String, teacher: String?, location: String?, lessonsId: Int, visitors: [Visitor]) {
         self.name = name

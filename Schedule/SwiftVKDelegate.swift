@@ -47,12 +47,9 @@ class SwiftyVKDataManager: VKDelegate {
                 UserDefaults.standard.setValue(email, forKey: "email")
                 
                 if VK.state == .authorized {
-                    
                     DispatchQueue.main.async {
-        
                         self.vc?.vkAuthorizated()
                     }
-                    
                 }
 
         },
@@ -81,11 +78,11 @@ class SwiftyVKDataManager: VKDelegate {
         VK.logIn()
     }
     
-    func logout(){
+    func logout() {
         VK.logOut()
     }
     
-    func vkStatus() -> VK.States{
+    func vkStatus() -> VK.States {
         return VK.state
     }
     

@@ -9,6 +9,6 @@
 import Foundation
 import RxSwift
 
-protocol LoadVisitLesson{
+protocol LoadVisitLesson {
     func getVisitLessonObject(email: String, firstName: String, lastName: String) -> Observable<Int>
 }

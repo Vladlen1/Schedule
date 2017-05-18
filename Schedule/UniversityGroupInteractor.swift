@@ -9,9 +9,9 @@
 import Foundation
 import RxSwift
 
-class UniversityGroupInteractor{
+class UniversityGroupInteractor {
 
-     var universityGroupDataRepository = UniversityGroupDataRepository()
+    var universityGroupDataRepository = UniversityGroupDataRepository()
     
     func exute() -> Observable<FacultyGroup> {
         return universityGroupDataRepository.getAllFacultyGroup()

@@ -13,18 +13,18 @@ class AuthenticationPresenter: BasePresenter , GIDSignInUIDelegate{
     let vkDeledate = SwiftyVKDataManager.sharedInstance
     var authenticationController: AuthenticationViewController?
     
-    func signInVk(){
+    func signInVk() {
         self.vkDeledate.vc  = self
         self.vkDeledate.login()
     }
 
-    func signInGoogle(){
+    func signInGoogle() {
         GIDSignIn.sharedInstance().uiDelegate = self.authenticationController!
         GIDSignIn.sharedInstance().signIn()
     }
     
     func vkAuthorizated() {
-        let vc = self.authenticationController?.storyboard?.instantiateViewController(withIdentifier: "TableViewController")
+        let vc = self.authenticationController?.storyboard?.instantiateViewController(withIdentifier: "SWRevealViewController")
         self.authenticationController?.present(vc!, animated: true, completion: nil)
     }
 }

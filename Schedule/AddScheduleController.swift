@@ -16,7 +16,7 @@ class AddScheduleController: UITableViewController {
     @IBOutlet weak var faculty: UITextField!
     @IBOutlet weak var group: UITextField!
     @IBOutlet weak var subgroup: UITextField!
-    
+        
     let addSchedulePresenter = AddSchedulePresenter()
     
     override func viewDidLoad() {
@@ -28,11 +28,10 @@ class AddScheduleController: UITableViewController {
         
     }
     
-    
     @IBAction func addNewSchedule(_ sender: UIBarButtonItem) {
         addSchedulePresenter.addNewSchedule()
     }
-//
+    
     @IBAction func Cancel(_ sender: UIBarButtonItem) {
         addSchedulePresenter.cancel()
     }
@@ -40,6 +39,4 @@ class AddScheduleController: UITableViewController {
     override var prefersStatusBarHidden: Bool {
         return true
     }
-    
-    
 }

@@ -24,7 +24,6 @@ class LoadScheduleImpl : LoadSchedule {
                     observer.onError(error)
                     
                 }
-                
             }
             
             return Disposables.create {
@@ -32,5 +31,4 @@ class LoadScheduleImpl : LoadSchedule {
             }
         }
     }
-
 }

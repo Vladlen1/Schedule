@@ -11,8 +11,7 @@ import Jelly
 
 
 class Animation{
-    
-    func animate_alert(alert: UIAlertController){
+    func animate_alert(alert: UIAlertController) {
         let customPresentation = JellySlideInPresentation(dismissCurve: .linear,
                                                           presentationCurve: .linear,
                                                           cornerRadius: 15,

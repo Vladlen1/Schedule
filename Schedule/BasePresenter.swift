@@ -9,7 +9,7 @@
 import Foundation
 import RxSwift
 
-class BasePresenter: NSObject, BasePresenterProtocol{
+class BasePresenter: NSObject, BasePresenterProtocol {
     let disposeBag = DisposeBag()
     
     func viewWillAppear(_ animated: Bool) {}

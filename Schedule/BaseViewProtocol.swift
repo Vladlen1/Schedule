@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol BaseViewProtocool{
+protocol BaseViewProtocool {
     
     var basePresenter : BasePresenterProtocol?{get set}
     
