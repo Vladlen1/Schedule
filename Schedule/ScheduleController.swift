@@ -9,23 +9,22 @@
 import UIKit
 import RealmSwift
 
-class ScheduleController: BaseViewController, UIGestureRecognizerDelegate {
-
-    let schedulePresenter = SchedulePresenter()
+class ScheduleController: BaseViewController {
     
-    @IBOutlet var tableView: UITableView!
-    @IBOutlet weak var spinner: UIActivityIndicatorView!
-    @IBOutlet weak var menuButton: UIBarButtonItem!
     @IBOutlet weak var scheduleView : ScheduleView!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.schedulePresenter.scheduleController = self
+        self.addMenuButton(flag: true)
+        
+        self.scheduleView.scheduleController = self
         self.baseViews = [self.scheduleView]
+        
         self.scheduleView.viewDidLoad()
-        schedulePresenter.load()
+        
+     
     }
 }
 

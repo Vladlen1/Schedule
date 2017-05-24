@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import RealmSwift
 
 
 class AddScheduleController: UITableViewController {
@@ -35,8 +34,8 @@ class AddScheduleController: UITableViewController {
     @IBAction func Cancel(_ sender: UIBarButtonItem) {
         addSchedulePresenter.cancel()
     }
-    
-    override var prefersStatusBarHidden: Bool {
-        return true
-    }
+//    
+//    override var prefersStatusBarHidden: Bool {
+//        return true
+//    }
 }

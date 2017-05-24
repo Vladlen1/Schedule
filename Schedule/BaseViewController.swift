@@ -10,14 +10,17 @@ import UIKit
 import RxSwift
 
 
-class BaseViewController: UIViewController, BasePresenterProtocol {
+class BaseViewController: UIViewController, BasePresenterProtocol, UIGestureRecognizerDelegate {
     
+    
+    var menuButton: UIBarButtonItem!
     
     let disposeBag = DisposeBag()
     var baseViews : [BaseViewProtocool]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -56,6 +59,18 @@ class BaseViewController: UIViewController, BasePresenterProtocol {
         if baseViews != nil{
             for base in baseViews!{
                 base.viewDidDisappear(animated)
+            }
+        }
+    }
+    
+    func addMenuButton(flag: Bool) {
+        if flag == true {
+            if self.revealViewController() != nil {
+                self.menuButton = UIBarButtonItem.init(image: UIImage(named: "menu"), style: .plain, target: self.revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)))
+                self.navigationItem.leftBarButtonItem = self.menuButton
+
+                self.revealViewController().rearViewRevealWidth = 210
+                self.view.addGestureRecognizer((self.revealViewController().panGestureRecognizer()))
             }
         }
     }

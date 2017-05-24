@@ -10,24 +10,23 @@ import Foundation
 import RxSwift
 import RealmSwift
 
-class SchedulePresenter : BasePresenter,  UITableViewDataSource, UITableViewDelegate {
+class SchedulePresenter : BasePresenter,  UITableViewDataSource, UITableViewDelegate, UIGestureRecognizerDelegate{
     
+
     let emailUser = UserDefaults.standard.value(forKey: "email") as! String
 
     var baseView = [ScheduleViewModel]()
     var userArr = [UserSchedule]()
     var visitLesson = [Int]()
-    var scheduleController : ScheduleController?
+    
+    var scheduleView: ScheduleView!
     
     public func load() {
-        self.scheduleController?.tableView.delegate = self
-        self.scheduleController?.tableView.dataSource = self
 
         getUser()
         getInformVisitLessons()
         getScheduleMapperInform()
         settingLongPress()
-        settingRevealViewController()
         
         print(Realm.Configuration.defaultConfiguration.fileURL!)
     }
@@ -54,23 +53,27 @@ class SchedulePresenter : BasePresenter,  UITableViewDataSource, UITableViewDele
         }).addDisposableTo(self.disposeBag)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.load()
+    }
     private func getScheduleMapperInform() {
         for user in userArr {
             if user.email == emailUser && user.activite == true {
-                self.scheduleController?.spinner.startAnimating()
-    
+                self.scheduleView.startSpinner()
                 let _ = ScheduleInteractor().exute(gropId: String(user.idGroup), subgroup: user.subgroup).subscribe(onNext: {arr in
                     self.baseView = ScheduleMapper().tranformScheduleObject(schedules: arr)
                 }, onError: {error in
-                    self.scheduleController?.spinner.stopAnimating()
+                    self.scheduleView.stopSpinner()
                 }, onCompleted: {
-                    self.scheduleController?.spinner.stopAnimating()
                     DispatchQueue.main.async {
-                        self.scheduleController?.tableView.reloadData()
+                        self.scheduleView.reloadTableView()
+                        self.scheduleView.stopSpinner()
+
                     }
                 }, onDisposed: {
-                    self.scheduleController?.spinner.stopAnimating()
-                    }).addDisposableTo(self.disposeBag)
+                    self.scheduleView.stopSpinner()
+                }).addDisposableTo(self.disposeBag)
             }
         }
     }
@@ -78,16 +81,16 @@ class SchedulePresenter : BasePresenter,  UITableViewDataSource, UITableViewDele
     func settingLongPress() {
         let longPressGesture:UILongPressGestureRecognizer = UILongPressGestureRecognizer(target: self,action: #selector(SchedulePresenter.longPress(_:)))
         longPressGesture.minimumPressDuration = 1.0
-        longPressGesture.delegate = self.scheduleController
-        self.scheduleController?.tableView.addGestureRecognizer(longPressGesture)
+        longPressGesture.delegate = self
+        self.scheduleView.tableView.addGestureRecognizer(longPressGesture)
     }
     
     func longPress(_ sender: AnyObject) {
         let longPress:UILongPressGestureRecognizer = sender as! UILongPressGestureRecognizer
         
         if longPress.state == UIGestureRecognizerState.began{
-            let location:CGPoint = longPress.location(in: self.scheduleController!.tableView) as CGPoint
-            if let indexPath = self.scheduleController?.tableView.indexPathForRow(at: location){
+            let location:CGPoint = longPress.location(in: self.scheduleView.tableView) as CGPoint
+            if let indexPath = self.scheduleView.tableView.indexPathForRow(at: location){
                 print(indexPath.section, indexPath.row)
                 creatingCustomAlert(indexPath)
             }
@@ -101,7 +104,7 @@ class SchedulePresenter : BasePresenter,  UITableViewDataSource, UITableViewDele
             UIAlertAction in
             NSLog("OK Pressed")
             
-            let cell = self.scheduleController?.tableView.cellForRow(at: indexPath) as! ScheduleTableViewCell
+            let cell = self.scheduleView.tableView.cellForRow(at: indexPath) as! ScheduleTableViewCell
             
             if cell.favoritePair.image != UIImage(named: "highlightedStar") {
                 DecideAttendance().decideVisit(type: "visit", userId: UserDefaults.standard.value(forKey: "user_id") as! Int, lessonId: self.baseView[indexPath.section].lessons[indexPath.row].lessonId)
@@ -116,7 +119,7 @@ class SchedulePresenter : BasePresenter,  UITableViewDataSource, UITableViewDele
             UIAlertAction in
             NSLog("Cancel Pressed")
 
-            let cell = self.scheduleController?.tableView.cellForRow(at: indexPath) as! ScheduleTableViewCell
+            let cell = self.scheduleView.tableView.cellForRow(at: indexPath) as! ScheduleTableViewCell
             
             if cell.favoritePair.image == UIImage(named: "highlightedStar") {
                 DecideAttendance().decideVisit(type: "slack", userId: UserDefaults.standard.value(forKey: "user_id") as! Int, lessonId: self.baseView[indexPath.section].lessons[indexPath.row].lessonId)
@@ -131,18 +134,9 @@ class SchedulePresenter : BasePresenter,  UITableViewDataSource, UITableViewDele
         alertController.addAction(okAction)
         alertController.addAction(cancelAction)
         
-        self.scheduleController?.present(alertController, animated: true, completion: nil)
+        self.scheduleView.scheduleController.present(alertController, animated: true, completion: nil)
     }
     
-    private func settingRevealViewController() {
-        if self.scheduleController?.revealViewController() != nil {
-            self.scheduleController?.revealViewController().rearViewRevealWidth = 210
-            self.scheduleController?.menuButton.target = self.scheduleController?.revealViewController()
-            self.scheduleController?.menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
-            self.scheduleController?.view.addGestureRecognizer((self.scheduleController?.revealViewController().panGestureRecognizer())!)
-        }
-    }
-
     
     public func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         let header = view as! UITableViewHeaderFooterView
@@ -187,8 +181,8 @@ class SchedulePresenter : BasePresenter,  UITableViewDataSource, UITableViewDele
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         UserDefaults.standard.setValue(baseView[indexPath.section].lessons[indexPath.row].lessonId, forKey: "activite_section")
         
-        let nextViewController = self.scheduleController?.storyboard?.instantiateViewController(withIdentifier: "VisitStudentController") as! VisitStudentController
-        self.scheduleController?.navigationController?.pushViewController(nextViewController, animated: true)
+        let nextViewController = self.scheduleView.scheduleController.storyboard?.instantiateViewController(withIdentifier: "VisitStudentController") as! VisitStudentController
+        self.scheduleView.scheduleController.navigationController?.pushViewController(nextViewController, animated: true)
     }
 }
 
