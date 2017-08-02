@@ -10,12 +10,11 @@ import UIKit
 import RxSwift
 
 
-class BaseViewController: UIViewController, BasePresenterProtocol, UIGestureRecognizerDelegate {
+class BaseViewController: UIViewController, BaseViewControllerProtocol, UIGestureRecognizerDelegate {
     
     
     var menuButton: UIBarButtonItem!
     
-    let disposeBag = DisposeBag()
     var baseViews : [BaseViewProtocool]?
     
     override func viewDidLoad() {
@@ -68,7 +67,6 @@ class BaseViewController: UIViewController, BasePresenterProtocol, UIGestureReco
             if self.revealViewController() != nil {
                 self.menuButton = UIBarButtonItem.init(image: UIImage(named: "menu"), style: .plain, target: self.revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)))
                 self.navigationItem.leftBarButtonItem = self.menuButton
-
                 self.revealViewController().rearViewRevealWidth = 210
                 self.view.addGestureRecognizer((self.revealViewController().panGestureRecognizer()))
             }

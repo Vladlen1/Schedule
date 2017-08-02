@@ -23,7 +23,7 @@ class ScheduleViewModel {
 class LessonViewModel {
     let nameSubject: String
     let typePair: UIImage
-    let numberOfPeople: String?
+    var numberOfPeople: String?
     let nameTeacher: String?
     let timeStart: String
     let timeFinish: String

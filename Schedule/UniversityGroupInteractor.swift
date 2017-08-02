@@ -13,7 +13,7 @@ class UniversityGroupInteractor {
 
     var universityGroupDataRepository = UniversityGroupDataRepository()
     
-    func exute() -> Observable<FacultyGroup> {
+    func execute() -> Observable<FacultyGroup> {
         return universityGroupDataRepository.getAllFacultyGroup()
     }
 }

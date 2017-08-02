@@ -57,7 +57,7 @@ class AddSchedulePresenter: BasePresenter, UITableViewDelegate,UIPickerViewDataS
     }
     
     private func facultyGroupData() {
-        let _ = UniversityGroupInteractor().exute().subscribe(onNext: {obj in
+        let _ = UniversityGroupInteractor().execute().subscribe(onNext: {obj in
             self.facultyGroup.append(obj)
             self.nameFaculty.append(obj.nameFaculty)
             self.nameGroup.append(obj.groupArr)

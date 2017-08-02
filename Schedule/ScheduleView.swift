@@ -11,13 +11,10 @@ import Foundation
 class ScheduleView: BaseView{
     
     @IBOutlet var presenter: SchedulePresenter!
-    
     @IBOutlet var tableView: UITableView!
     @IBOutlet weak var spinner: UIActivityIndicatorView!
-    
     var scheduleController: ScheduleController!
-
-
+    
     override func viewDidLoad() {
         self.basePresenter = presenter
         self.presenter.scheduleView = self

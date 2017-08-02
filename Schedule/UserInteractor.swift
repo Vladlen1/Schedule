@@ -12,7 +12,7 @@ import RxSwift
 class UserInteractor {
     var userRepository = UserDataRepository()
     
-    func exute() ->  Observable<UserSchedule> {
+    func execute() ->  Observable<UserSchedule> {
         return userRepository.getAllUserObjects()
     }
 }

@@ -46,7 +46,7 @@ class MenuPresenter: BasePresenter {
     }
     
     private func getUser() {
-        let _ = UserInteractor().exute().subscribe(onNext: {obj in
+        let _ = UserInteractor().execute().subscribe(onNext: {obj in
             self.userArr.append(obj)
         }, onError: {error in
         }, onCompleted: {

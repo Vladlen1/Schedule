@@ -23,8 +23,6 @@ class ScheduleController: BaseViewController {
         self.baseViews = [self.scheduleView]
         
         self.scheduleView.viewDidLoad()
-        
-     
     }
 }
 

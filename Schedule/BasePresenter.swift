@@ -10,10 +10,12 @@ import Foundation
 import RxSwift
 
 class BasePresenter: NSObject, BasePresenterProtocol {
-    let disposeBag = DisposeBag()
+    var disposeBag = DisposeBag()
     
     func viewWillAppear(_ animated: Bool) {}
     func viewDidAppear(_ animated: Bool) {}
     func viewWillDisappear(_ animated: Bool) {}
-    func viewDidDisappear(_ animated: Bool) {}
+    func viewDidDisappear(_ animated: Bool) {
+        self.disposeBag = DisposeBag()
+    }
 }

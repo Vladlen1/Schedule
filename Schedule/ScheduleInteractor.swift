@@ -13,7 +13,7 @@ class ScheduleInteractor {
     
     var scheduleRepositiory = ScheduleDataRepository()
     
-    func exute(gropId: String, subgroup: String) -> Observable<[Schedule]> {
+    func execute(gropId: String, subgroup: String) -> Observable<[Schedule]> {
         return scheduleRepositiory.getAllScheduleObjects(groupID : gropId, date : getCurrentDate(), subgroup: subgroup)
     }
     

@@ -15,14 +15,18 @@ class SchedulePresenter : BasePresenter,  UITableViewDataSource, UITableViewDele
 
     let emailUser = UserDefaults.standard.value(forKey: "email") as! String
 
-    var baseView = [ScheduleViewModel]()
+    var scheduleArr = [ScheduleViewModel]()
     var userArr = [UserSchedule]()
     var visitLesson = [Int]()
     
     var scheduleView: ScheduleView!
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.load()
+    }
+    
     public func load() {
-
         getUser()
         getInformVisitLessons()
         getScheduleMapperInform()
@@ -32,18 +36,19 @@ class SchedulePresenter : BasePresenter,  UITableViewDataSource, UITableViewDele
     }
     
     private func getUser() {
-        let _ = UserInteractor().exute().subscribe(onNext: {obj in
+        let _ = UserInteractor().execute().subscribe(onNext: {obj in
             self.userArr.append(obj)
         }, onError: {error in
         }, onCompleted: {
             print("Complete")
         }, onDisposed: {
-    
+            
         }).addDisposableTo(self.disposeBag)
     }
     
-    private func getInformVisitLessons() {
-        let _ = VisitLessonInteractor().exute(email: UserDefaults.standard.value(forKey: "email") as! String, firstName: UserDefaults.standard.value(forKey: "user_first_name") as! String, lastName: UserDefaults.standard.value(forKey: "user_last_name") as! String).subscribe(onNext: {obj in
+    private func getInformVisitLessons(){
+        self.visitLesson.removeAll()
+        let _ = VisitLessonInteractor().execute(email: UserDefaults.standard.value(forKey: "email") as! String, firstName: UserDefaults.standard.value(forKey: "user_first_name") as! String, lastName: UserDefaults.standard.value(forKey: "user_last_name") as! String).subscribe(onNext: {obj in
             self.visitLesson.append(obj)
         }, onError: {error in
         }, onCompleted: {
@@ -53,23 +58,18 @@ class SchedulePresenter : BasePresenter,  UITableViewDataSource, UITableViewDele
         }).addDisposableTo(self.disposeBag)
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.load()
-    }
     private func getScheduleMapperInform() {
         for user in userArr {
             if user.email == emailUser && user.activite == true {
                 self.scheduleView.startSpinner()
-                let _ = ScheduleInteractor().exute(gropId: String(user.idGroup), subgroup: user.subgroup).subscribe(onNext: {arr in
-                    self.baseView = ScheduleMapper().tranformScheduleObject(schedules: arr)
+                let _ = ScheduleInteractor().execute(gropId: String(user.idGroup), subgroup: user.subgroup).subscribe(onNext: {arr in
+                    self.scheduleArr = ScheduleMapper().tranformScheduleObject(schedules: arr)
                 }, onError: {error in
                     self.scheduleView.stopSpinner()
                 }, onCompleted: {
                     DispatchQueue.main.async {
                         self.scheduleView.reloadTableView()
                         self.scheduleView.stopSpinner()
-
                     }
                 }, onDisposed: {
                     self.scheduleView.stopSpinner()
@@ -80,7 +80,7 @@ class SchedulePresenter : BasePresenter,  UITableViewDataSource, UITableViewDele
     
     func settingLongPress() {
         let longPressGesture:UILongPressGestureRecognizer = UILongPressGestureRecognizer(target: self,action: #selector(SchedulePresenter.longPress(_:)))
-        longPressGesture.minimumPressDuration = 1.0
+        longPressGesture.minimumPressDuration = 0.5
         longPressGesture.delegate = self
         self.scheduleView.tableView.addGestureRecognizer(longPressGesture)
     }
@@ -107,11 +107,14 @@ class SchedulePresenter : BasePresenter,  UITableViewDataSource, UITableViewDele
             let cell = self.scheduleView.tableView.cellForRow(at: indexPath) as! ScheduleTableViewCell
             
             if cell.favoritePair.image != UIImage(named: "highlightedStar") {
-                DecideAttendance().decideVisit(type: "visit", userId: UserDefaults.standard.value(forKey: "user_id") as! Int, lessonId: self.baseView[indexPath.section].lessons[indexPath.row].lessonId)
+                DecideAttendance().decideVisit(type: "visit", userId: UserDefaults.standard.value(forKey: "user_id") as! Int, lessonId: self.scheduleArr[indexPath.section].lessons[indexPath.row].lessonId, completion: {self.getInformVisitLessons()})
+                
                 cell.favoritePair.image = UIImage(named: "highlightedStar")
                 var numberOfPeople = Int(cell.numberOfPeople.text!)
                 numberOfPeople = numberOfPeople! + 1
+                self.scheduleArr[indexPath.section].lessons[indexPath.row].numberOfPeople =  String(numberOfPeople!)
                 cell.numberOfPeople.text = String(numberOfPeople!)
+                
             }
             
         }
@@ -122,11 +125,12 @@ class SchedulePresenter : BasePresenter,  UITableViewDataSource, UITableViewDele
             let cell = self.scheduleView.tableView.cellForRow(at: indexPath) as! ScheduleTableViewCell
             
             if cell.favoritePair.image == UIImage(named: "highlightedStar") {
-                DecideAttendance().decideVisit(type: "slack", userId: UserDefaults.standard.value(forKey: "user_id") as! Int, lessonId: self.baseView[indexPath.section].lessons[indexPath.row].lessonId)
-                
+                DecideAttendance().decideVisit(type: "slack", userId: UserDefaults.standard.value(forKey: "user_id") as! Int, lessonId: self.scheduleArr[indexPath.section].lessons[indexPath.row].lessonId, completion: {self.getInformVisitLessons()})
+            
                 cell.favoritePair.image = UIImage(named: "emptyStar")
                 var numberOfPeople = Int(cell.numberOfPeople.text!)
                 numberOfPeople = numberOfPeople! - 1
+                self.scheduleArr[indexPath.section].lessons[indexPath.row].numberOfPeople =  String(numberOfPeople!)
                 cell.numberOfPeople.text = String(numberOfPeople!)
             }
         }
@@ -145,32 +149,32 @@ class SchedulePresenter : BasePresenter,  UITableViewDataSource, UITableViewDele
     
     
     public func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return baseView[section].date
+        return scheduleArr[section].date
     }
     
     public func numberOfSections(in tableView: UITableView) -> Int {
-        return baseView.count
+        return scheduleArr.count
     }
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return baseView[section].lessons.count
+        return scheduleArr[section].lessons.count
     }
     
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! ScheduleTableViewCell
         
-                cell.room.text = baseView[indexPath.section].lessons[indexPath.row].location
-                cell.numberOfPeople.text = baseView[indexPath.section].lessons[indexPath.row].numberOfPeople
-                cell.nameTeacher.text = baseView[indexPath.section].lessons[indexPath.row].nameTeacher
-                cell.nameSubject.text = baseView[indexPath.section].lessons[indexPath.row].nameSubject
-                cell.typePair.image = baseView[indexPath.section].lessons[indexPath.row].typePair
-                cell.timeFinish.text = baseView[indexPath.section].lessons[indexPath.row].timeFinish
-                cell.timeStart.text = baseView[indexPath.section].lessons[indexPath.row].timeStart
+                cell.room.text = scheduleArr[indexPath.section].lessons[indexPath.row].location
+                cell.numberOfPeople.text = scheduleArr[indexPath.section].lessons[indexPath.row].numberOfPeople
+                cell.nameTeacher.text = scheduleArr[indexPath.section].lessons[indexPath.row].nameTeacher
+                cell.nameSubject.text = scheduleArr[indexPath.section].lessons[indexPath.row].nameSubject
+                cell.typePair.image = scheduleArr[indexPath.section].lessons[indexPath.row].typePair
+                cell.timeFinish.text = scheduleArr[indexPath.section].lessons[indexPath.row].timeFinish
+                cell.timeStart.text = scheduleArr[indexPath.section].lessons[indexPath.row].timeStart
                 cell.favoritePair.image = UIImage(named: "emptyStar")
         
-        for lessonId in visitLesson {
-            if baseView[indexPath.section].lessons[indexPath.row].lessonId == lessonId {
+        for lessonId in self.visitLesson {
+            if scheduleArr[indexPath.section].lessons[indexPath.row].lessonId == lessonId {
                 cell.favoritePair.image = UIImage(named: "highlightedStar")
             }
         }
@@ -179,7 +183,7 @@ class SchedulePresenter : BasePresenter,  UITableViewDataSource, UITableViewDele
     }
     
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        UserDefaults.standard.setValue(baseView[indexPath.section].lessons[indexPath.row].lessonId, forKey: "activite_section")
+        UserDefaults.standard.setValue(scheduleArr[indexPath.section].lessons[indexPath.row].lessonId, forKey: "activite_section")
         
         let nextViewController = self.scheduleView.scheduleController.storyboard?.instantiateViewController(withIdentifier: "VisitStudentController") as! VisitStudentController
         self.scheduleView.scheduleController.navigationController?.pushViewController(nextViewController, animated: true)

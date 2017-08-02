@@ -29,7 +29,7 @@ class GroupTablePresenter: BasePresenter, UITableViewDataSource, UITableViewDele
     }
     
     private func getUser() {
-        let _ = UserInteractor().exute().subscribe(onNext: {obj in
+        let _ = UserInteractor().execute().subscribe(onNext: {obj in
             self.listUser.append(obj)
         }, onError: {error in
         }, onCompleted: {

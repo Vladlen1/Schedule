@@ -13,7 +13,7 @@ class VisitLessonInteractor {
     
     var visitLessonDataRepository = VisitLessonDataRepository()
     
-    func exute(email: String, firstName: String, lastName: String) -> Observable<Int> {
+    func execute(email: String, firstName: String, lastName: String) -> Observable<Int> {
         return visitLessonDataRepository.getAllVisitLesson(email : email, firstName: firstName, lastName: lastName)
     }
         

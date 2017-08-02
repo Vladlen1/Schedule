@@ -8,7 +8,7 @@
 
 import Foundation
 
-class MenuView: BaseView {
+class MenuView : BaseView {
     var presenter = MenuPresenter()
     
     @IBOutlet weak var userName: UILabel!

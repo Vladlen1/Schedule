@@ -40,7 +40,7 @@ class VisitPresenter: BasePresenter, UITableViewDataSource, UITableViewDelegate 
     
     
     private func getUser() {
-        let _ = UserInteractor().exute().subscribe(onNext: {obj in
+        let _ = UserInteractor().execute().subscribe(onNext: {obj in
             self.userArr.append(obj)
         }, onError: {error in
         }, onCompleted: {
@@ -53,7 +53,7 @@ class VisitPresenter: BasePresenter, UITableViewDataSource, UITableViewDelegate 
     private func getScheduleMapperInform() {
         for user in userArr {
             if user.email == emailUser && user.activite == true {
-                let _ = ScheduleInteractor().exute(gropId: String(user.idGroup), subgroup: user.subgroup).subscribe(onNext: {arr in
+                let _ = ScheduleInteractor().execute(gropId: String(user.idGroup), subgroup: user.subgroup).subscribe(onNext: {arr in
                     self.baseView = VisitMapper().transformVisitObject(schedules: arr)
                 }, onError: {error in
                 }, onCompleted: {
